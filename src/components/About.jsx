@@ -23,9 +23,9 @@ const About = () => {
       <div className="container relative" ref={parallaxRef}>
         <div className="relative z-1 max-w-[62rem] mx-auto text-center mb-[3.875rem] md:mb-20 lg:mb-[6.25rem]">
           <h1 className="h1 mb-6">
-            Explore the Possibilities of&nbsp;AI&nbsp;Chatting with {` `}
+            Let me help you with your {` `}
             <span className="inline-block relative">
-              Brainwave{" "}
+              JOURNEY{" "}
               <img
                 src={curve}
                 className="absolute top-full left-0 w-full xl:-mt-2"
