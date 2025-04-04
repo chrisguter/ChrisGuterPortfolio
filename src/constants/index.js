@@ -39,34 +39,28 @@ import {
 export const navigation = [
   {
     id: "0",
-    title: "Features",
-    url: "#features",
+    title: "About",
+    url: "#about",
   },
   {
     id: "1",
-    title: "Pricing",
-    url: "#pricing",
+    title: "Projects",
+    url: "#projects",
   },
   {
     id: "2",
-    title: "How to use",
-    url: "#how-to-use",
+    title: "Expertise",
+    url: "#expertise",
   },
   {
     id: "3",
-    title: "Roadmap",
-    url: "#roadmap",
+    title: "Career",
+    url: "#career",
   },
   {
     id: "4",
-    title: "New account",
-    url: "#signup",
-    onlyMobile: true,
-  },
-  {
-    id: "5",
-    title: "Sign in",
-    url: "#login",
+    title: "contact",
+    url: "#contact",
     onlyMobile: true,
   },
 ];
