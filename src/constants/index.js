@@ -204,38 +204,41 @@ export const collabApps = [
   },
 ];
 
-export const pricing = [
+export const expertise = [
   {
     id: "0",
-    title: "Basic",
-    description: "AI chatbot, personalized recommendations",
+    title: "Software Development",
+    description:
+      "Expert in software development, specializing in web applications.",
     price: "0",
     features: [
-      "An AI chatbot that can understand your queries",
-      "Personalized recommendations based on your preferences",
-      "Ability to explore the app and its features without any cost",
+      "Proficient in Angular, React and Java",
+      "Experience with RESTful APIs and microservices architecture",
+      "Strong understanding of software development methodologies",
     ],
   },
   {
     id: "1",
-    title: "Premium",
-    description: "Advanced AI chatbot, priority support, analytics dashboard",
+    title: "Agile Workflows",
+    description:
+      "Expert in agile workflows, specializing in SCRUM methodologies.",
     price: "9.99",
     features: [
-      "An advanced AI chatbot that can understand complex queries",
-      "An analytics dashboard to track your conversations",
-      "Priority support to solve issues quickly",
+      "Experience with SCRUM, Kanban and Lean methodologies",
+      "Ability to lead and facilitate agile ceremonies",
+      "Strong understanding of agile principles and values",
     ],
   },
   {
     id: "2",
-    title: "Enterprise",
-    description: "Custom AI chatbot, advanced analytics, dedicated account",
+    title: "DevOps",
+    description:
+      "Expert in DevOps practices, specializing in CI/CD pipelines and automation.",
     price: null,
     features: [
-      "An AI chatbot that can understand your queries",
-      "Personalized recommendations based on your preferences",
-      "Ability to explore the app and its features without any cost",
+      "Experience with Jenkins, Docker and Kubernetes",
+      "Ability to automate deployment and testing processes",
+      "Version control and configuration management",
     ],
   },
 ];
