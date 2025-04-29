@@ -78,7 +78,7 @@ export const notificationImages = [notification4, notification3, notification2];
 export const companyLogos = [cassoftwareag, bioland, daimmlertruck, dbe, kit];
 
 export const brainwaveServices = [
-  "Photo generating",
+  "Atlassian  Toolchain",
   "Photo enhance",
   "Seamless Integration",
 ];
@@ -128,21 +128,23 @@ export const roadmap = [
 ];
 
 export const collabText =
-  "With smart automation and top-notch security, it's the perfect solution for teams looking to work smarter.";
+  "Expirenced in using and integrating Atlassian tools like Jira, Confluence and Trello";
 
 export const collabContent = [
   {
     id: "0",
-    title: "Seamless Integration",
+    title: "Atlassian toolchain",
     text: collabText,
   },
   {
     id: "1",
-    title: "Smart Automation",
+    title: "Software Development",
+    text: "Well versed in common software development tools like Git, Docker and Jenkins",
   },
   {
     id: "2",
-    title: "Top-notch Security",
+    title: "Design and communication",
+    text: "Familiar with design and communication tools like Figma, Teams and Slack",
   },
 ];
 
