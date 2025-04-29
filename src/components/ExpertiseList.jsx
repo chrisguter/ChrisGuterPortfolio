@@ -15,24 +15,6 @@ const ExpertiseList = () => {
           <p className="body-2 min-h-[4rem] mb-3 text-n-1/50">
             {item.description}
           </p>
-
-          <div className="flex items-center h-[5-5rem] mb-6">
-            {item.price && (
-              <>
-                <div className="h3">$</div>
-                <div className="text-[5.5rem] leading-none font-bold">
-                  {item.price}
-                </div>
-              </>
-            )}
-          </div>
-          <Button
-            className="w-full mb-6"
-            href={item.price ? "/expertise" : "mailto:info@jsm.pro"}
-            white={!!item.price}
-          >
-            {item.price ? "Get started" : "Contact us"}
-          </Button>
           <ul>
             {item.features.map((feature, index) => (
               <li
