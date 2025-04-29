@@ -31,7 +31,14 @@ const RecentWork = () => {
                     alt={item.title}
                   />
                   <p className="ml-auto font-code text-xs font-bold text-n-1 uppercase tracking-wider">
-                    Explore more
+                    <a
+                      href={item.infoUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="pointer-events-auto"
+                    >
+                      Explore more
+                    </a>
                   </p>
                   <Arrow />
                 </div>

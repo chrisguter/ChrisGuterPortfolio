@@ -1,3 +1,4 @@
+import { info } from "autoprefixer";
 import {
   recentWorkIcon1,
   recentWorkIcon2,
@@ -246,53 +247,61 @@ export const expertise = [
 export const recentWork = [
   {
     id: "0",
-    title: "Ask anything",
-    text: "Lets users quickly find answers to their questions without having to search through multiple sources.",
+    title: "Mein Bioland",
+    text: "Maintaining and expanding the existing web application for Bioland, a leading organic farming association in Germany.",
     backgroundUrl: "./src/assets/recentWork/card-1.svg",
     iconUrl: recentWorkIcon1,
     imageUrl: recentWorkImage2,
+    infoUrl: "https://www.smartwe.de/de/referenzen/bioland/",
   },
   {
     id: "1",
-    title: "Improve everyday",
-    text: "The app uses natural language processing to understand user queries and provide accurate and relevant responses.",
+    title: "Daimler Truck",
+    text: "Introducing the new CPQ solution for Daimler Truck, a powerful tool that streamlines the configuration and pricing process for their trucks.",
     backgroundUrl: "./src/assets/recentWork/card-2.svg",
     iconUrl: recentWorkIcon2,
     imageUrl: recentWorkImage2,
+    infoUrl: "https://www.cas.de/loesungen/cpq/cas-merlin-cpq/",
     light: true,
   },
   {
     id: "2",
-    title: "Connect everywhere",
-    text: "Connect with the AI chatbot from anywhere, on any device, making it more accessible and convenient.",
+    title: "Secure Login with 2FA",
+    text: "Implemented a secure login system with two-factor authentication (2FA) to enhance security and protect user data.",
     backgroundUrl: "./src/assets/recentWork/card-3.svg",
     iconUrl: recentWorkIcon3,
     imageUrl: recentWorkImage2,
+    infoUrl:
+      "https://play.google.com/store/apps/details?id=cas.securelogin&hl=de&pli=1",
   },
   {
     id: "3",
-    title: "Fast responding",
-    text: "Lets users quickly find answers to their questions without having to search through multiple sources.",
+    title: "Deutsche Bahn Energie",
+    text: "Customized the existing CRM application for Deutsche Bahn Energie, a leading energy provider in Germany.",
     backgroundUrl: "./src/assets/recentWork/card-4.svg",
     iconUrl: recentWorkIcon4,
     imageUrl: recentWorkImage2,
+    infoUrl:
+      "https://www.cas-crm.com/nc/references.html?tx_vdcasreferences_pi1%5Brequest%5D=reviews&tx_vdcasreferences_pi1%5Bpage%5D=5&tx_vdcasreferences_pi1%5Bpage_id%5D=21686&tx_vdcasreferences_pi1%5Bsc_id%5D=1&tx_vdcasreferences_pi1%5Bid_ref%5D=0xC83AD5091B3043CEABF6F5AE2081CF1A",
     light: true,
   },
   {
     id: "4",
-    title: "Ask anything",
-    text: "Lets users quickly find answers to their questions without having to search through multiple sources.",
+    title: "SmartWe Appstore",
+    text: "Main developer of the SmartWe Appstore, a cloud platform that allows users to easily find and install applications tailored for their CRM.",
     backgroundUrl: "./src/assets/recentWork/card-5.svg",
     iconUrl: recentWorkIcon1,
     imageUrl: recentWorkImage2,
+    infoUrl: "https://appstore.smartwe.world/home",
   },
   {
     id: "5",
-    title: "Improve everyday",
-    text: "The app uses natural language processing to understand user queries and provide accurate and relevant responses.",
+    title: "E-Invoice for SmartWe",
+    text: "Developing an E-Invoice application for SmartWe, enabling users to easily create, store and send electronic invoices.",
     backgroundUrl: "./src/assets/recentWork/card-6.svg",
     iconUrl: recentWorkIcon2,
     imageUrl: recentWorkImage2,
+    infoUrl: "https://www.smartwe.de/en/",
   },
 ];
 
