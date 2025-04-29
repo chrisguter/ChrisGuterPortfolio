@@ -4,6 +4,7 @@ import Expertise from "./components/Expertise";
 import Header from "./components/Header";
 import RecentWork from "./components/RecentWork";
 import Knowledge from "./components/Knowledge";
+import Footer from "./components/Footer";
 const App = () => {
   return (
     <>
@@ -13,6 +14,7 @@ const App = () => {
         <RecentWork />
         <Expertise />
         <Knowledge />
+        <Footer />
       </div>
       <ButtonGradient />
     </>
