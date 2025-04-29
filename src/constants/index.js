@@ -91,38 +91,39 @@ export const brainwaveServicesIcons = [
   sliders04,
 ];
 
-export const roadmap = [
+export const career = [
   {
     id: "0",
-    title: "Voice recognition",
-    text: "Enable the chatbot to understand and respond to voice commands, making it easier for users to interact with the app hands-free.",
-    date: "May 2023",
-    status: "done",
+    title: "Leadership training",
+    text: "Participating in a leadership training program to enhance my skills in team management and project coordination.",
+    date: "May 2025",
+    status: "progress",
     imageUrl: roadmap1,
     colorful: true,
   },
   {
     id: "1",
-    title: "Gamification",
-    text: "Add game-like elements, such as badges or leaderboards, to incentivize users to engage with the chatbot more frequently.",
-    date: "May 2023",
+    title: "Scrum Master",
+    text: "Became the Scrum Master a newly created team, leading them in agile practices and ensuring smooth project delivery.",
+    date: "May 2021",
     status: "progress",
     imageUrl: roadmap2,
   },
   {
     id: "2",
-    title: "Chatbot customization",
-    text: "Allow users to customize the chatbot's appearance and behavior, making it more engaging and fun to interact with.",
-    date: "May 2023",
+    title: "Software Engineer",
+    text: "Started my professional career as a software engineer, focusing on web development and application design.",
+    date: "Oktober 2018",
     status: "done",
     imageUrl: roadmap3,
   },
   {
     id: "3",
-    title: "Integration with APIs",
+    title: "Bachelor of Science",
+    text: "Completed my Bachelor of Science in Computer Science, at the DHBW Karlsruhe.",
     text: "Allow the chatbot to access external data sources, such as weather APIs or news APIs, to provide more relevant recommendations.",
-    date: "May 2023",
-    status: "progress",
+    date: "September 2018",
+    status: "done",
     imageUrl: roadmap4,
   },
 ];
