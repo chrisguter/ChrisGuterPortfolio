@@ -1,6 +1,6 @@
 import Section from "./Section";
 import Heading from "./Heading";
-import { service1, service2, service3, check } from "../assets";
+import { service1, service2, service3, check, mali } from "../assets";
 import { brainwaveServices, brainwaveServicesIcons } from "../constants";
 import {
   PhotoChatMessage,
@@ -22,20 +22,20 @@ const About = () => {
 
         <div className="relative">
           <div className="relative z-1 flex items-center h-[39rem] mb-5 p-8 border border-n-1/10 rounded-3xl overflow-hidden lg:p-20 xl:h-[46rem]">
-            <div className="absolute top-0 left-0 w-full h-full pointer-events-none md:w-3/5 xl:w-auto">
+            <div className="absolute top-0 left-0 w-full h-full pointer-events-none md:w-3/5 xl:w-auto -translate-x-[14rem] md:-translate-x-0 ">
               <img
                 className="w-full h-full object-cover md:object-right"
-                width={800}
+                width={1024}
                 alt="Smartest AI"
-                height={730}
-                src={service1}
+                height={1536}
+                src={mali}
               />
             </div>
 
             <div className="relative z-1 max-w-[17rem] ml-auto">
-              <h4 className="h4 mb-4">Smartest AI</h4>
+              <h4 className="h4 mb-4">Dog training</h4>
               <p className="body-2 mb-[3rem] text-n-3">
-                Brainwave unlocks the potential of AI-powered applications
+                Regular training and hiking sessions with my dog Mali.
               </p>
               <ul className="body-2">
                 {brainwaveServices.map((item, index) => (

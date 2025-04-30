@@ -78,9 +78,9 @@ export const notificationImages = [notification4, notification3, notification2];
 export const companyLogos = [cassoftwareag, bioland, daimmlertruck, dbe, kit];
 
 export const brainwaveServices = [
-  "Atlassian  Toolchain",
-  "Photo enhance",
-  "Seamless Integration",
+  "Good girl",
+  "Listens to commands",
+  "Loves belly rubs",
 ];
 
 export const brainwaveServicesIcons = [
