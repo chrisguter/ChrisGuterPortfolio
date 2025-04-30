@@ -1,7 +1,7 @@
 import { useLocation } from "react-router-dom";
 import { disablePageScroll, enablePageScroll } from "scroll-lock";
 
-import { brainwave } from "../assets";
+import { logo } from "../assets";
 import { navigation } from "../constants";
 import Button from "./Button";
 import MenuSvg from "../assets/svg/MenuSvg";
@@ -36,9 +36,14 @@ const Header = () => {
       }`}
     >
       <div className="flex items-center px-5 lg:px-7.5 xl:px-10 max-lg:py-4">
-        <a className="block w-[12rem] xl:mr-8" href="#hero">
-          <img src={brainwave} width={190} height={40} alt="Brainwave" />
-        </a>
+        <div className="flex items-center">
+          <a className="flex items-center w-[12rem] xl:mr-2" href="#home">
+            <img src={logo} width={55} height={55} alt="Logo" />
+            <span className="text-2xl font-bold text-white ml-2">
+              ChrisGuter
+            </span>
+          </a>
+        </div>
 
         <nav
           className={`${
