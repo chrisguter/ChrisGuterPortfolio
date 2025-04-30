@@ -21,22 +21,24 @@ const About = () => {
         />
 
         <div className="relative">
-          <div className="relative z-1 flex items-center h-[39rem] mb-5 p-8 border border-n-1/10 rounded-3xl overflow-hidden lg:p-20 xl:h-[46rem]">
-            <div className="absolute top-0 left-0 w-full h-full pointer-events-none md:w-3/5 xl:w-auto -translate-x-[14rem] md:-translate-x-0 ">
-              <img
-                className="w-full h-full object-cover md:object-right"
-                width={1024}
-                alt="Smartest AI"
-                height={1536}
-                src={mali}
-              />
-            </div>
-
-            <div className="relative z-1 max-w-[17rem] ml-auto">
+          <div className="relative z-1 flex flex-col md:flex-row items-center h-auto mb-5 p-8 border border-n-1/10 rounded-3xl overflow-hidden md:p-20 xl:h-[46rem]">
+            <div className="relative z-1 max-w-[17rem]">
               <h4 className="h4 mb-4">Dog training</h4>
               <p className="body-2 mb-[3rem] text-n-3">
                 Regular training and hiking sessions with my dog Mali.
               </p>
+
+              {/* Image for small screens */}
+              <div className="block md:hidden mb-4">
+                <img
+                  className="w-full h-auto object-cover"
+                  width={1024}
+                  alt="Mali"
+                  height={1536}
+                  src={mali}
+                />
+              </div>
+
               <ul className="body-2">
                 {brainwaveServices.map((item, index) => (
                   <li
@@ -50,7 +52,16 @@ const About = () => {
               </ul>
             </div>
 
-            <Generating className="absolute left-4 right-4 bottom-4 border-n-1/10 border lg:left-1/2 lg-right-auto lg:bottom-8 lg:-translate-x-1/2" />
+            {/* Image for medium and larger screens */}
+            <div className="hidden md:block w-full md:w-3/5">
+              <img
+                className="w-full h-auto object-cover md:object-right"
+                width={1024}
+                alt="Mali"
+                height={1536}
+                src={mali}
+              />
+            </div>
           </div>
 
           <div className="relative z-1 grid gap-5 lg:grid-cols-2">
@@ -66,10 +77,10 @@ const About = () => {
               </div>
 
               <div className="absolute inset-0 flex flex-col justify-end p-8 bg-gradient-to-b from-n-8/0 to-n-8/90 lg:p-15">
-                <h4 className="h4 mb-4">Photo editing</h4>
+                <h4 className="h4 mb-4">Family Time</h4>
                 <p className="body-2 mb-[3rem] text-n-3">
-                  Automatically enhance your photos using our AI app&apos;s
-                  photo editing feature. Try it now!
+                  In April our first child was born. So spending a lot of time
+                  with my doughter is a top priority.
                 </p>
               </div>
 
@@ -78,10 +89,10 @@ const About = () => {
 
             <div className="p-4 bg-n-7 rounded-3xl overflow-hidden lg:min-h-[46rem]">
               <div className="py-12 px-4 xl:px-8">
-                <h4 className="h4 mb-4">Video generation</h4>
+                <h4 className="h4 mb-4">Gaming is my passion</h4>
                 <p className="body-2 mb-[2rem] text-n-3">
-                  The world’s most powerful AI photo and video art generation
-                  engine. What will you create?
+                  Competitve gaming is my biggest hobby. I love to challenge
+                  myself and constently improving my skills.
                 </p>
 
                 <ul className="flex items-center justify-between">
