@@ -25,10 +25,10 @@ const Home = () => {
           <h1 className="h1 mb-6">
             Hi, I'm Christian
             <br />
-            Nice to meet
+            nice to meet
             <br /> {` `}
             <span className="inline-block relative">
-              you{" "}
+              you!{" "}
               <img
                 src={curve}
                 className="absolute top-full left-0 w-full xl:-mt-2"
@@ -42,8 +42,8 @@ const Home = () => {
             I'm a Scrum Master and Software Engineer currently working @ CAS
             Software AG in Karlsruhe
           </p>
-          <Button href="/pricing" white>
-            Get started
+          <Button href="/contact" white>
+            Contact
           </Button>
         </div>
         <div className="relative max-w-[23rem] mx-auto md:max-w-5xl xl:mb-24">

@@ -45,23 +45,23 @@ import {
 export const navigation = [
   {
     id: "0",
-    title: "About",
-    url: "#about",
-  },
-  {
-    id: "1",
     title: "Projects",
     url: "#projects",
   },
   {
-    id: "2",
+    id: "1",
     title: "Expertise",
     url: "#expertise",
   },
   {
-    id: "3",
+    id: "2",
     title: "Career",
     url: "#career",
+  },
+  {
+    id: "3",
+    title: "About",
+    url: "#about",
   },
   {
     id: "4",
