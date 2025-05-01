@@ -9,7 +9,11 @@ const RecentWork = () => {
   return (
     <Section id="projects">
       <div className="container relative z-2">
-        <Heading className="md:max-w-md lg:max-w-2xl" title="My recent work" />
+        <Heading
+          className="md:max-w-md lg:max-w-2xl"
+          tag="Projects"
+          title="Explore my recent work"
+        />
 
         <div className="flex flex-wrap gap-10 mb-10">
           {recentWork.map((item) => (
