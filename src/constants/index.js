@@ -256,12 +256,12 @@ export const expertise = [
     id: "0",
     title: "Software Development",
     description:
-      "Expert in software development, specializing in web applications.",
+      "Proficient software developer, particularly skilled in building web applications.",
     price: "0",
     features: [
-      "Proficient in Angular, React and Java",
-      "Experience with RESTful APIs and microservices architecture",
-      "Strong understanding of software development methodologies",
+      "Competent in Java and modern front-end frameworks including Angular and React.",
+      "Familiar with creating distributed systems using microservices and RESTful APIs.",
+      "Deep understanding of modern software engineering practices and methodologies.",
     ],
   },
   {
@@ -271,21 +271,21 @@ export const expertise = [
       "Expert in agile workflows, specializing in SCRUM methodologies.",
     price: "9.99",
     features: [
-      "Experience with SCRUM, Kanban and Lean methodologies",
-      "Ability to lead and facilitate agile ceremonies",
-      "Strong understanding of agile principles and values",
+      "Hands-on experience using Scrum, Kanban, and Lean to drive project delivery.",
+      "Capable to lead agile meetings and foster team collaboration.",
+      "Committed to agile principles, with a clear understanding of their role in iterative development.",
     ],
   },
   {
     id: "2",
     title: "DevOps",
     description:
-      "Expert in DevOps practices, specializing in CI/CD pipelines and automation.",
+      "Adept at applying DevOps principles to streamline development through automated CI/CD pipelines.",
     price: null,
     features: [
       "Experience with Jenkins, Docker and Kubernetes",
-      "Ability to automate deployment and testing processes",
-      "Version control and configuration management",
+      "Ability to automate critical aspects of software delivery, including deployment and testing",
+      "Comfortable with Git workflows and configuration management principles in collaborative dev settings.",
     ],
   },
 ];

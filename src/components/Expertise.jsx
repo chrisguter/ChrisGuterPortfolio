@@ -26,7 +26,7 @@ const Expertise = () => {
             />
           </div>
         </div>
-        <Heading tag="Knowledge" title="My expertise and skills"></Heading>
+        <Heading tag="Expertise" title="What I bring to the table"></Heading>
         <div className="relative">
           <ExpertiseList></ExpertiseList>
           <LeftLine></LeftLine>
