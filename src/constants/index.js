@@ -307,7 +307,7 @@ export const recentWork = [
     backgroundUrl: "./src/assets/recentWork/card-2.svg",
     iconUrl: recentWorkIcon2,
     imageUrl: recentWorkImage2,
-    infoUrl: "https://www.cas.de/loesungen/cpq/cas-merlin-cpq/",
+    infoUrl: "https://www.cas-software.com/solutions/cpq/cas-merlin-cpq/",
     light: true,
   },
   {
@@ -318,7 +318,7 @@ export const recentWork = [
     iconUrl: recentWorkIcon3,
     imageUrl: recentWorkImage3,
     infoUrl:
-      "https://play.google.com/store/apps/details?id=cas.securelogin&hl=de&pli=1",
+      "https://play.google.com/store/apps/details?id=cas.securelogin&hl=en&pli=1",
   },
   {
     id: "3",
