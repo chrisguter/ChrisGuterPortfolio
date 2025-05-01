@@ -75,7 +75,12 @@ import recentWorkIcon1 from "./recentWork/icon-1.svg";
 import recentWorkIcon2 from "./recentWork/icon-2.svg";
 import recentWorkIcon3 from "./recentWork/icon-3.svg";
 import recentWorkIcon4 from "./recentWork/icon-4.svg";
+import recentWorkImage1 from "./recentWork/image-1.png";
 import recentWorkImage2 from "./recentWork/image-2.png";
+import recentWorkImage3 from "./recentWork/image-3.png";
+import recentWorkImage4 from "./recentWork/image-4.png";
+import recentWorkImage5 from "./recentWork/image-5.png";
+import recentWorkImage6 from "./recentWork/image-6.png";
 
 import discordBlack from "./socials/discord.svg";
 import facebook from "./socials/facebook.svg";
@@ -154,7 +159,12 @@ export {
   recentWorkIcon2,
   recentWorkIcon3,
   recentWorkIcon4,
+  recentWorkImage1,
   recentWorkImage2,
+  recentWorkImage3,
+  recentWorkImage4,
+  recentWorkImage5,
+  recentWorkImage6,
   discordBlack,
   facebook,
   instagram,

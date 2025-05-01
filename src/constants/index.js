@@ -4,7 +4,12 @@ import {
   recentWorkIcon2,
   recentWorkIcon3,
   recentWorkIcon4,
+  recentWorkImage1,
   recentWorkImage2,
+  recentWorkImage3,
+  recentWorkImage4,
+  recentWorkImage5,
+  recentWorkImage6,
   chromecast,
   disc02,
   discord,
@@ -292,7 +297,7 @@ export const recentWork = [
     text: "Maintaining and expanding the existing web application for Bioland, a leading organic farming association in Germany.",
     backgroundUrl: "./src/assets/recentWork/card-1.svg",
     iconUrl: recentWorkIcon1,
-    imageUrl: recentWorkImage2,
+    imageUrl: recentWorkImage1,
     infoUrl: "https://www.smartwe.de/de/referenzen/bioland/",
   },
   {
@@ -311,7 +316,7 @@ export const recentWork = [
     text: "Implemented a secure login system with two-factor authentication (2FA) to enhance security and protect user data.",
     backgroundUrl: "./src/assets/recentWork/card-3.svg",
     iconUrl: recentWorkIcon3,
-    imageUrl: recentWorkImage2,
+    imageUrl: recentWorkImage3,
     infoUrl:
       "https://play.google.com/store/apps/details?id=cas.securelogin&hl=de&pli=1",
   },
@@ -321,7 +326,7 @@ export const recentWork = [
     text: "Customized the existing CRM application for Deutsche Bahn Energie, a leading energy provider in Germany.",
     backgroundUrl: "./src/assets/recentWork/card-4.svg",
     iconUrl: recentWorkIcon4,
-    imageUrl: recentWorkImage2,
+    imageUrl: recentWorkImage4,
     infoUrl:
       "https://www.cas-crm.com/nc/references.html?tx_vdcasreferences_pi1%5Brequest%5D=reviews&tx_vdcasreferences_pi1%5Bpage%5D=5&tx_vdcasreferences_pi1%5Bpage_id%5D=21686&tx_vdcasreferences_pi1%5Bsc_id%5D=1&tx_vdcasreferences_pi1%5Bid_ref%5D=0xC83AD5091B3043CEABF6F5AE2081CF1A",
     light: true,
@@ -332,7 +337,7 @@ export const recentWork = [
     text: "Main developer of the SmartWe Appstore, a cloud platform that allows users to easily find and install applications tailored for their CRM.",
     backgroundUrl: "./src/assets/recentWork/card-5.svg",
     iconUrl: recentWorkIcon1,
-    imageUrl: recentWorkImage2,
+    imageUrl: recentWorkImage5,
     infoUrl: "https://appstore.smartwe.world/home",
   },
   {
@@ -341,7 +346,7 @@ export const recentWork = [
     text: "Developing an E-Invoice application for SmartWe, enabling users to easily create, store and send electronic invoices.",
     backgroundUrl: "./src/assets/recentWork/card-6.svg",
     iconUrl: recentWorkIcon2,
-    imageUrl: recentWorkImage2,
+    imageUrl: recentWorkImage6,
     infoUrl: "https://www.smartwe.de/en/",
   },
 ];
