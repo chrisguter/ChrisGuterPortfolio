@@ -3,7 +3,7 @@ import Heading from "./Heading";
 import { service1, service2, service3, check, mali } from "../assets";
 import { brainwaveServices, brainwaveServicesIcons } from "../constants";
 import {
-  PhotoChatMessage,
+  MaliMessage,
   Gradient,
   VideoBar,
   VideoChatMessage,
@@ -15,10 +15,7 @@ const About = () => {
   return (
     <Section id="about" crosses>
       <div className="container">
-        <Heading
-          title="Generative AI made for creators."
-          text="Brainwave unlocks the potential of AI-powered applications"
-        />
+        <Heading title="A glimpse into my private life" tag="About" />
 
         <div className="relative">
           <div className="relative z-1 flex flex-col md:flex-row items-center h-auto mb-5 p-8 border border-n-1/10 rounded-3xl overflow-hidden md:p-20 xl:h-[46rem]">
@@ -62,9 +59,10 @@ const About = () => {
                 src={mali}
               />
             </div>
+            <MaliMessage />
           </div>
 
-          <div className="relative z-1 grid gap-5 lg:grid-cols-2">
+          <div className="relative z-1 grid gap-5 lg:grid-cols-2 ">
             <div className="relative min-h-[39rem] border border-n-1/10 rounded-3xl overflow-hidden">
               <div className="absolute inset-0">
                 <img
@@ -83,8 +81,6 @@ const About = () => {
                   with my doughter is a top priority.
                 </p>
               </div>
-
-              <PhotoChatMessage />
             </div>
 
             <div className="p-4 bg-n-7 rounded-3xl overflow-hidden lg:min-h-[46rem]">
