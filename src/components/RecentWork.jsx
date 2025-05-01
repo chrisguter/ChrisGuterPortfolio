@@ -7,7 +7,7 @@ import ClipPath from "../assets/svg/ClipPath";
 
 const RecentWork = () => {
   return (
-    <Section id="projects">
+    <Section id="projects" crosses>
       <div className="container relative z-2">
         <Heading
           className="md:max-w-md lg:max-w-2xl"

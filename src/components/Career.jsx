@@ -7,7 +7,7 @@ import { check2, grid, loading1 } from "../assets";
 import { Gradient } from "./design/Roadmap";
 
 const Career = () => (
-  <Section className="overflow-hidden" id="career">
+  <Section className="overflow-hidden" id="career" crosses>
     <div className="container md:pb-10">
       <Heading tag="Career" title="My professional journey" />
 

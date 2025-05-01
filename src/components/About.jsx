@@ -13,7 +13,7 @@ import Generating from "./Generating";
 
 const About = () => {
   return (
-    <Section id="about">
+    <Section id="about" crosses>
       <div className="container">
         <Heading
           title="Generative AI made for creators."
