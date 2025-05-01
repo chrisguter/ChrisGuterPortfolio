@@ -10,11 +10,12 @@ import grid from "./grid.png";
 import check2 from "./check-02.svg";
 import loading1 from "./loading-01.svg";
 import yourlogo from "./yourlogo.svg";
-import cassoftwareag from "./cassoftwareag.svg";
-import bioland from "./bioland.svg";
-import kit from "./kit.svg";
-import dbe from "./dbe.svg";
-import daimmlertruck from "./daimlertruck.svg";
+import cassoftwareag from "./cas_white.png";
+import bioland from "./bioland_white.png";
+import kit from "./kit_white.png";
+import dbe from "./dbe_white.png";
+import daimmlertruck from "./daimler_white.png";
+import datev from "./datev_white.png";
 import homeSmile from "./home-smile.svg";
 import file02 from "./file-02.svg";
 import searchMd from "./search-md.svg";
@@ -100,6 +101,7 @@ export {
   kit,
   dbe,
   daimmlertruck,
+  datev,
   homeSmile,
   file02,
   searchMd,

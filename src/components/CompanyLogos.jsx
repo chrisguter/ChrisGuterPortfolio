@@ -13,10 +13,10 @@ const CompanyLogos = ({ className }) => {
             key={index}
           >
             <img
-              src={logo}
-              width={index === 2 ? 180 : 64}
-              height={index === 2 ? 180 : 64}
-              alt={logo}
+              src={logo.img}
+              width={logo.width}
+              height={logo.height}
+              alt={logo.img}
             />
           </li>
         ))}

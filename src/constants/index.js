@@ -40,6 +40,7 @@ import {
   daimmlertruck,
   kit,
   dbe,
+  datev,
 } from "../assets";
 
 export const navigation = [
@@ -75,7 +76,44 @@ export const heroIcons = [homeSmile, file02, searchMd, plusSquare];
 
 export const notificationImages = [notification4, notification3, notification2];
 
-export const companyLogos = [cassoftwareag, bioland, daimmlertruck, dbe, kit];
+export const companyLogos = [
+  {
+    id: "0",
+    img: cassoftwareag,
+    width: 64,
+    height: 64,
+  },
+  {
+    id: "1",
+    img: bioland,
+    width: 128,
+    height: 128,
+  },
+  {
+    id: "2",
+    img: daimmlertruck,
+    width: 164,
+    height: 164,
+  },
+  {
+    id: "3",
+    img: dbe,
+    width: 64,
+    height: 64,
+  },
+  {
+    id: "4",
+    img: kit,
+    width: 96,
+    height: 96,
+  },
+  {
+    id: "5",
+    img: datev,
+    width: 64,
+    height: 64,
+  },
+];
 
 export const brainwaveServices = [
   "Good girl",
