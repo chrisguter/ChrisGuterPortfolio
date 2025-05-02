@@ -1,6 +1,14 @@
 import Section from "./Section";
 import Heading from "./Heading";
-import { service1, service2, service3, check, mali } from "../assets";
+import {
+  service1,
+  service2,
+  service3,
+  check,
+  mali,
+  storch,
+  gaming,
+} from "../assets";
 import { brainwaveServices, brainwaveServicesIcons } from "../constants";
 import {
   MaliMessage,
@@ -66,10 +74,10 @@ const About = () => {
             <div className="relative min-h-[39rem] border border-n-1/10 rounded-3xl overflow-hidden">
               <div className="absolute inset-0">
                 <img
-                  src={service2}
+                  src={storch}
                   className="h-full w-full object-cover"
-                  width={630}
-                  height={750}
+                  width={1024}
+                  height={1536}
                   alt="robot"
                 />
               </div>
@@ -115,17 +123,14 @@ const About = () => {
                 </ul>
               </div>
 
-              <div className="relative h-[20rem] bg-n-8 rounded-xl overflow-hidden md:h-[25rem]">
+              <div className="relative h-[20rem] bg-n-14 rounded-xl overflow-hidden md:h-[25rem]">
                 <img
-                  src={service3}
-                  className="w-full h-full object-cover"
+                  src={gaming}
+                  className="w-full h-full object-contain"
                   width={520}
                   height={400}
-                  alt="Scary robot"
+                  alt="gaming"
                 />
-
-                <VideoChatMessage />
-                <VideoBar />
               </div>
             </div>
           </div>

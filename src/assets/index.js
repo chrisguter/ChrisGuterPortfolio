@@ -47,6 +47,8 @@ import service1 from "./services/service-1.png";
 import service2 from "./services/service-2.png";
 import service3 from "./services/service-3.png";
 import mali from "./services/mali.png";
+import storch from "./services/storch.png";
+import gaming from "./services/gaming.png";
 
 import lines from "./pricing/lines.svg";
 import stars from "./pricing/stars.svg";
@@ -135,6 +137,8 @@ export {
   service2,
   service3,
   mali,
+  storch,
+  gaming,
   lines,
   stars,
   coins,
