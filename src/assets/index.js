@@ -53,14 +53,14 @@ import gaming from "./services/gaming.png";
 import lines from "./pricing/lines.svg";
 import stars from "./pricing/stars.svg";
 
-import coins from "./roadmap/coins.png";
-import done from "./roadmap/done.svg";
-import hero from "./roadmap/hero.png";
-import roadmap1 from "./roadmap/image-1.png";
-import roadmap2 from "./roadmap/image-2.png";
-import roadmap3 from "./roadmap/image-3.png";
-import roadmap4 from "./roadmap/image-4.png";
-import undone from "./roadmap/undone.svg";
+import coins from "./career/coins.png";
+import done from "./career/done.svg";
+import hero from "./career/hero.png";
+import career1 from "./career/image-1.png";
+import career2 from "./career/image-2.png";
+import career3 from "./career/image-3.png";
+import career4 from "./career/image-4.png";
+import undone from "./career/undone.svg";
 
 import notification1 from "./notification/image-1.png";
 import notification2 from "./notification/image-2.png";
@@ -144,10 +144,10 @@ export {
   coins,
   done,
   hero,
-  roadmap1,
-  roadmap2,
-  roadmap3,
-  roadmap4,
+  career1,
+  career2,
+  career3,
+  career4,
   undone,
   notification1,
   notification2,
