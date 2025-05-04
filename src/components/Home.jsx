@@ -42,7 +42,7 @@ const Home = () => {
             I'm a Scrum Master and Software Engineer currently working @ CAS
             Software AG in Karlsruhe
           </p>
-          <Button href="/contact" white>
+          <Button href="#contact" white>
             Contact
           </Button>
         </div>
