@@ -84,11 +84,9 @@ import recentWorkImage4 from "./recentWork/image-4.png";
 import recentWorkImage5 from "./recentWork/image-5.png";
 import recentWorkImage6 from "./recentWork/image-6.png";
 
-import discordBlack from "./socials/discord.svg";
-import facebook from "./socials/facebook.svg";
-import instagram from "./socials/instagram.svg";
-import telegram from "./socials/telegram.svg";
-import twitter from "./socials/twitter.svg";
+import linkedInDark from "./socials/linkedIn-dark.svg";
+import xingDark from "./socials/xing-dark.svg";
+import gmailDark from "./socials/gmail-dark.svg";
 
 export {
   brainwave,
@@ -169,9 +167,7 @@ export {
   recentWorkImage4,
   recentWorkImage5,
   recentWorkImage6,
-  discordBlack,
-  facebook,
-  instagram,
-  telegram,
-  twitter,
+  linkedInDark,
+  xingDark,
+  gmailDark,
 };

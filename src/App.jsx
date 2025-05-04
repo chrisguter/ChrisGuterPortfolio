@@ -7,6 +7,8 @@ import Footer from "./components/Footer";
 import Career from "./components/Career";
 import Home from "./components/Home";
 import About from "./components/About";
+import Contact from "./components/Contact";
+
 const App = () => {
   return (
     <>
@@ -18,6 +20,7 @@ const App = () => {
         <Knowledge />
         <Career />
         <About />
+        <Contact />
         <Footer />
       </div>
       <ButtonGradient />
