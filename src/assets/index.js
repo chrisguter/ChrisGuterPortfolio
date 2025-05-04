@@ -28,6 +28,12 @@ import sliders04 from "./sliders-04.svg";
 import loading from "./loading.png";
 import background from "./background.jpg";
 
+import hearthstoneLogo from "./hearthstone-white.png";
+import fortniteLogo from "./fortnite-white.png";
+import codLogo from "./cod-white.png";
+import apexLogo from "./apex-white.png";
+import lolLogo from "./lol-white.png";
+
 import curve from "./hero/curve.png";
 import robot from "./hero/robot.jpg";
 import heroBackground from "./hero/hero-background.jpg";
@@ -113,6 +119,11 @@ export {
   plusSquare,
   recording03,
   recording01,
+  hearthstoneLogo,
+  fortniteLogo,
+  codLogo,
+  apexLogo,
+  lolLogo,
   disc02,
   chromecast,
   sliders04,

@@ -30,6 +30,11 @@ import {
   raindrop,
   recording01,
   recording03,
+  hearthstoneLogo,
+  fortniteLogo,
+  codLogo,
+  apexLogo,
+  lolLogo,
   career1,
   career2,
   career3,
@@ -123,12 +128,12 @@ export const brainwaveServices = [
   "Loves belly rubs",
 ];
 
-export const brainwaveServicesIcons = [
-  recording03,
-  recording01,
-  disc02,
-  chromecast,
-  sliders04,
+export const gamingIcons = [
+  hearthstoneLogo,
+  fortniteLogo,
+  apexLogo,
+  codLogo,
+  lolLogo,
 ];
 
 export const career = [

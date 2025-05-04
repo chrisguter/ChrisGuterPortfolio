@@ -1,23 +1,8 @@
 import Section from "./Section";
 import Heading from "./Heading";
-import {
-  service1,
-  service2,
-  service3,
-  check,
-  mali,
-  storch,
-  gaming,
-} from "../assets";
-import { brainwaveServices, brainwaveServicesIcons } from "../constants";
-import {
-  MaliMessage,
-  Gradient,
-  VideoBar,
-  VideoChatMessage,
-} from "./design/Services";
-
-import Generating from "./Generating";
+import { check, mali, storch, gaming } from "../assets";
+import { brainwaveServices, gamingIcons } from "../constants";
+import { MaliMessage, Gradient } from "./design/Services";
 
 const About = () => {
   return (
@@ -100,7 +85,7 @@ const About = () => {
                 </p>
 
                 <ul className="flex items-center justify-between">
-                  {brainwaveServicesIcons.map((item, index) => (
+                  {gamingIcons.map((item, index) => (
                     <li
                       key={index}
                       className={`rounded-2xl flex items-center justify-center ${
@@ -116,7 +101,7 @@ const About = () => {
                             : ""
                         }
                       >
-                        <img src={item} width={24} height={24} alt={item} />
+                        <img src={item} width={32} height={32} alt={item} />
                       </div>
                     </li>
                   ))}
