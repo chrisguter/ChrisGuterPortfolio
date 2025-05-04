@@ -5,9 +5,8 @@ import { socials } from "../constants";
 const Contact = () => {
   return (
     <Section className="overflow-hidden" id="contact" crosses>
-      <Heading tag="Contact" title="Let's connect"></Heading>
-
-      <div className="flex flex-col items-center mb-10">
+      <div className="container md:pb-10">
+        <Heading tag="Contact" title="Let's connect"></Heading>
         <ul className="flex flex-col items-center gap-6">
           {socials.map((item) => (
             <a
