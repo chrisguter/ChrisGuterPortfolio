@@ -42,18 +42,18 @@ import curve1 from "./collaboration/curve-1.svg";
 import curve2 from "./collaboration/curve-2.svg";
 import discord from "./collaboration/discord.png";
 import figma from "./collaboration/figma.png";
-import framer from "./collaboration/framer.png";
-import notion from "./collaboration/notion.png";
-import photoshop from "./collaboration/photoshop.png";
-import protopie from "./collaboration/protopie.png";
-import raindrop from "./collaboration/raindrop.png";
+import docker from "./collaboration/docker.png";
+import jenkins from "./collaboration/jenkins.png";
+import teams from "./collaboration/teams.png";
+import atlassian from "./collaboration/atlassian.png";
+import git from "./collaboration/git.png";
 import slack from "./collaboration/slack.png";
 
 import service1 from "./services/service-1.png";
 import service2 from "./services/service-2.png";
 import service3 from "./services/service-3.png";
 import mali from "./services/mali.png";
-import storch from "./services/storch.png";
+import stork from "./services/stork.png";
 import gaming from "./services/gaming.png";
 
 import lines from "./pricing/lines.svg";
@@ -136,17 +136,17 @@ export {
   curve2,
   discord,
   figma,
-  framer,
-  notion,
-  photoshop,
-  protopie,
-  raindrop,
+  docker,
+  jenkins,
+  teams,
+  atlassian,
+  git,
   slack,
   service1,
   service2,
   service3,
   mali,
-  storch,
+  stork,
   gaming,
   lines,
   stars,

@@ -1,6 +1,6 @@
 import Section from "./Section";
 import Heading from "./Heading";
-import { check, mali, storch, gaming } from "../assets";
+import { check, mali, stork, gaming } from "../assets";
 import { brainwaveServices, gamingIcons } from "../constants";
 import { MaliMessage, Gradient } from "./design/Services";
 
@@ -59,7 +59,7 @@ const About = () => {
             <div className="relative min-h-[39rem] border border-n-1/10 rounded-3xl overflow-hidden">
               <div className="absolute inset-0">
                 <img
-                  src={storch}
+                  src={stork}
                   className="h-full w-full object-cover"
                   width={1024}
                   height={1536}
