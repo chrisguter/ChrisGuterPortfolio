@@ -12,6 +12,7 @@ import {
   recentWorkImage6,
   discord,
   linkedInDark,
+  githubDark,
   xingDark,
   gmailDark,
   figma,
@@ -365,5 +366,14 @@ export const socials = [
     title: "Mail",
     iconUrl: gmailDark,
     url: "mailto:christian.gutermann95@gmail.com",
+  },
+];
+
+export const footerLinks = [
+  {
+    id: "0",
+    title: "Check out the code",
+    iconUrl: githubDark,
+    url: "https://github.com/chrisguter/ChrisGuterPortfolio",
   },
 ];

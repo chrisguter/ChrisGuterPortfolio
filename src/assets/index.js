@@ -93,6 +93,7 @@ import recentWorkImage6 from "./recentWork/image-6.png";
 import linkedInDark from "./socials/linkedIn-dark.svg";
 import xingDark from "./socials/xing-dark.svg";
 import gmailDark from "./socials/gmail-dark.svg";
+import githubDark from "./socials/github-dark.svg";
 
 export {
   brainwave,
@@ -181,4 +182,5 @@ export {
   linkedInDark,
   xingDark,
   gmailDark,
+  githubDark,
 };

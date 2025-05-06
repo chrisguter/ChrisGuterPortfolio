@@ -1,4 +1,4 @@
-import { socials } from "../constants";
+import { footerLinks } from "../constants";
 import Section from "./Section";
 
 const Footer = () => {
@@ -10,17 +10,20 @@ const Footer = () => {
         </p>
 
         <ul className="flex gap-5 flex-wrap">
-          {socials.map((item) => (
+          {footerLinks.map((item) => (
             <a
               key={item.id}
               href={item.url}
               target="_blank"
-              className="flex itemms-center justify-center w-10 h-10 bg-n-7 rounded-full transition-colors hover:bg-n-6"
+              className="flex items-center gap-3 w-auto h-10 bg-n-7 rounded-full px-4 transition-colors hover:bg-n-6"
             >
+              <span className="text-white text-sm font-medium">
+                {item.title}
+              </span>
               <img
                 src={item.iconUrl}
-                width={24}
-                height={24}
+                width={32}
+                height={32}
                 alt={item.title}
                 className="object-contain"
               />
