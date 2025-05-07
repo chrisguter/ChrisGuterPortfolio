@@ -30,10 +30,3 @@ jobs:
       # Step 4: Build the project
       - name: Build the project
         run: npm run build
-
-      # Step 5: Upload build artifacts (optional)
-      - name: Upload build artifacts
-        uses: actions/upload-artifact@v3.1.2
-        with:
-          name: build
-          path: build/
