@@ -46,6 +46,8 @@ import {
   datev,
 } from "../assets";
 
+export const BASE_PATH = "/ChrisGuterPortfolio";
+
 export const navigation = [
   {
     id: "0",
@@ -292,7 +294,7 @@ export const recentWork = [
     id: "0",
     title: "Mein Bioland",
     text: "Maintaining and expanding the existing web application for Bioland, a leading organic farming association in Germany.",
-    backgroundUrl: "./src/assets/recentWork/card-1.svg",
+    backgroundUrl: `${BASE_PATH}/recentWork/card-1.svg`,
     iconUrl: recentWorkIcon1,
     imageUrl: recentWorkImage1,
     infoUrl: "https://www.smartwe.de/de/referenzen/bioland/",
@@ -301,7 +303,7 @@ export const recentWork = [
     id: "1",
     title: "Daimler Truck",
     text: "Introducing the new CPQ solution for Daimler Truck, a powerful tool that streamlines the configuration and pricing process for their trucks.",
-    backgroundUrl: "./src/assets/recentWork/card-2.svg",
+    backgroundUrl: `${BASE_PATH}/recentWork/card-2.svg`,
     iconUrl: recentWorkIcon2,
     imageUrl: recentWorkImage2,
     infoUrl: "https://www.cas-software.com/solutions/cpq/cas-merlin-cpq/",
@@ -311,7 +313,7 @@ export const recentWork = [
     id: "2",
     title: "Secure Login with 2FA",
     text: "Implemented a secure login system with two-factor authentication (2FA) to enhance security and protect user data.",
-    backgroundUrl: "./src/assets/recentWork/card-3.svg",
+    backgroundUrl: `${BASE_PATH}/recentWork/card-3.svg`,
     iconUrl: recentWorkIcon3,
     imageUrl: recentWorkImage3,
     infoUrl:
@@ -321,7 +323,7 @@ export const recentWork = [
     id: "3",
     title: "Deutsche Bahn Energie",
     text: "Customized the existing CRM application for Deutsche Bahn Energie, a leading energy provider in Germany.",
-    backgroundUrl: "./src/assets/recentWork/card-4.svg",
+    backgroundUrl: `${BASE_PATH}/recentWork/card-4.svg`,
     iconUrl: recentWorkIcon4,
     imageUrl: recentWorkImage4,
     infoUrl:
@@ -332,7 +334,7 @@ export const recentWork = [
     id: "4",
     title: "SmartWe Appstore",
     text: "Main developer of the SmartWe Appstore, a cloud platform that allows users to easily find and install applications tailored for their CRM.",
-    backgroundUrl: "./src/assets/recentWork/card-5.svg",
+    backgroundUrl: `${BASE_PATH}/recentWork/card-5.svg`,
     iconUrl: recentWorkIcon1,
     imageUrl: recentWorkImage5,
     infoUrl: "https://appstore.smartwe.world/home",
@@ -341,7 +343,7 @@ export const recentWork = [
     id: "5",
     title: "E-Invoice for SmartWe",
     text: "Developing an E-Invoice application for SmartWe, enabling users to easily create, store and send electronic invoices.",
-    backgroundUrl: "./src/assets/recentWork/card-6.svg",
+    backgroundUrl: `${BASE_PATH}/recentWork/card-6.svg`,
     iconUrl: recentWorkIcon2,
     imageUrl: recentWorkImage6,
     infoUrl: "https://www.smartwe.de/en/",

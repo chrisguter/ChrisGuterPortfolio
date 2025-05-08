@@ -73,12 +73,6 @@ import notification2 from "./notification/image-2.png";
 import notification3 from "./notification/image-3.png";
 import notification4 from "./notification/image-4.png";
 
-import recentWorkCard1 from "./recentWork/card-1.svg";
-import recentWorkCard2 from "./recentWork/card-2.svg";
-import recentWorkCard3 from "./recentWork/card-3.svg";
-import recentWorkCard4 from "./recentWork/card-4.svg";
-import recentWorkCard5 from "./recentWork/card-5.svg";
-import recentWorkCard6 from "./recentWork/card-6.svg";
 import recentWorkIcon1 from "./recentWork/icon-1.svg";
 import recentWorkIcon2 from "./recentWork/icon-2.svg";
 import recentWorkIcon3 from "./recentWork/icon-3.svg";
@@ -163,12 +157,6 @@ export {
   notification2,
   notification3,
   notification4,
-  recentWorkCard1,
-  recentWorkCard2,
-  recentWorkCard3,
-  recentWorkCard4,
-  recentWorkCard5,
-  recentWorkCard6,
   recentWorkIcon1,
   recentWorkIcon2,
   recentWorkIcon3,
