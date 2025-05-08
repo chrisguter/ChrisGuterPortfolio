@@ -1,4 +1,4 @@
-name: Build React Project
+name: Build and Deploy React Project
 
 on:
   push:
@@ -31,9 +31,16 @@ jobs:
       - name: Build the project
         run: npm run build
 
-      # Step 5: Upload build artifacts
+      # Step 5: Upload build artifacts (optional)
       - name: Upload build artifacts
         uses: actions/upload-artifact@v4
         with:
           name: ChrisGuterPortfolio
           path: dist/
+
+      # Step 6: Deploy to GitHub Pages
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: dist/
