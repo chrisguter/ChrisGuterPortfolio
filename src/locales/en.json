@@ -11,9 +11,21 @@
     }
   },
 
-  "footer": {
-    "rights": "© {{year}}. All rights reserved.",
-    "checkCode": "Check out the code"
+  "home": {
+    "headingP1": "Hi, I'm Christian",
+    "headingP2": "nice to meet",
+    "headingP3": "you!",
+    "tagline": "I'm a Scrum Master and Software Engineer currently working @ CAS Software AG in Karlsruhe",
+    "contactButton": "Contact me",
+    "notificationText": "Code generation"
+  },
+
+  "notification": {
+    "timespan": "1m ago"
+  },
+
+  "companyLogos": {
+    "tagline": "Helping to create beautiful software for companies like"
   },
 
   "recentWork": {
@@ -44,70 +56,6 @@
     },
     "links": {
       "exploreMore": "Explore more"
-    }
-  },
-
-  "about": {
-    "heading": "A glimpse into my private life",
-    "tag": "About",
-    "dogTraining": {
-      "title": "Dog training",
-      "text": "Regular training and hiking sessions with my dog Mali."
-    },
-    "familyTime": {
-      "title": "Family Time",
-      "text": "In April our first child was born. So spending a lot of time with my daughter is a top priority."
-    },
-    "gaming": {
-      "title": "Gaming is my passion",
-      "text": "Competitive gaming is my biggest hobby. I love to challenge myself and constantly improve my skills."
-    },
-    "maliSkills": {
-      "skill1": "good girl",
-      "skill2": "listens to commands",
-      "skill3": "loves belly rubs"
-    }
-  },
-
-  "career": {
-    "heading": "My professional journey",
-    "tag": "Career",
-    "leadership": {
-      "title": "Leadership training",
-      "text": "Participating in a leadership training program to enhance my skills in team management, project coordination and prepare for future leadership roles.",
-      "date": "May 2025"
-    },
-    "scrumMaster": {
-      "title": "Scrum Master",
-      "text": "Became the Scrum Master a newly created team, leading them in agile practices and ensuring smooth project delivery.",
-      "date": "May 2021"
-    },
-    "softwareEngineer": {
-      "title": "Software Engineer",
-      "text": "Started my professional career as a software engineer, focusing on web development and application design.",
-      "date": "Oktober 2018"
-    },
-    "bachelor": {
-      "title": "Bachelor of Science",
-      "text": "Completed my Bachelor of Science in Computer Science, at the DHBW Karlsruhe.",
-      "date": "September 2018"
-    }
-  },
-
-  "contact": {
-    "heading": "Let's connect!",
-    "tag": "Contact",
-    "email": {
-      "title": "Email",
-      "text": "Feel free to reach out via email at"
-    },
-    "github": {
-      "title": "GitHub",
-      "text": "Check out my GitHub profile for more projects and code samples."
-    },
-    "linkedin": {
-      "title": "LinkedIn",
-      "text": "Connect with me on LinkedIn to stay updated on my professional journey."
     }
   },
 
@@ -154,20 +102,72 @@
     }
   },
 
-  "home": {
-    "headingP1": "Hi, I'm Christian",
-    "headingP2": "nice to meet",
-    "headingP3": "you!",
-    "tagline": "I'm a Scrum Master and Software Engineer currently working @ CAS Software AG in Karlsruhe",
-    "contactButton": "Contact me",
-    "notificationText": "Code generation"
+  "career": {
+    "heading": "My professional journey",
+    "tag": "Career",
+    "leadership": {
+      "title": "Leadership training",
+      "text": "Participating in a leadership training program to enhance my skills in team management, project coordination and prepare for future leadership roles.",
+      "date": "May 2025"
+    },
+    "scrumMaster": {
+      "title": "Scrum Master",
+      "text": "Became the Scrum Master a newly created team, leading them in agile practices and ensuring smooth project delivery.",
+      "date": "May 2021"
+    },
+    "softwareEngineer": {
+      "title": "Software Engineer",
+      "text": "Started my professional career as a software engineer, focusing on web development and application design.",
+      "date": "Oktober 2018"
+    },
+    "bachelor": {
+      "title": "Bachelor of Science",
+      "text": "Completed my Bachelor of Science in Computer Science, at the DHBW Karlsruhe.",
+      "date": "September 2018"
+    }
   },
 
-  "notification": {
-    "timespan": "1m ago"
+  "about": {
+    "heading": "A glimpse into my private life",
+    "tag": "About",
+    "dogTraining": {
+      "title": "Dog training",
+      "text": "Regular training and hiking sessions with my dog Mali."
+    },
+    "familyTime": {
+      "title": "Family Time",
+      "text": "In April our first child was born. So spending a lot of time with my daughter is a top priority."
+    },
+    "gaming": {
+      "title": "Gaming is my passion",
+      "text": "Competitive gaming is my biggest hobby. I love to challenge myself and constantly improve my skills."
+    },
+    "maliSkills": {
+      "skill1": "good girl",
+      "skill2": "listens to commands",
+      "skill3": "loves belly rubs"
+    }
   },
 
-  "companyLogos": {
-    "tagline": "Helping to create beautiful software for companies like"
+  "contact": {
+    "heading": "Let's connect!",
+    "tag": "Contact",
+    "email": {
+      "title": "Email",
+      "text": "Feel free to reach out via email at"
+    },
+    "github": {
+      "title": "GitHub",
+      "text": "Check out my GitHub profile for more projects and code samples."
+    },
+    "linkedin": {
+      "title": "LinkedIn",
+      "text": "Connect with me on LinkedIn to stay updated on my professional journey."
+    }
+  },
+
+  "footer": {
+    "rights": "© {{year}}. All rights reserved.",
+    "checkCode": "Check out the code"
   }
 }
