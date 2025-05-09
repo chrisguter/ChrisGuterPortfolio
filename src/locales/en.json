@@ -104,6 +104,32 @@
     }
   },
 
+  "expertise": {
+    "heading": "What I bring to the table",
+    "tag": "Expertise",
+    "softwareDevelopment": {
+      "title": "Software Development",
+      "description": "Proficient software developer, particularly skilled in building web applications.",
+      "expertise1": "Competent in Java and modern front-end frameworks including Angular and React.",
+      "expertise2": "Familiar with creating distributed systems using microservices and RESTful APIs.",
+      "expertise3": "Deep understanding of modern software engineering practices and methodologies."
+    },
+    "agileMethodologies": {
+      "title": "Agile Methodologies",
+      "description": "Expert in agile methodologies, specializing in SCRUM workflows.",
+      "expertise1": "Hands-on experience using Scrum, Kanban, and Lean to drive project delivery.",
+      "expertise2": "Capable to lead agile meetings and foster team collaboration.",
+      "expertise3": "Committed to agile principles, with a clear understanding of their role in iterative development."
+    },
+    "devOps": {
+      "title": "DevOps",
+      "description": "Adept at applying DevOps principles to streamline development through automated CI/CD pipelines.",
+      "expertise1": "Experience with Jenkins, Docker and Kubernetes",
+      "expertise2": "Ability to automate critical aspects of software delivery, including deployment and testing",
+      "expertise3": "Comfortable with Git workflows and configuration management principles in collaborative dev settings."
+    }
+  },
+
   "companyLogos": {
     "tagline": "Helping to create beautiful software for companies like"
   }

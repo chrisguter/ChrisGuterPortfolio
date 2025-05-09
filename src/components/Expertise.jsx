@@ -3,8 +3,11 @@ import Heading from "./Heading";
 import ExpertiseList from "./ExpertiseList";
 import Section from "./Section";
 import { LeftLine, RightLine } from "./design/Pricing";
+import { useTranslation } from "react-i18next";
 
 const Expertise = () => {
+  const { t } = useTranslation();
+
   return (
     <Section className="overflow-hidden" id="expertise" crosses>
       <div className="container relative z-2">
@@ -26,7 +29,10 @@ const Expertise = () => {
             />
           </div>
         </div>
-        <Heading tag="Expertise" title="What I bring to the table"></Heading>
+        <Heading
+          tag={t("expertise.tag")}
+          title={t("expertise.heading")}
+        ></Heading>
         <div className="relative">
           <ExpertiseList></ExpertiseList>
           <LeftLine></LeftLine>

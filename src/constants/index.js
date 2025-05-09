@@ -251,41 +251,35 @@ export const collabApps = [
   },
 ];
 
-export const expertise = [
+export const expertiseList = [
   {
     id: "0",
-    title: "Software Development",
-    description:
-      "Proficient software developer, particularly skilled in building web applications.",
-    price: "0",
-    features: [
-      "Competent in Java and modern front-end frameworks including Angular and React.",
-      "Familiar with creating distributed systems using microservices and RESTful APIs.",
-      "Deep understanding of modern software engineering practices and methodologies.",
+    title: "expertise.softwareDevelopment.title",
+    description: "expertise.softwareDevelopment.description",
+    expertises: [
+      "expertise.softwareDevelopment.expertise1",
+      "expertise.softwareDevelopment.expertise2",
+      "expertise.softwareDevelopment.expertise3",
     ],
   },
   {
     id: "1",
-    title: "Agile Workflows",
-    description:
-      "Expert in agile workflows, specializing in SCRUM methodologies.",
-    price: "9.99",
-    features: [
-      "Hands-on experience using Scrum, Kanban, and Lean to drive project delivery.",
-      "Capable to lead agile meetings and foster team collaboration.",
-      "Committed to agile principles, with a clear understanding of their role in iterative development.",
+    title: "expertise.agileMethodologies.title",
+    description: "expertise.agileMethodologies.description",
+    expertises: [
+      "expertise.agileMethodologies.expertise1",
+      "expertise.agileMethodologies.expertise2",
+      "expertise.agileMethodologies.expertise3",
     ],
   },
   {
     id: "2",
-    title: "DevOps",
-    description:
-      "Adept at applying DevOps principles to streamline development through automated CI/CD pipelines.",
-    price: null,
-    features: [
-      "Experience with Jenkins, Docker and Kubernetes",
-      "Ability to automate critical aspects of software delivery, including deployment and testing",
-      "Comfortable with Git workflows and configuration management principles in collaborative dev settings.",
+    title: "expertise.devOps.title",
+    description: "expertise.devOps.description",
+    expertises: [
+      "expertise.devOps.expertise1",
+      "expertise.devOps.expertise2",
+      "expertise.devOps.expertise3",
     ],
   },
 ];
