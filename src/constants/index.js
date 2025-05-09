@@ -52,27 +52,27 @@ export const BASE_PATH = "/ChrisGuterPortfolio";
 export const navigation = [
   {
     id: "0",
-    title: "Projects",
+    title: "header.navigation.projects",
     url: "#projects",
   },
   {
     id: "1",
-    title: "Expertise",
+    title: "header.navigation.expertise",
     url: "#expertise",
   },
   {
     id: "2",
-    title: "Career",
+    title: "header.navigation.career",
     url: "#career",
   },
   {
     id: "3",
-    title: "About",
+    title: "header.navigation.about",
     url: "#about",
   },
   {
     id: "4",
-    title: "contact",
+    title: "header.navigation.contact",
     url: "#contact",
     onlyMobile: true,
   },

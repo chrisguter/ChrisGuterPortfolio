@@ -1,9 +1,16 @@
 {
-  "heading": {
-    "projects": "Explore my recent work",
-    "contact": "Let's connect",
-    "career": "My professional journey"
+  "header": {
+    "logoText": "ChrisGuter",
+    "navigation": {
+      "home": "Home",
+      "projects": "Projects",
+      "expertise": "Expertise",
+      "career": "Career",
+      "about": "About",
+      "contact": "Contact"
+    }
   },
+
   "footer": {
     "rights": "© {{year}}. All rights reserved.",
     "checkCode": "Check out the code"
@@ -152,7 +159,8 @@
     "headingP2": "nice to meet",
     "headingP3": "you!",
     "tagline": "I'm a Scrum Master and Software Engineer currently working @ CAS Software AG in Karlsruhe",
-    "contactButton": "Contact me"
+    "contactButton": "Contact me",
+    "notificationText": "Code generation"
   },
 
   "notification": {

@@ -76,7 +76,7 @@ const Home = () => {
                 <ScrollParallax isAbsolutelyPositioned>
                   <Notification
                     className="hidden absolute -right-[5.5rem] bottom-[11rem] w-[18rem] xl:flex"
-                    title="Code generation"
+                    title={t("home.notificationText")}
                   />
                 </ScrollParallax>
               </div>

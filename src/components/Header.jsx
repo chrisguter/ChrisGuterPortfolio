@@ -1,14 +1,15 @@
 import { useLocation } from "react-router-dom";
 import { disablePageScroll, enablePageScroll } from "scroll-lock";
-
 import { logo } from "../assets";
 import { navigation } from "../constants";
 import Button from "./Button";
 import MenuSvg from "../assets/svg/MenuSvg";
 import { HamburgerMenu } from "./design/Header";
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 
 const Header = () => {
+  const { t } = useTranslation();
   const pathname = useLocation();
   const [openNavigation, setOpenNavigation] = useState(false);
 
@@ -40,7 +41,7 @@ const Header = () => {
           <a className="flex items-center w-[12rem] xl:mr-2" href="#home">
             <img src={logo} width={55} height={55} alt="Logo" />
             <span className="text-2xl font-bold text-white ml-2">
-              ChrisGuter
+              {t("header.logoText")}
             </span>
           </a>
         </div>
@@ -64,7 +65,7 @@ const Header = () => {
                     : "lg:text-n-1/50"
                 } lg:leading-5 lg:hover:text-n-1 xl:px-12`}
               >
-                {item.title}
+                {t(item.title)}
               </a>
             ))}
           </div>
@@ -73,7 +74,7 @@ const Header = () => {
         </nav>
 
         <Button className="hidden lg:flex" href="#contact">
-          Contact
+          {t("header.navigation.contact")}
         </Button>
 
         <Button
