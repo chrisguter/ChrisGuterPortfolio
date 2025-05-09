@@ -60,5 +60,30 @@
       "skill2": "listens to commands",
       "skill3": "loves belly rubs"
     }
+  },
+
+  "career": {
+    "heading": "My professional journey",
+    "tag": "Career",
+    "leadership": {
+      "title": "Leadership training",
+      "text": "Participating in a leadership training program to enhance my skills in team management, project coordination and prepare for future leadership roles.",
+      "date": "May 2025"
+    },
+    "scrumMaster": {
+      "title": "Scrum Master",
+      "text": "Became the Scrum Master a newly created team, leading them in agile practices and ensuring smooth project delivery.",
+      "date": "May 2021"
+    },
+    "softwareEngineer": {
+      "title": "Software Engineer",
+      "text": "Started my professional career as a software engineer, focusing on web development and application design.",
+      "date": "Oktober 2018"
+    },
+    "bachelor": {
+      "title": "Bachelor of Science",
+      "text": "Completed my Bachelor of Science in Computer Science, at the DHBW Karlsruhe.",
+      "date": "September 2018"
+    }
   }
 }
