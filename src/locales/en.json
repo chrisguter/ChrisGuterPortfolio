@@ -1,0 +1,17 @@
+{
+  "heading": {
+    "projects": "Explore my recent work",
+    "contact": "Let's connect",
+    "career": "My professional journey"
+  },
+  "recentWork": {
+    "title1": "Mein Bioland",
+    "text1": "Maintaining and expanding the existing web application for Bioland, a leading organic farming association in Germany.",
+    "title2": "Daimler Truck",
+    "text2": "Introducing the new CPQ solution for Daimler Truck, a powerful tool that streamlines the configuration and pricing process for their trucks."
+  },
+  "footer": {
+    "rights": "© {{year}}. All rights reserved.",
+    "checkCode": "Check out the code"
+  }
+}

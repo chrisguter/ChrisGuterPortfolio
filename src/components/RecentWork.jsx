@@ -4,15 +4,18 @@ import Section from "./Section";
 import Arrow from "../assets/svg/Arrow";
 import { GradientLight } from "./design/RecentWork";
 import ClipPath from "../assets/svg/ClipPath";
+import { useTranslation } from "react-i18next";
 
 const RecentWork = () => {
+  const { t } = useTranslation();
+
   return (
     <Section id="projects" crosses>
       <div className="container relative z-2">
         <Heading
           className="md:max-w-md lg:max-w-2xl"
           tag="Projects"
-          title="Explore my recent work"
+          title={t("heading.projects")}
         />
 
         <div className="flex flex-wrap gap-10 mb-10">

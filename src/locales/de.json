@@ -1,0 +1,17 @@
+{
+  "heading": {
+    "projects": "Entdecken Sie meine neuesten Arbeiten",
+    "contact": "Lass uns verbinden",
+    "career": "Mein beruflicher Werdegang"
+  },
+  "recentWork": {
+    "title1": "Mein Bioland",
+    "text1": "Pflege und Erweiterung der bestehenden Webanwendung für Bioland, einen führenden Bio-Anbauverband in Deutschland.",
+    "title2": "Daimler Truck",
+    "text2": "Einführung der neuen CPQ-Lösung für Daimler Truck, ein leistungsstarkes Tool zur Optimierung des Konfigurations- und Preisfindungsprozesses."
+  },
+  "footer": {
+    "rights": "© {{year}}. Alle Rechte vorbehalten.",
+    "checkCode": "Schauen Sie sich den Code an"
+  }
+}
