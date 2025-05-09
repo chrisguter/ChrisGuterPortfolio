@@ -1,31 +1,40 @@
 import { brainwaveSymbol, check } from "../assets";
-import { collabApps, collabContent, collabText } from "../constants";
+import { collabApps, knowledgeContent } from "../constants";
 import Button from "./Button";
 import Section from "./Section";
 import { LeftCurve, RightCurve } from "./design/Collaboration";
+import { useTranslation } from "react-i18next";
 
 const Knowledge = () => {
+  const { t } = useTranslation();
+
   return (
     <Section>
       <div className="container lg:flex">
         <div className="max-w-[25rem]">
-          <h2 className="h2 mb-4 md:mb-8">
-            Knowledge across a big variety of tools
-          </h2>
+          <h2 className="h2 mb-4 md:mb-8">{t("knowledge.heading")}</h2>
           <ul className="max-w-[22rem] mb-10 md:mb-14">
-            {collabContent.map((item, index) => (
+            {knowledgeContent.map((item) => (
               <li className="mb-3 py-3" key={item.id}>
                 <div className="flex items-center">
                   <img src={check} width={24} height={24} alt="check" />
-                  <h6 className="body-2 ml-5">{item.title}</h6>
+                  <h6 className="body-2 ml-5">{t(item.title)}</h6>
                 </div>
                 {item.text && (
-                  <p className="body-2 mt-3 text-n-4">{item.text}</p>
+                  <p className="body-2 mt-3 text-n-4">{t(item.text)}</p>
                 )}
               </li>
             ))}
           </ul>
-          <Button>Try it now</Button>
+          <Button>
+            <a
+              href="https://github.com/ChrisGuter"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {t("knowledge.checkCodeButton")}
+            </a>
+          </Button>
         </div>
         <div className="lg:ml-auto xl:w-[38rem] mt-4">
           <div className="relative left-1/2 flex w-[22rem] aspect-square border border-n-6 rounded-full -translate-x-1/2 scale:75 md:scale-100 lg:translate-y-[20rem]">

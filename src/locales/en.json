@@ -130,6 +130,23 @@
     }
   },
 
+  "knowledge": {
+    "heading": "Knowledge across a big variety of tools",
+    "checkCodeButton": "Check my code",
+    "atlassian": {
+      "title": "Atlassian toolchain",
+      "text": "Expirenced in using and integrating Atlassian tools like Jira, Confluence and Trello"
+    },
+    "softwareDevelopment": {
+      "title": "Software Development",
+      "text": "Well versed in common software development tools like Git, Docker and Jenkins"
+    },
+    "design": {
+      "title": "Design and communication",
+      "text": "Familiar with design and communication tools like Figma, Teams and Slack"
+    }
+  },
+
   "companyLogos": {
     "tagline": "Helping to create beautiful software for companies like"
   }

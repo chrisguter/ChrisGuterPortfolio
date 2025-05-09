@@ -171,24 +171,21 @@ export const career = [
   },
 ];
 
-export const collabText =
-  "Expirenced in using and integrating Atlassian tools like Jira, Confluence and Trello";
-
-export const collabContent = [
+export const knowledgeContent = [
   {
     id: "0",
-    title: "Atlassian toolchain",
-    text: collabText,
+    title: "knowledge.atlassian.title",
+    text: "knowledge.atlassian.text",
   },
   {
     id: "1",
-    title: "Software Development",
-    text: "Well versed in common software development tools like Git, Docker and Jenkins",
+    title: "knowledge.softwareDevelopment.title",
+    text: "knowledge.softwareDevelopment.text",
   },
   {
     id: "2",
-    title: "Design and communication",
-    text: "Familiar with design and communication tools like Figma, Teams and Slack",
+    title: "knowledge.design.title",
+    text: "knowledge.design.text",
   },
 ];
 
