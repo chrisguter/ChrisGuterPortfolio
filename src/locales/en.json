@@ -147,6 +147,14 @@
     }
   },
 
+  "home": {
+    "headingP1": "Hi, I'm Christian",
+    "headingP2": "nice to meet",
+    "headingP3": "you!",
+    "tagline": "I'm a Scrum Master and Software Engineer currently working @ CAS Software AG in Karlsruhe",
+    "contactButton": "Contact me"
+  },
+
   "notification": {
     "timespan": "1m ago"
   },
