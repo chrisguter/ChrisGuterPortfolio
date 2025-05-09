@@ -87,6 +87,23 @@
     }
   },
 
+  "contact": {
+    "heading": "Let's connect!",
+    "tag": "Contact",
+    "email": {
+      "title": "Email",
+      "text": "Feel free to reach out via email at"
+    },
+    "github": {
+      "title": "GitHub",
+      "text": "Check out my GitHub profile for more projects and code samples."
+    },
+    "linkedin": {
+      "title": "LinkedIn",
+      "text": "Connect with me on LinkedIn to stay updated on my professional journey."
+    }
+  },
+
   "companyLogos": {
     "tagline": "Helping to create beautiful software for companies like"
   }

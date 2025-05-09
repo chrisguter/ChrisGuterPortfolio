@@ -1,12 +1,15 @@
 import Heading from "./Heading";
 import Section from "./Section";
 import { socials } from "../constants";
+import { useTranslation } from "react-i18next";
 
 const Contact = () => {
+  const { t } = useTranslation();
+
   return (
     <Section className="overflow-hidden" id="contact" crosses>
       <div className="container md:pb-10">
-        <Heading tag="Contact" title="Let's connect"></Heading>
+        <Heading tag={t("contact.tag")} title={t("contact.heading")}></Heading>
         <ul className="flex flex-col items-center gap-6">
           {socials.map((item) => (
             <a
