@@ -1,7 +1,10 @@
 import { notification1 } from "../assets";
 import { notificationImages } from "../constants";
+import { useTranslation } from "react-i18next";
 
 const Notification = ({ className, title }) => {
+  const { t } = useTranslation();
+
   return (
     <div
       className={`${
@@ -34,7 +37,7 @@ const Notification = ({ className, title }) => {
               </li>
             ))}
           </ul>
-          <div className="body-2 text-n-13">1m ago</div>
+          <div className="body-2 text-n-13">{t("notification.timespan")}</div>
         </div>
       </div>
     </div>

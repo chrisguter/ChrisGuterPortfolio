@@ -147,6 +147,10 @@
     }
   },
 
+  "notification": {
+    "timespan": "1m ago"
+  },
+
   "companyLogos": {
     "tagline": "Helping to create beautiful software for companies like"
   }
