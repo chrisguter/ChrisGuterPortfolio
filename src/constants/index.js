@@ -366,7 +366,7 @@ export const socials = [
 export const footerLinks = [
   {
     id: "0",
-    title: "Check out the code",
+    title: "footer.checkCode",
     iconUrl: githubDark,
     url: "https://github.com/chrisguter/ChrisGuterPortfolio",
   },

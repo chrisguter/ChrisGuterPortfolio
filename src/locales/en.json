@@ -167,7 +167,7 @@
   },
 
   "footer": {
-    "rights": "© {{year}}. All rights reserved.",
+    "rights": "All rights reserved.",
     "checkCode": "Check out the code"
   }
 }
