@@ -1,21 +1,24 @@
 import Section from "./Section";
 import Heading from "./Heading";
 import { check, mali, stork, gaming } from "../assets";
-import { brainwaveServices, gamingIcons } from "../constants";
+import { gamingIcons, maliSkills } from "../constants";
 import { MaliMessage, Gradient } from "./design/Services";
+import { useTranslation } from "react-i18next";
 
 const About = () => {
+  const { t } = useTranslation();
+
   return (
     <Section id="about" crosses>
       <div className="container">
-        <Heading title="A glimpse into my private life" tag="About" />
+        <Heading title={t("about.heading")} tag={t("about.tag")} />
 
         <div className="relative">
           <div className="relative z-1 flex flex-col md:flex-row items-center h-auto mb-5 p-8 border border-n-1/10 rounded-3xl overflow-hidden md:p-20 xl:h-[46rem]">
             <div className="relative z-1 max-w-[17rem]">
-              <h4 className="h4 mb-4">Dog training</h4>
+              <h4 className="h4 mb-4">{t("about.dogTraining.title")}</h4>
               <p className="body-2 mb-[3rem] text-n-3">
-                Regular training and hiking sessions with my dog Mali.
+                {t("about.dogTraining.text")}
               </p>
 
               {/* Image for small screens */}
@@ -30,13 +33,13 @@ const About = () => {
               </div>
 
               <ul className="body-2">
-                {brainwaveServices.map((item, index) => (
+                {maliSkills.map((skill, index) => (
                   <li
                     key={index}
                     className="flex items-start py-4 border-t border-n-6"
                   >
                     <img width={24} height={24} src={check} />
-                    <p className="ml-4">{item}</p>
+                    <p className="ml-4">{t(skill)}</p>
                   </li>
                 ))}
               </ul>
@@ -68,20 +71,18 @@ const About = () => {
               </div>
 
               <div className="absolute inset-0 flex flex-col justify-end p-8 bg-gradient-to-b from-n-8/0 to-n-8/90 lg:p-15">
-                <h4 className="h4 mb-4">Family Time</h4>
+                <h4 className="h4 mb-4">{t("about.familyTime.title")}</h4>
                 <p className="body-2 mb-[3rem] text-n-3">
-                  In April our first child was born. So spending a lot of time
-                  with my doughter is a top priority.
+                  {t("about.familyTime.text")}
                 </p>
               </div>
             </div>
 
             <div className="p-4 bg-n-7 rounded-3xl overflow-hidden lg:min-h-[46rem]">
               <div className="py-12 px-4 xl:px-8">
-                <h4 className="h4 mb-4">Gaming is my passion</h4>
+                <h4 className="h4 mb-4">{t("about.gaming.title")}</h4>
                 <p className="body-2 mb-[2rem] text-n-3">
-                  Competitve gaming is my biggest hobby. I love to challenge
-                  myself and constently improving my skills.
+                  {t("about.gaming.text")}
                 </p>
 
                 <ul className="flex items-center justify-between">

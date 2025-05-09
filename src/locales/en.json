@@ -4,14 +4,61 @@
     "contact": "Let's connect",
     "career": "My professional journey"
   },
-  "recentWork": {
-    "title1": "Mein Bioland",
-    "text1": "Maintaining and expanding the existing web application for Bioland, a leading organic farming association in Germany.",
-    "title2": "Daimler Truck",
-    "text2": "Introducing the new CPQ solution for Daimler Truck, a powerful tool that streamlines the configuration and pricing process for their trucks."
-  },
   "footer": {
     "rights": "© {{year}}. All rights reserved.",
     "checkCode": "Check out the code"
+  },
+
+  "recentWork": {
+    "heading": "Explore my recent work",
+    "bioland": {
+      "title": "Mein Bioland",
+      "text": "Maintaining and expanding the existing web application for Bioland, a leading organic farming association in Germany."
+    },
+    "daimler": {
+      "title": "Daimler Truck",
+      "text": "Introducing the new CPQ solution for Daimler Truck, a powerful tool that streamlines the configuration and pricing process for their trucks."
+    },
+    "secureLogin": {
+      "title": "Secure Login with 2FA",
+      "text": "Implemented a secure login system with two-factor authentication (2FA) to enhance security and protect user data."
+    },
+    "deutscheBahn": {
+      "title": "Deutsche Bahn Energie",
+      "text": "Customized the existing CRM application for Deutsche Bahn Energie, a leading energy provider in Germany."
+    },
+    "smartWeAppstore": {
+      "title": "SmartWe Appstore",
+      "text": "Main developer of the SmartWe Appstore, a cloud platform that allows users to easily find and install applications tailored for their CRM."
+    },
+    "eInvoice": {
+      "title": "E-Invoice for SmartWe",
+      "text": "Developing an E-Invoice application for SmartWe, enabling users to easily create, store and send electronic invoices."
+    },
+    "links": {
+      "exploreMore": "Explore more"
+    }
+  },
+
+  "about": {
+    "heading": "A glimpse into my private life",
+    "tag": "About",
+    "dogTraining": {
+      "title": "Dog training",
+      "text": "Regular training and hiking sessions with my dog Mali."
+    },
+    "familyTime": {
+      "title": "Family Time",
+      "text": "In April our first child was born. So spending a lot of time with my daughter is a top priority."
+    },
+    "gaming": {
+      "title": "Gaming is my passion",
+      "text": "Competitive gaming is my biggest hobby. I love to challenge myself and constantly improve my skills."
+    },
+    "maliSkills": {
+      "skill1": "good girl",
+      "skill2": "listens to commands",
+      "skill3": "loves belly rubs"
+    }
   }
 }

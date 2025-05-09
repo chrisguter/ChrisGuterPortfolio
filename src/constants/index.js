@@ -1,4 +1,5 @@
 import { info } from "autoprefixer";
+import i18n from "i18next";
 import {
   recentWorkIcon1,
   recentWorkIcon2,
@@ -120,10 +121,10 @@ export const companyLogos = [
   },
 ];
 
-export const brainwaveServices = [
-  "Good girl",
-  "Listens to commands",
-  "Loves belly rubs",
+export const maliSkills = [
+  "about.maliSkills.skill1",
+  "about.maliSkills.skill2",
+  "about.maliSkills.skill3",
 ];
 
 export const gamingIcons = [
@@ -292,8 +293,8 @@ export const expertise = [
 export const recentWork = [
   {
     id: "0",
-    title: "Mein Bioland",
-    text: "Maintaining and expanding the existing web application for Bioland, a leading organic farming association in Germany.",
+    title: "recentWork.bioland.title",
+    text: "recentWork.bioland.text",
     backgroundUrl: `${BASE_PATH}/recentWork/card-1.svg`,
     iconUrl: recentWorkIcon1,
     imageUrl: recentWorkImage1,
@@ -301,8 +302,8 @@ export const recentWork = [
   },
   {
     id: "1",
-    title: "Daimler Truck",
-    text: "Introducing the new CPQ solution for Daimler Truck, a powerful tool that streamlines the configuration and pricing process for their trucks.",
+    title: "recentWork.daimler.title",
+    text: "recentWork.daimler.text",
     backgroundUrl: `${BASE_PATH}/recentWork/card-2.svg`,
     iconUrl: recentWorkIcon2,
     imageUrl: recentWorkImage2,
@@ -311,8 +312,8 @@ export const recentWork = [
   },
   {
     id: "2",
-    title: "Secure Login with 2FA",
-    text: "Implemented a secure login system with two-factor authentication (2FA) to enhance security and protect user data.",
+    title: "recentWork.secureLogin.title",
+    text: "recentWork.secureLogin.text",
     backgroundUrl: `${BASE_PATH}/recentWork/card-3.svg`,
     iconUrl: recentWorkIcon3,
     imageUrl: recentWorkImage3,
@@ -321,8 +322,8 @@ export const recentWork = [
   },
   {
     id: "3",
-    title: "Deutsche Bahn Energie",
-    text: "Customized the existing CRM application for Deutsche Bahn Energie, a leading energy provider in Germany.",
+    title: "recentWork.deutscheBahn.title",
+    text: "recentWork.deutscheBahn.text",
     backgroundUrl: `${BASE_PATH}/recentWork/card-4.svg`,
     iconUrl: recentWorkIcon4,
     imageUrl: recentWorkImage4,
@@ -332,8 +333,8 @@ export const recentWork = [
   },
   {
     id: "4",
-    title: "SmartWe Appstore",
-    text: "Main developer of the SmartWe Appstore, a cloud platform that allows users to easily find and install applications tailored for their CRM.",
+    title: "recentWork.smartWeAppstore.title",
+    text: "recentWork.smartWeAppstore.text",
     backgroundUrl: `${BASE_PATH}/recentWork/card-5.svg`,
     iconUrl: recentWorkIcon1,
     imageUrl: recentWorkImage5,
@@ -341,8 +342,8 @@ export const recentWork = [
   },
   {
     id: "5",
-    title: "E-Invoice for SmartWe",
-    text: "Developing an E-Invoice application for SmartWe, enabling users to easily create, store and send electronic invoices.",
+    title: "recentWork.eInvoice.title",
+    text: "recentWork.eInvoice.text",
     backgroundUrl: `${BASE_PATH}/recentWork/card-6.svg`,
     iconUrl: recentWorkIcon2,
     imageUrl: recentWorkImage6,

@@ -15,7 +15,7 @@ const RecentWork = () => {
         <Heading
           className="md:max-w-md lg:max-w-2xl"
           tag="Projects"
-          title={t("heading.projects")}
+          title={t("recentWork.heading")}
         />
 
         <div className="flex flex-wrap gap-10 mb-10">
@@ -29,14 +29,14 @@ const RecentWork = () => {
                 key={item.id}
               >
                 <div className="relative z-2 flex flex-col min-h-[22rem] p-[2.4rem] pointer-events-none">
-                  <h5 className="h5 mb-5">{item.title}</h5>
-                  <p className="body-2 mb-6 text-n-3">{item.text}</p>
+                  <h5 className="h5 mb-5">{t(item.title)}</h5>
+                  <p className="body-2 mb-6 text-n-3">{t(item.text)}</p>
                   <div className="flex items-center mt-auto">
                     <img
                       src={item.iconUrl}
                       width={48}
                       height={48}
-                      alt={item.title}
+                      alt={t(item.title)}
                     />
                     <p className="ml-auto font-code text-xs font-bold text-n-1 uppercase tracking-wider">
                       <a
@@ -45,7 +45,7 @@ const RecentWork = () => {
                         rel="noreferrer"
                         className="pointer-events-auto"
                       >
-                        Explore more
+                        {t("recentWork.links.exploreMore")}
                       </a>
                     </p>
                     <Arrow />
