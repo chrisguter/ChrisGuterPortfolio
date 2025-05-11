@@ -26,7 +26,7 @@ const Knowledge = () => {
               </li>
             ))}
           </ul>
-          <Button>
+          <Button className="mb-8 md:mb-0">
             <a
               href="https://github.com/ChrisGuter"
               target="_blank"
