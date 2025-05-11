@@ -15,7 +15,7 @@
     "headingP1": "Hi, I'm Christian",
     "headingP2": "nice to meet",
     "headingP3": "you!",
-    "tagline": "I'm a Scrum Master and Software Engineer currently working @ CAS Software AG in Karlsruhe",
+    "tagline": "I'm a Scrum Master and Software Engineer currently working @ CAS Software AG, based in Karlsruhe.",
     "contactButton": "Contact me",
     "notificationText": "Code generation"
   },
@@ -71,9 +71,9 @@
     },
     "agileMethodologies": {
       "title": "Agile Methodologies",
-      "description": "Expert in agile methodologies, specializing in SCRUM workflows.",
+      "description": "Expert in agile methodologies with a strong focus on the SCRUM framework and team workflows.",
       "expertise1": "Hands-on experience using Scrum, Kanban, and Lean to drive project delivery.",
-      "expertise2": "Capable to lead agile meetings and foster team collaboration.",
+      "expertise2": "Comfortable leading agile meetings and helping international teams stay connected and collaborative.",
       "expertise3": "Committed to agile principles, with a clear understanding of their role in iterative development."
     },
     "devOps": {
@@ -81,7 +81,7 @@
       "description": "Adept at applying DevOps principles to streamline development through automated CI/CD pipelines.",
       "expertise1": "Experience with Jenkins, Docker and Kubernetes",
       "expertise2": "Ability to automate critical aspects of software delivery, including deployment and testing",
-      "expertise3": "Comfortable with Git workflows and configuration management principles in collaborative dev settings."
+      "expertise3": "Well-versed with Git workflows and configuration management principles in collaborative dev settings."
     }
   },
 
@@ -90,15 +90,15 @@
     "checkCodeButton": "Check my code",
     "atlassian": {
       "title": "Atlassian toolchain",
-      "text": "Expirenced in using and integrating Atlassian tools like Jira, Confluence and Trello"
+      "text": "Expirenced in navigating the Atlassian ecosystem, using tools like Jira, Confluence, and Trello to bring structure to chaos and keep projects moving smoothly."
     },
     "softwareDevelopment": {
       "title": "Software Development",
-      "text": "Well versed in common software development tools like Git, Docker and Jenkins"
+      "text": "Comfortable working with widely used development tools such as Git, Docker, and Jenkins."
     },
     "design": {
       "title": "Design and communication",
-      "text": "Familiar with design and communication tools like Figma, Teams and Slack"
+      "text": "Familiar with tools like Figma, Teams, and Slack to support design and communication workflows."
     }
   },
 
@@ -106,24 +106,24 @@
     "heading": "My professional journey",
     "tag": "Career",
     "leadership": {
-      "title": "Leadership training",
-      "text": "Participating in a leadership training program to enhance my skills in team management, project coordination and prepare for future leadership roles.",
-      "date": "May 2025"
+      "title": "Leadership program",
+      "text": "Currently taking part in a leadership training program to strengthen my skills in team management and project coordination, and to get ready for future leadership opportunities.",
+      "date": "May 2024"
     },
     "scrumMaster": {
-      "title": "Scrum Master",
-      "text": "Became the Scrum Master a newly created team, leading them in agile practices and ensuring smooth project delivery.",
+      "title": "SCRUM Master",
+      "text": "Stepped into the role of the Scrum Master for a newly formed team, guiding them through agile methodologies and helping build a strong foundation for collaboration and delivery. Focused on fostering team cohesion and ensuring we stay on track to meet project goals efficiently.",
       "date": "May 2021"
     },
     "softwareEngineer": {
       "title": "Software Engineer",
-      "text": "Started my professional career as a software engineer, focusing on web development and application design.",
+      "text": "Jumped into the tech world as a software engineer, working on everything from front-end interfaces to backend development and APIs. Web development and design were my starting points — and are still some of my favorite areas to work in.",
       "date": "Oktober 2018"
     },
     "bachelor": {
       "title": "Bachelor of Science",
-      "text": "Completed my Bachelor of Science in Computer Science, at the DHBW Karlsruhe.",
-      "date": "September 2018"
+      "text": "I earned my Bachelor of Science in Computer Science from DHBW Karlsruhe in 2018. The program offered a solid mix of academic theory and hands-on experience, which helped me build a strong foundation in software development and problem-solving early on.",
+      "date": "September 2015"
     }
   },
 
@@ -132,20 +132,20 @@
     "tag": "About",
     "dogTraining": {
       "title": "Dog training",
-      "text": "Regular training and hiking sessions with my dog Mali."
+      "text": "I regularly head out for training and hiking sessions with my dog, Mali — it's a great way for both of us to stay active and enjoy the outdoors together."
     },
     "familyTime": {
       "title": "Family Time",
-      "text": "In April our first child was born. So spending a lot of time with my daughter is a top priority."
+      "text": "In April in April, we welcomed our first child into the world, which has been an incredible and life-changing experience. These days, I'm prioritizing quality time with my wife and newborn daughter—it's a special chapter I'm really grateful to be present for"
     },
     "gaming": {
       "title": "Gaming is my passion",
-      "text": "Competitive gaming is my biggest hobby. I love to challenge myself and constantly improve my skills."
+      "text": "I'm deeply passionate about competitive gaming—it's my go-to way to challenge myself and keep improving. There's always something new to learn, whether it's mastering a mechanic or figuring out smarter strategies. It keeps me on my toes and I love that."
     },
     "maliSkills": {
-      "skill1": "good girl",
-      "skill2": "listens to commands",
-      "skill3": "loves belly rubs"
+      "skill1": "Good girl",
+      "skill2": "Listens to commands",
+      "skill3": "Loves belly rubs"
     }
   },
 
