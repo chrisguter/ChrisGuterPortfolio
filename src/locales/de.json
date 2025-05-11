@@ -1,17 +1,173 @@
 {
-  "heading": {
-    "projects": "Entdecken Sie meine neuesten Arbeiten",
-    "contact": "Lass uns verbinden",
-    "career": "Mein beruflicher Werdegang"
+  "header": {
+    "logoText": "ChrisGuter",
+    "navigation": {
+      "home": "Startseite",
+      "projects": "Projekte",
+      "expertise": "Expertise",
+      "career": "Karriere",
+      "about": "Über mich",
+      "contact": "Kontakt"
+    }
   },
+
+  "home": {
+    "headingP1": "Hi, ich bin Christian",
+    "headingP2": "schön dich",
+    "headingP3": "kennenzulernen!",
+    "tagline": "Ich bin Scrum Master und Softwareentwickler und arbeite derzeit bei CAS Software AG in Karlsruhe.",
+    "contactButton": "Kontaktiere mich",
+    "notificationText": "Code-Generierung"
+  },
+
+  "notification": {
+    "timespan": "vor 1 Min."
+  },
+
+  "companyLogos": {
+    "tagline": "Ich helfe dabei, schöne Software für Unternehmen wie diese zu entwickeln"
+  },
+
   "recentWork": {
-    "title1": "Mein Bioland",
-    "text1": "Pflege und Erweiterung der bestehenden Webanwendung für Bioland, einen führenden Bio-Anbauverband in Deutschland.",
-    "title2": "Daimler Truck",
-    "text2": "Einführung der neuen CPQ-Lösung für Daimler Truck, ein leistungsstarkes Tool zur Optimierung des Konfigurations- und Preisfindungsprozesses."
+    "heading": "Entdecke meine aktuellen Projekte",
+    "bioland": {
+      "title": "Mein Bioland",
+      "text": "Wartung und Erweiterung der bestehenden Webanwendung für Bioland, einen führenden Bio-Anbauverband in Deutschland."
+    },
+    "daimler": {
+      "title": "Daimler Truck",
+      "text": "Einführung der neuen CPQ-Lösung für Daimler Truck – ein leistungsstarkes Tool zur Optimierung des Konfigurations- und Preisgestaltungsprozesses."
+    },
+    "secureLogin": {
+      "title": "Sicherer Login mit 2FA",
+      "text": "Implementierung eines sicheren Loginsystems mit Zwei-Faktor-Authentifizierung (2FA), um die Sicherheit zu erhöhen und Benutzerdaten zu schützen."
+    },
+    "deutscheBahn": {
+      "title": "Deutsche Bahn Energie",
+      "text": "Anpassung der bestehenden CRM-Anwendung für Deutsche Bahn Energie, einen führenden Energieversorger in Deutschland."
+    },
+    "smartWeAppstore": {
+      "title": "SmartWe Appstore",
+      "text": "Hauptentwickler des SmartWe Appstores – einer Cloud-Plattform, die es Nutzern ermöglicht, passende Anwendungen für ihr CRM zu finden und zu installieren."
+    },
+    "eInvoice": {
+      "title": "E-Rechnung für SmartWe",
+      "text": "Entwicklung einer E-Rechnungsanwendung für SmartWe, mit der Nutzer elektronische Rechnungen einfach erstellen, speichern und versenden können."
+    },
+    "links": {
+      "exploreMore": "Mehr entdecken"
+    }
   },
+
+  "expertise": {
+    "heading": "Das bringe ich mit",
+    "tag": "Expertise",
+    "softwareDevelopment": {
+      "title": "Softwareentwicklung",
+      "description": "Kompetenter Softwareentwickler mit Schwerpunkt auf Webanwendungen.",
+      "expertise1": "Erfahren in Java und modernen Frontend-Frameworks wie Angular und React.",
+      "expertise2": "Vertraut mit verteilten Systemen auf Basis von Microservices und REST-APIs.",
+      "expertise3": "Tiefes Verständnis moderner Software-Engineering-Praktiken und -Methoden."
+    },
+    "agileMethodologies": {
+      "title": "Agile Methoden",
+      "description": "Experte für agile Methoden mit starkem Fokus auf das SCRUM-Framework und Teamabläufe.",
+      "expertise1": "Praxis in der Anwendung von Scrum, Kanban und Lean zur erfolgreichen Projektumsetzung.",
+      "expertise2": "Routiniert in der Moderation agiler Meetings und der Zusammenarbeit mit internationalen Teams.",
+      "expertise3": "Engagiert für agile Prinzipien und deren Bedeutung für iterative Entwicklung."
+    },
+    "devOps": {
+      "title": "DevOps",
+      "description": "Versiert in der Anwendung von DevOps-Prinzipien zur Automatisierung von CI/CD-Prozessen.",
+      "expertise1": "Erfahrung mit Jenkins, Docker und Kubernetes",
+      "expertise2": "Fähigkeit zur Automatisierung wichtiger Prozesse wie Deployment und Testing",
+      "expertise3": "Vertraut mit Git-Workflows und Konfigurationsmanagement in Zusammenarbeitsteams."
+    }
+  },
+
+  "knowledge": {
+    "heading": "Wissen über eine Vielzahl von Tools",
+    "checkCodeButton": "Meinen Code ansehen",
+    "atlassian": {
+      "title": "Atlassian-Toolchain",
+      "text": "Erfahren im Umgang mit dem Atlassian-Ökosystem, insbesondere mit Jira, Confluence und Trello, um Projekte effizient zu organisieren."
+    },
+    "softwareDevelopment": {
+      "title": "Softwareentwicklung",
+      "text": "Sicher im Umgang mit gängigen Entwicklungstools wie Git, Docker und Jenkins."
+    },
+    "design": {
+      "title": "Design und Kommunikation",
+      "text": "Vertraut mit Tools wie Figma, Teams und Slack zur Unterstützung von Design- und Kommunikationsprozessen."
+    }
+  },
+
+  "career": {
+    "heading": "Mein beruflicher Werdegang",
+    "tag": "Karriere",
+    "leadership": {
+      "title": "Leadership-Programm",
+      "text": "Derzeit nehme ich an einem Führungskräfteentwicklungsprogramm teil, um meine Fähigkeiten in Teamleitung und Projektkoordination zu stärken und mich auf zukünftige Führungsrollen vorzubereiten.",
+      "date": "Mai 2024"
+    },
+    "scrumMaster": {
+      "title": "SCRUM Master",
+      "text": "Übernahme der Rolle des Scrum Masters in einem neu gegründeten Team, mit Fokus auf agile Methoden und Teamentwicklung. Ziel ist es, Zusammenarbeit und effiziente Projektumsetzung zu fördern.",
+      "date": "Mai 2021"
+    },
+    "softwareEngineer": {
+      "title": "Softwareentwickler",
+      "text": "Einstieg in die Tech-Welt als Softwareentwickler mit Fokus auf Frontend, Backend und APIs. Webentwicklung und -design waren meine Einstiegspunkte – und gehören weiterhin zu meinen Lieblingsbereichen.",
+      "date": "Oktober 2018"
+    },
+    "bachelor": {
+      "title": "Bachelor of Science",
+      "text": "Ich habe 2018 meinen Bachelor of Science in Informatik an der DHBW Karlsruhe abgeschlossen. Das duale Studium bot eine gute Mischung aus Theorie und Praxis und legte das Fundament für meine Entwicklung als Softwareentwickler.",
+      "date": "September 2015"
+    }
+  },
+
+  "about": {
+    "heading": "Ein Blick in mein Privatleben",
+    "tag": "Über mich",
+    "dogTraining": {
+      "title": "Hundetraining",
+      "text": "Ich gehe regelmäßig mit meinem Hund Mali trainieren und wandern - das ist eine tolle Möglichkeit, gemeinsam aktiv zu bleiben und die Natur zu genießen."
+    },
+    "familyTime": {
+      "title": "Familienzeit",
+      "text": "Im April haben wir unser erstes Kind bekommen - ein unglaubliches und lebensveränderndes Erlebnis. Momentan liegt mein Fokus ganz auf der Zeit mit meiner Frau und unserer neugeborenen Tochter – ich bin sehr dankbar für diese besondere Lebensphase."
+    },
+    "gaming": {
+      "title": "Gaming ist meine Leidenschaft",
+      "text": "Ich liebe kompetitives Gaming - es fordert mich heraus und bietet immer neue Möglichkeiten zur Verbesserung. Ob neue Mechaniken oder clevere Strategien – es bleibt spannend und motivierend."
+    },
+    "maliSkills": {
+      "skill1": "Braves Mädchen",
+      "skill2": "Hört auf Kommandos",
+      "skill3": "Liebt Bauchstreicheln"
+    }
+  },
+
+  "contact": {
+    "heading": "Lass uns vernetzen!",
+    "tag": "Kontakt",
+    "email": {
+      "title": "E-Mail",
+      "text": "Schreib mir gerne eine E-Mail an"
+    },
+    "github": {
+      "title": "GitHub",
+      "text": "Schau dir mein GitHub-Profil für weitere Projekte und Codebeispiele an."
+    },
+    "linkedin": {
+      "title": "LinkedIn",
+      "text": "Vernetze dich mit mir auf LinkedIn, um über meinen beruflichen Weg auf dem Laufenden zu bleiben."
+    }
+  },
+
   "footer": {
-    "rights": "© {{year}}. Alle Rechte vorbehalten.",
-    "checkCode": "Schauen Sie sich den Code an"
+    "rights": "Alle Rechte vorbehalten.",
+    "checkCode": "Quellcode ansehen"
   }
 }
