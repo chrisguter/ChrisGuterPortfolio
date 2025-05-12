@@ -17,11 +17,11 @@
     "headingP3": "you!",
     "tagline": "I'm a Scrum Master and Software Engineer currently working @ CAS Software AG, based in Karlsruhe.",
     "contactButton": "Contact me",
-    "notificationText": "Code generation"
+    "notificationText": "In Review"
   },
 
   "notification": {
-    "timespan": "1m ago"
+    "timespan": "15m ago"
   },
 
   "companyLogos": {
