@@ -4,6 +4,7 @@ import { check, mali, stork, gaming } from "../assets";
 import { gamingIcons, maliSkills } from "../constants";
 import { MaliMessage, Gradient } from "./design/Services";
 import { useTranslation } from "react-i18next";
+import Generating from "./Generating";
 
 const About = () => {
   const { t } = useTranslation();
@@ -117,6 +118,7 @@ const About = () => {
                   height={400}
                   alt="gaming"
                 />
+                <Generating className="absolute left-4 right-4 bottom-5 md:left-1/2 md:right-auto md:bottom-8 md:w-[31rem] md:-translate-x-1/2" />
               </div>
             </div>
           </div>
