@@ -26,14 +26,13 @@ const Knowledge = () => {
               </li>
             ))}
           </ul>
-          <Button className="mb-8 md:mb-0">
-            <a
-              href="https://github.com/ChrisGuter"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              {t("knowledge.checkCodeButton")}
-            </a>
+          <Button
+            className="mb-8 md:mb-0"
+            href="https://github.com/ChrisGuter"
+            target="_blank"
+            rel="noreferrer noopener"
+          >
+            {t("knowledge.checkCodeButton")}
           </Button>
         </div>
         <div className="lg:ml-auto xl:w-[38rem] mt-4">
