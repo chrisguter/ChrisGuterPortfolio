@@ -31,14 +31,18 @@ jobs:
       - name: Build the project
         run: npm run build
 
-      # Step 5: Upload build artifacts (optional)
+      # Step 5: Add CNAME file for custom domain
+      - name: Add CNAME file
+        run: echo "chrisguter.com" > dist/CNAME
+
+      # Step 6: Upload build artifacts (optional)
       - name: Upload build artifacts
         uses: actions/upload-artifact@v4
         with:
           name: ChrisGuterPortfolio
           path: dist/
 
-      # Step 6: Deploy to GitHub Pages
+      # Step 7: Deploy to GitHub Pages
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
