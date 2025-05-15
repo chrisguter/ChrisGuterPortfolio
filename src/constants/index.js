@@ -47,8 +47,6 @@ import {
   datev,
 } from "../assets";
 
-export const BASE_PATH = "/ChrisGuterPortfolio";
-
 export const navigation = [
   {
     id: "0",
@@ -286,7 +284,7 @@ export const recentWork = [
     id: "0",
     title: "recentWork.bioland.title",
     text: "recentWork.bioland.text",
-    backgroundUrl: `${BASE_PATH}/recentWork/card-1.svg`,
+    backgroundUrl: "/recentWork/card-1.svg",
     iconUrl: recentWorkIcon1,
     imageUrl: recentWorkImage1,
     infoUrl: "https://www.smartwe.de/de/referenzen/bioland/",
@@ -295,7 +293,7 @@ export const recentWork = [
     id: "1",
     title: "recentWork.daimler.title",
     text: "recentWork.daimler.text",
-    backgroundUrl: `${BASE_PATH}/recentWork/card-2.svg`,
+    backgroundUrl: "/recentWork/card-2.svg",
     iconUrl: recentWorkIcon2,
     imageUrl: recentWorkImage2,
     infoUrl: "https://www.cas-software.com/solutions/cpq/cas-merlin-cpq/",
@@ -305,7 +303,7 @@ export const recentWork = [
     id: "2",
     title: "recentWork.secureLogin.title",
     text: "recentWork.secureLogin.text",
-    backgroundUrl: `${BASE_PATH}/recentWork/card-3.svg`,
+    backgroundUrl: "/recentWork/card-3.svg",
     iconUrl: recentWorkIcon3,
     imageUrl: recentWorkImage3,
     infoUrl:
@@ -315,7 +313,7 @@ export const recentWork = [
     id: "3",
     title: "recentWork.deutscheBahn.title",
     text: "recentWork.deutscheBahn.text",
-    backgroundUrl: `${BASE_PATH}/recentWork/card-4.svg`,
+    backgroundUrl: "/recentWork/card-4.svg",
     iconUrl: recentWorkIcon4,
     imageUrl: recentWorkImage4,
     infoUrl:
@@ -326,7 +324,7 @@ export const recentWork = [
     id: "4",
     title: "recentWork.smartWeAppstore.title",
     text: "recentWork.smartWeAppstore.text",
-    backgroundUrl: `${BASE_PATH}/recentWork/card-5.svg`,
+    backgroundUrl: "/recentWork/card-5.svg",
     iconUrl: recentWorkIcon1,
     imageUrl: recentWorkImage5,
     infoUrl: "https://appstore.smartwe.world/home",
@@ -335,7 +333,7 @@ export const recentWork = [
     id: "5",
     title: "recentWork.eInvoice.title",
     text: "recentWork.eInvoice.text",
-    backgroundUrl: `${BASE_PATH}/recentWork/card-6.svg`,
+    backgroundUrl: "/recentWork/card-6.svg",
     iconUrl: recentWorkIcon2,
     imageUrl: recentWorkImage6,
     infoUrl: "https://www.smartwe.de/en/",
