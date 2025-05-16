@@ -38,17 +38,18 @@ const RecentWork = () => {
                       height={48}
                       alt={t(item.title)}
                     />
-                    <p className="ml-auto font-code text-xs font-bold text-n-1 uppercase tracking-wider">
-                      <a
-                        href={item.infoUrl}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="pointer-events-auto"
-                      >
-                        {t("recentWork.links.exploreMore")}
-                      </a>
-                    </p>
-                    <Arrow />
+                    <a
+                      href={item.infoUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="flex items-center ml-auto font-code text-xs font-bold text-n-1 uppercase tracking-wider pointer-events-auto px-3 py-2 rounded hover:bg-n-6/20 transition"
+                      style={{ minHeight: 48 }}
+                    >
+                      {t("recentWork.links.exploreMore")}
+                      <span className="ml-2">
+                        <Arrow />
+                      </span>
+                    </a>
                   </div>
                 </div>
                 {item.light && <GradientLight />}
