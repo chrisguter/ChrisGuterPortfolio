@@ -38,7 +38,14 @@ const Career = () => {
                   </div>
                   <div className="relative z-1">
                     <div className="flex items-center justify-between max-w-[27rem] mb-8 md:mb-20">
-                      <Tagline>{t(item.date)}</Tagline>
+                      {/* Show only startDate on small screens */}
+                      <Tagline className="block md:hidden">
+                        {t(item.startDate)}
+                      </Tagline>
+                      {/* Show startDate - endDate on md+ screens */}
+                      <Tagline className="hidden md:block">
+                        {t(item.startDate)} - {t(item.endDate)}
+                      </Tagline>
 
                       <div className="flex items-center px-4 py-1 bg-n-1 rounded text-n-8">
                         <img

@@ -108,22 +108,26 @@
     "leadership": {
       "title": "Leadership program",
       "text": "Currently taking part in a leadership training program to strengthen my skills in team management and project coordination, and to get ready for future leadership opportunities.",
-      "date": "May 2023 - June 2025"
+      "startDate": "May 2023",
+      "endDate": "June 2025"
     },
     "scrumMaster": {
       "title": "SCRUM Master",
       "text": "Stepped into the role of the Scrum Master for a newly formed team, guiding them through agile methodologies and helping build a strong foundation for collaboration and delivery. Focused on fostering team cohesion and ensuring we stay on track to meet project goals efficiently.",
-      "date": "April 2021 - Now"
+      "startDate": "Apr. 2021",
+      "endDate": "Now"
     },
     "softwareEngineer": {
       "title": "Software Engineer",
       "text": "Jumped into the tech world as a software engineer, working on everything from front-end interfaces to backend development and APIs. Web development and design were my starting points — and are still some of my favorite areas to work in.",
-      "date": "October 2018 - April 2021"
+      "startDate": "Oct. 2018",
+      "endDate": "Apr. 2021"
     },
     "bachelor": {
       "title": "Bachelor of Science",
       "text": "I earned my Bachelor of Science in Computer Science from DHBW Karlsruhe in 2018. The program offered a solid mix of academic theory and hands-on experience, which helped me build a strong foundation in software development and problem-solving early on.",
-      "date": "September 2015 - October 2018 "
+      "startDate": "Sep. 2015",
+      "endDate": "Oct. 2018"
     }
   },
 
