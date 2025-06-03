@@ -39,11 +39,11 @@ const Career = () => {
                   <div className="relative z-1">
                     <div className="flex items-center justify-between max-w-[27rem] mb-8 md:mb-20">
                       {/* Show only startDate on small screens */}
-                      <Tagline className="block md:hidden">
+                      <Tagline className="block lg:hidden">
                         {t(item.startDate)}
                       </Tagline>
                       {/* Show startDate - endDate on md+ screens */}
-                      <Tagline className="hidden md:block">
+                      <Tagline className="hidden lg:flex">
                         {t(item.startDate)} - {t(item.endDate)}
                       </Tagline>
 
