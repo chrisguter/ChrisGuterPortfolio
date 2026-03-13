@@ -42,9 +42,9 @@
       "title": "Secure Login with 2FA",
       "text": "Implemented a secure login system with two-factor authentication (2FA) to enhance security and protect user data."
     },
-    "deutscheBahn": {
-      "title": "Deutsche Bahn Energie",
-      "text": "Customized the existing CRM application for Deutsche Bahn Energie, a leading energy provider in Germany."
+    "dropigon": {
+      "title": "Dropigon",
+      "text": "Released Dropigon, a mobile puzzle game available on the App Store and Google Play, where players can enjoy a fun and challenging gaming experience."
     },
     "smartWeAppstore": {
       "title": "SmartWe Appstore",
@@ -105,6 +105,13 @@
   "career": {
     "heading": "My professional journey",
     "tag": "Career",
+    "ceo": {
+      "title": "CEO & Founder ",
+      "subtitle": "of TumbleTree Studios",
+      "text": "I founded my own company as a side project, where I took on the role of CEO and led the development of our applications. This experience allowed me to gain valuable insights into business management, the complete delivery lifecycle, and other aspects of running a organization.",
+      "startDate": "October 2025",
+      "endDate": "Now"
+    },
     "leadership": {
       "title": "Leadership program",
       "text": "Currently taking part in a leadership training program to strengthen my skills in team management and project coordination, and to get ready for future leadership opportunities.",

@@ -66,6 +66,7 @@ import career1 from "./career/image-1.png";
 import career2 from "./career/image-2.png";
 import career3 from "./career/image-3.png";
 import career4 from "./career/image-4.png";
+import career5 from "./career/image-5.png";
 import undone from "./career/undone.svg";
 
 import notification1 from "./notification/image-1.png";
@@ -152,6 +153,7 @@ export {
   career2,
   career3,
   career4,
+  career5,
   undone,
   notification1,
   notification2,

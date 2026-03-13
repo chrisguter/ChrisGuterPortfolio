@@ -68,7 +68,11 @@ const Career = () => {
                         alt={t(item.title)}
                       />
                     </div>
-                    <h4 className="h4 mb-4">{t(item.title)}</h4>
+                    <h4 className="h4 mb-1">{t(item.title)}</h4>
+                    {item.subtitle && (
+                      <p className="body-2 text-n-3 mb-4">{t(item.subtitle)}</p>
+                    )}
+                    {!item.subtitle && <div className="mb-4" />}
                     <p className="body-2 text-n-4">{t(item.text)}</p>
                   </div>
                 </div>

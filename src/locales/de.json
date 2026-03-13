@@ -42,7 +42,7 @@
       "title": "Sicherer Login mit 2FA",
       "text": "Implementierung eines sicheren Loginsystems mit Zwei-Faktor-Authentifizierung (2FA), um die Sicherheit zu erhöhen und Benutzerdaten zu schützen."
     },
-    "deutscheBahn": {
+    "dropigon": {
       "title": "Deutsche Bahn Energie",
       "text": "Anpassung der bestehenden CRM-Anwendung für Deutsche Bahn Energie, einen führenden Energieversorger in Deutschland."
     },
@@ -105,6 +105,11 @@
   "career": {
     "heading": "Mein beruflicher Werdegang",
     "tag": "Karriere",
+    "ceo": {
+      "title": "CEO & Gründer",
+      "text": "Derzeit nehme ich an einem Führungskräfteentwicklungsprogramm teil, um meine Fähigkeiten in Teamleitung und Projektkoordination zu stärken und mich auf zukünftige Führungsrollen vorzubereiten.",
+      "date": "Mai 2024"
+    },
     "leadership": {
       "title": "Leadership-Programm",
       "text": "Derzeit nehme ich an einem Führungskräfteentwicklungsprogramm teil, um meine Fähigkeiten in Teamleitung und Projektkoordination zu stärken und mich auf zukünftige Führungsrollen vorzubereiten.",

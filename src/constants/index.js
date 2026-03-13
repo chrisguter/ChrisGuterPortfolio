@@ -37,6 +37,7 @@ import {
   career2,
   career3,
   career4,
+  career5,
   searchMd,
   slack,
   cassoftwareag,
@@ -136,12 +137,13 @@ export const gamingIcons = [
 export const career = [
   {
     id: "0",
-    title: "career.leadership.title",
-    text: "career.leadership.text",
-    startDate: "career.leadership.startDate",
-    endDate: "career.leadership.endDate",
+    title: "career.ceo.title",
+    subtitle: "career.ceo.subtitle",
+    text: "career.ceo.text",
+    startDate: "career.ceo.startDate",
+    endDate: "career.ceo.endDate",
     status: "progress",
-    imageUrl: career1,
+    imageUrl: career5,
     colorful: true,
   },
   {
@@ -155,6 +157,15 @@ export const career = [
   },
   {
     id: "2",
+    title: "career.leadership.title",
+    text: "career.leadership.text",
+    startDate: "career.leadership.startDate",
+    endDate: "career.leadership.endDate",
+    status: "done",
+    imageUrl: career1,
+  },
+  {
+    id: "3",
     title: "career.softwareEngineer.title",
     text: "career.softwareEngineer.text",
     startDate: "career.softwareEngineer.startDate",
@@ -163,7 +174,7 @@ export const career = [
     imageUrl: career3,
   },
   {
-    id: "3",
+    id: "4",
     title: "career.bachelor.title",
     text: "career.bachelor.text",
     startDate: "career.bachelor.startDate",
@@ -315,13 +326,12 @@ export const recentWork = [
   },
   {
     id: "3",
-    title: "recentWork.deutscheBahn.title",
-    text: "recentWork.deutscheBahn.text",
+    title: "recentWork.dropigon.title",
+    text: "recentWork.dropigon.text",
     backgroundUrl: "/recentWork/card-4.svg",
     iconUrl: recentWorkIcon4,
     imageUrl: recentWorkImage4,
-    infoUrl:
-      "https://www.cas-crm.com/nc/references.html?tx_vdcasreferences_pi1%5Brequest%5D=reviews&tx_vdcasreferences_pi1%5Bpage%5D=5&tx_vdcasreferences_pi1%5Bpage_id%5D=21686&tx_vdcasreferences_pi1%5Bsc_id%5D=1&tx_vdcasreferences_pi1%5Bid_ref%5D=0xC83AD5091B3043CEABF6F5AE2081CF1A",
+    infoUrl: "https://apps.apple.com/de/app/dropigon/id6755251910",
     light: true,
   },
   {
