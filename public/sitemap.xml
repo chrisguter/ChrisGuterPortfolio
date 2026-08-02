@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Six documents are prerendered; two are listed here.
+
+  A sitemap is a list of index candidates, not an inventory of every file that
+  exists. /imprint/ and /privacy/ are served with <meta name="robots"
+  content="noindex,follow"> (see src/entry-server.tsx), so listing them would
+  ask search engines to index pages that then refuse indexing — a contradiction
+  Search Console reports back as "Excluded by 'noindex' tag" and which costs the
+  sitemap credibility for the URLs that do matter.
+
+  The Impressum still has to be discoverable, and it is: it is linked from the
+  footer of every page in both locales, robots.txt allows crawling of the whole
+  site, and the legal pages are noindex,FOLLOW. Crawlers reach them, read them
+  and follow their links. What §5 DDG requires is that a visitor can always get
+  to the Impressum in one click — a reachability duty, not a ranking one. So the
+  pages stay crawlable and unlisted, which is exactly what noindex,follow means.
+
+  The matching decision in robots.txt: nothing is disallowed. A "Disallow" on
+  the legal paths would stop crawlers fetching the documents at all, and a URL
+  that is never fetched is a URL whose noindex is never read — the classic way a
+  blocked page still ends up indexed from an external link.
+
+  Each entry declares the full alternate set including itself, which is what the
+  hreflang spec requires: the annotations must be reciprocal or search engines
+  discard them. The hreflang values match the page-level <link rel="alternate">
+  tags emitted by entry-server.tsx ("en", "de", "x-default"), so the two sources
+  agree.
+
+  No <lastmod>: this file is hand-maintained, so a date here would drift out of
+  sync with the content and end up asserting something false. Google ignores
+  <changefreq> and <priority> entirely, so they are omitted too.
+-->
+<urlset
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml"
+>
+  <url>
+    <loc>https://chrisguter.com/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://chrisguter.com/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://chrisguter.com/de/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://chrisguter.com/" />
+  </url>
+  <url>
+    <loc>https://chrisguter.com/de/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://chrisguter.com/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://chrisguter.com/de/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://chrisguter.com/" />
+  </url>
+</urlset>

@@ -1,0 +1,447 @@
+@import "tailwindcss";
+
+/* ==========================================================================
+   HALO — design tokens
+   --------------------------------------------------------------------------
+   Cinematic dark, built around the portrait rather than around type. Every
+   colour here is sampled from the photograph itself, which is what makes the
+   page and the person read as one thing instead of a template with a photo
+   dropped in.
+
+   Measured off the cut-out portrait, not guessed at:
+     skin highlight  #f2b199      skin mid   #d28e6e
+     sweater         #302a31      hair       #100707
+   The sweater is a warm neutral with a faint violet cast, which is where the
+   ground comes from; the accent is the skin's own warmth pushed to full
+   chroma, so the light on the page and the light on his face agree. Against a
+   naturalistic photograph that reads as rim lighting — where the previous
+   electric magenta and mint, sampled from a painted portrait, would fight it.
+
+   Contrast measured against --void:
+     cream  #F6EFE8  17.4:1     haze    #A9A0A8   7.8:1
+     ember  #F5A65B   9.9:1     rust    #D9603C   5.4:1
+     violet #A78BC8   6.8:1     azure   #7BA7D9   7.9:1
+   All six clear WCAG AA as body text. Dark-only by design.
+   ========================================================================== */
+
+:root {
+  color-scheme: dark;
+
+  --void: #0b090d;
+  --void-deep: #050408;
+  --surface: #16131a;
+  --surface-raised: #201c26;
+
+  --cream: #f6efe8;
+  --haze: #a9a0a8;
+
+  --ember: #f5a65b;
+  --ember-dim: #c7813f;
+  --rust: #d9603c;
+  --violet: #a78bc8;
+  --azure: #7ba7d9;
+
+  --hairline: color-mix(in oklch, var(--cream) 12%, transparent);
+  --hairline-strong: color-mix(in oklch, var(--cream) 26%, transparent);
+  --selection: color-mix(in oklch, var(--ember) 30%, transparent);
+
+  /* Motion. Longer and more elastic than a typical UI — this page is meant to
+     feel choreographed, not responsive. */
+  --dur-state: 180ms;
+  --dur-enter: 520ms;
+  --dur-reveal: 900ms;
+  --dur-epic: 1400ms;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-swift: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-settle: cubic-bezier(0.34, 1.32, 0.64, 1);
+}
+
+@theme inline {
+  --color-void: var(--void);
+  --color-void-deep: var(--void-deep);
+  --color-surface: var(--surface);
+  --color-surface-raised: var(--surface-raised);
+  --color-cream: var(--cream);
+  --color-haze: var(--haze);
+  --color-ember: var(--ember);
+  --color-ember-dim: var(--ember-dim);
+  --color-rust: var(--rust);
+  --color-violet: var(--violet);
+  --color-azure: var(--azure);
+  --color-hairline: var(--hairline);
+  --color-hairline-strong: var(--hairline-strong);
+
+  --font-display: "Bricolage Grotesque Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Geist Variable", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-mono: "Geist Mono Variable", ui-monospace, "SF Mono", monospace;
+
+  /* A deliberately wide scale: the jump from body to mega is the drama. */
+  --text-meta: 0.6875rem;
+  --text-meta--line-height: 1.4;
+  --text-meta--letter-spacing: 0.14em;
+  --text-small: 0.875rem;
+  --text-small--line-height: 1.6;
+  --text-body: 1.0625rem;
+  --text-body--line-height: 1.7;
+  --text-lead: clamp(1.125rem, 1rem + 0.6vw, 1.5rem);
+  --text-lead--line-height: 1.5;
+  --text-title: clamp(1.75rem, 1.2rem + 2.4vw, 3.25rem);
+  --text-title--line-height: 1.08;
+  --text-display: clamp(2.75rem, 1.4rem + 6vw, 7rem);
+  --text-display--line-height: 0.94;
+  --text-display--letter-spacing: -0.035em;
+  /* Dialled back hard from 14rem. At the old size the name filled the viewport
+     and the portrait had to fight it; now the photograph is the subject and the
+     name sits with it rather than over it. */
+  --text-mega: clamp(2.25rem, 1.1rem + 3.4vw, 4.25rem);
+  --text-mega--line-height: 0.95;
+  --text-mega--letter-spacing: -0.03em;
+
+  --spacing-gutter: clamp(1.25rem, 0.5rem + 3.5vw, 4.5rem);
+  --spacing-band: clamp(5rem, 2.5rem + 11vw, 12rem);
+
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-settle: cubic-bezier(0.34, 1.32, 0.64, 1);
+}
+
+/* ==========================================================================
+   Base
+   ========================================================================== */
+
+@layer base {
+  * {
+    min-width: 0;
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+    background-color: var(--void);
+    /* `clip`, not `hidden`: hidden would make the root a scroll container and
+       break both position:sticky and the scroll-driven animations. Set on html
+       as well as body because overflow propagation from body to the viewport
+       is unreliable for `clip`, and the hero portrait deliberately bleeds past
+       the shell edge. */
+    overflow-x: clip;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+  }
+
+  body {
+    background-color: var(--void);
+    color: var(--cream);
+    font-family: var(--font-sans);
+    font-size: var(--text-body);
+    line-height: 1.7;
+    font-synthesis-weight: none;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: clip;
+  }
+
+  ::selection {
+    background: var(--selection);
+    color: var(--cream);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--ember);
+    outline-offset: 4px;
+    border-radius: 2px;
+  }
+  :focus:not(:focus-visible) {
+    outline: none;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  :target,
+  section[id] {
+    scroll-margin-top: 5rem;
+  }
+
+  time,
+  [data-numeric] {
+    font-variant-numeric: tabular-nums;
+  }
+
+  img,
+  svg,
+  video {
+    display: block;
+    max-width: 100%;
+  }
+}
+
+/* ==========================================================================
+   Utilities
+   ========================================================================== */
+
+@layer utilities {
+  .shell {
+    margin-inline: auto;
+    max-width: 92rem;
+    padding-inline: var(--spacing-gutter);
+  }
+
+  .meta {
+    font-family: var(--font-mono);
+    font-size: var(--text-meta);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* The colour is split out at zero specificity via :where(). This class is
+     emitted after Tailwind's generated utilities in the same cascade layer, so
+     a normal `.meta { color }` would beat `text-ember` on source order and
+     silently render haze instead. :where() lets any text-* utility win while
+     bare `.meta` still defaults to haze. */
+  :where(.meta) {
+    color: var(--haze);
+  }
+
+  .measure {
+    max-width: 62ch;
+  }
+  .measure-tight {
+    max-width: 46ch;
+  }
+
+  .hairline-t {
+    border-top: 1px solid var(--hairline);
+  }
+  .hairline-b {
+    border-bottom: 1px solid var(--hairline);
+  }
+
+  /* The glow is what makes the palette feel lit rather than printed. Kept to
+     colour-only shadows so it never costs a layout pass. */
+  .glow-ember {
+    text-shadow:
+      0 0 28px color-mix(in oklch, var(--ember) 55%, transparent),
+      0 0 70px color-mix(in oklch, var(--ember) 22%, transparent);
+  }
+  .glow-rust {
+    text-shadow:
+      0 0 32px color-mix(in oklch, var(--rust) 55%, transparent),
+      0 0 80px color-mix(in oklch, var(--rust) 25%, transparent);
+  }
+  /* A radial gradient, not a box-shadow. box-shadow paints only OUTSIDE the
+     border box, so a transparent element with one punches a dark elliptical
+     hole through the middle of its own glow — visible as a ring around the
+     portrait's chest. A gradient fills the whole area and has no boundary. */
+  .bloom {
+    background: radial-gradient(
+      closest-side,
+      color-mix(in oklch, var(--ember) 30%, transparent) 0%,
+      color-mix(in oklch, var(--rust) 16%, transparent) 58%,
+      transparent 100%
+    );
+    filter: blur(44px);
+  }
+
+  /* Atmosphere: a warm firelight field that sits behind the portrait and the
+     contact block. Ember over rust over violet, so the light falls off from
+     warm to cool the way real backlight does — the portrait is lit from behind
+     rather than pasted onto a coloured rectangle. No mesh library, no image. */
+  .aurora::before {
+    content: "";
+    position: absolute;
+    inset: -30%;
+    z-index: -1;
+    background:
+      radial-gradient(
+        40% 44% at 58% 30%,
+        color-mix(in oklch, var(--ember) 34%, transparent) 0%,
+        transparent 70%
+      ),
+      radial-gradient(
+        48% 52% at 34% 58%,
+        color-mix(in oklch, var(--rust) 30%, transparent) 0%,
+        transparent 72%
+      ),
+      radial-gradient(
+        44% 46% at 62% 74%,
+        color-mix(in oklch, var(--violet) 26%, transparent) 0%,
+        transparent 76%
+      );
+    filter: blur(30px);
+    pointer-events: none;
+  }
+
+  /* Film grain over the whole page. Without it the flat gradients band on
+     wide displays and the page reads as cheap. */
+  .grain::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 60;
+    pointer-events: none;
+    opacity: 0.16;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+  }
+
+  .link-ember {
+    color: var(--ember);
+    text-decoration: none;
+    background-image: linear-gradient(currentColor, currentColor);
+    background-repeat: no-repeat;
+    background-position: 0 100%;
+    background-size: 0% 1px;
+    transition: background-size var(--dur-state) var(--ease-out);
+  }
+  @media (hover: hover) {
+    .link-ember:hover {
+      background-size: 100% 1px;
+    }
+  }
+
+  /* Gradient text, used only on the name. */
+  .ink-spectrum {
+    background: linear-gradient(
+      104deg,
+      var(--cream) 0%,
+      var(--cream) 22%,
+      var(--ember) 62%,
+      var(--rust) 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+}
+
+/* ==========================================================================
+   Motion
+   --------------------------------------------------------------------------
+   Scroll-driven throughout, so none of it costs JavaScript. Every block is
+   inside `prefers-reduced-motion: no-preference` AND an @supports guard, and
+   the un-animated rendering is always the finished state — an unsupported
+   browser gets a complete page, never a blank one.
+   ========================================================================== */
+
+@keyframes halo-rise {
+  from {
+    opacity: 0;
+    transform: translateY(38px);
+    filter: blur(10px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
+}
+
+@keyframes halo-wipe {
+  from {
+    clip-path: inset(0 0 100% 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+@keyframes halo-rule {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes halo-drift {
+  to {
+    transform: translateY(-14%);
+  }
+}
+
+@keyframes halo-marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes halo-pulse {
+  0%,
+  100% {
+    opacity: 0.55;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/* The marquee is time-based, not scroll-based: it should move even at rest. */
+@media (prefers-reduced-motion: no-preference) {
+  .marquee-track {
+    animation: halo-marquee 38s linear infinite;
+  }
+  .pulse {
+    animation: halo-pulse 2.6s var(--ease-swift) infinite;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    [data-rise] {
+      animation: halo-rise var(--dur-reveal) var(--ease-out) both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 46%;
+    }
+
+    [data-wipe] {
+      animation: halo-wipe var(--dur-epic) var(--ease-out) both;
+      animation-timeline: view();
+      animation-range: entry 4% entry 56%;
+    }
+
+    [data-rule] {
+      transform-origin: left center;
+      animation: halo-rule var(--dur-reveal) var(--ease-out) both;
+      animation-timeline: view();
+      animation-range: entry 8% entry 60%;
+    }
+
+    [data-stagger] > * {
+      animation: halo-rise var(--dur-reveal) var(--ease-out) both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 50%;
+      animation-delay: calc(var(--i, 0) * 70ms);
+    }
+
+    /* Parallax: the portrait drifts against the page as it scrolls through. */
+    [data-drift] {
+      animation: halo-drift linear both;
+      animation-timeline: view();
+      animation-range: cover 0% cover 100%;
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
