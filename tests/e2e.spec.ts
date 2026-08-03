@@ -43,6 +43,18 @@ const JOB_SEEKING = [
  *  textContent fuses adjacent elements — "…reaches me fastest." + "Email" +
  *  "christian.gutermann…" becomes one run that looks exactly like a dotted
  *  content key, which is a false positive, not a leak. */
+type AxeViolations = Awaited<ReturnType<AxeBuilder["analyze"]>>["violations"];
+
+/** id + selector, so a failure is actionable without opening the report. */
+function violationSummaries(violations: AxeViolations): string[] {
+  return violations.map(
+    (violation) =>
+      `${violation.id}: ${violation.nodes
+        .map((node) => node.target.join(" "))
+        .join(", ")}`,
+  );
+}
+
 async function documentText(page: Page): Promise<string> {
   return page.evaluate(() => {
     const clone = document.body.cloneNode(true) as HTMLElement;
@@ -93,19 +105,17 @@ for (const { path, lang, home } of DOCUMENTS) {
        be at — which is flaky, and is not the design's real colours. */
     await page.emulateMedia({ reducedMotion: "reduce" });
     await page.goto(path);
+
+    /* The no-cookies notice mounts app-wide and enters 1.5s after load, so a
+       scan started immediately races its arrival and audits a different DOM on
+       different runs. Waiting for it makes every scan see the same document. */
+    await expect(page.getByRole("status")).toBeVisible({ timeout: 5000 });
+
     const { violations } = await new AxeBuilder({ page })
       .withTags(["wcag2a", "wcag2aa"])
       .analyze();
 
-    // id + selector, so a failure is actionable without opening the report.
-    expect(
-      violations.map(
-        (violation) =>
-          `${violation.id}: ${violation.nodes
-            .map((node) => node.target.join(" "))
-            .join(", ")}`,
-      ),
-    ).toEqual([]);
+    expect(violationSummaries(violations)).toEqual([]);
   });
 }
 
@@ -169,6 +179,190 @@ test("the work index expands a case study", async ({ page }) => {
   await expect(trigger).toBeFocused();
 });
 
+test("a Currently card expands into its detail view", async ({ page }) => {
+  await page.goto("/");
+
+  const trigger = page.getByRole("button", { name: /Tradebot/ });
+  const panel = page.getByRole("region", { name: /Tradebot/ });
+  await expect(trigger).toHaveAttribute("aria-expanded", "false");
+  await expect(panel).toBeHidden();
+
+  await trigger.click();
+  await expect(trigger).toHaveAttribute("aria-expanded", "true");
+  await expect(panel).toBeVisible();
+
+  // The three parts of the detail view: prose, real screenshots, architecture.
+  expect(await panel.locator("h4").count()).toBeGreaterThan(2);
+  expect(await panel.locator("img").count()).toBeGreaterThanOrEqual(3);
+  await expect(panel.getByText(/Interactive Brokers/).first()).toBeVisible();
+
+  // The architecture drawing is aria-hidden; its edges must ship as the
+  // screen-reader list, one entry per edge, naming real nodes.
+  expect(await panel.locator(".sr-only li").count()).toBeGreaterThanOrEqual(6);
+  await expect(panel.getByText(/Scoring engine/).first()).toBeAttached();
+
+  // Only one card open at a time.
+  const other = page.getByRole("button", { name: /TumbleTree App/ });
+  await other.click();
+  await expect(other).toHaveAttribute("aria-expanded", "true");
+  await expect(trigger).toHaveAttribute("aria-expanded", "false");
+
+  // Escape closes and hands focus back.
+  await other.press("Escape");
+  await expect(other).toHaveAttribute("aria-expanded", "false");
+  await expect(other).toBeFocused();
+});
+
+for (const { path, copy, privacy } of [
+  { path: "/", copy: /no cookies/i, privacy: "/privacy/" },
+  { path: "/de/", copy: /keine Cookies/i, privacy: "/de/privacy/" },
+] as const) {
+  test(`the no-cookies notice on ${path} appears, links to privacy, and dismisses`, async ({
+    page,
+  }) => {
+    await page.goto(path);
+
+    const notice = page.getByRole("status");
+    await expect(notice).toBeVisible({ timeout: 5000 });
+    await expect(notice.getByText(copy)).toBeVisible();
+    await expect(notice.getByRole("link")).toHaveAttribute("href", privacy);
+
+    await notice.getByRole("button").click();
+    await expect(notice).toBeHidden();
+  });
+}
+
+test("the language switcher round-trips between locales", async ({ page }) => {
+  // Once from a legal page and once from home: the switcher derives its hrefs
+  // from the route prop, so the two cases exercise different link targets.
+  for (const [start, en, de] of [
+    ["/imprint/", "/imprint/", "/de/imprint/"],
+    ["/", "/", "/de/"],
+  ] as const) {
+    await page.goto(start);
+
+    // The group's label follows the document locale: Language / Sprache.
+    const switcher = page.getByRole("group", { name: /language|sprache/i });
+
+    await switcher.locator('a[hreflang="de"]').click();
+    await expect(page).toHaveURL(de);
+    await expect(page.locator("html")).toHaveAttribute("lang", "de");
+
+    await switcher.locator('a[hreflang="en"]').click();
+    await expect(page).toHaveURL(en);
+    await expect(page.locator("html")).toHaveAttribute("lang", "en");
+  }
+});
+
+test("a gallery image opens fullscreen and returns focus on close", async ({
+  page,
+}) => {
+  await page.goto("/");
+
+  await page.getByRole("button", { name: /Tradebot/ }).click();
+  const panel = page.getByRole("region", { name: /Tradebot/ });
+  await expect(panel).toBeVisible();
+
+  const opener = panel
+    .getByRole("button")
+    .filter({ has: page.locator("img") })
+    .first();
+  await opener.click();
+
+  const dialog = page.locator("dialog.lightbox");
+  await expect(dialog).toBeVisible();
+  await expect(dialog.locator("img")).toBeVisible();
+
+  // Escape is the native dialog path out; focus must land back on the opener.
+  await page.keyboard.press("Escape");
+  await expect(dialog).toBeHidden();
+  await expect(opener).toBeFocused();
+});
+
+test("the open Tradebot panel and its lightbox have no WCAG 2 A or AA violations", async ({
+  page,
+}) => {
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  await page.goto("/");
+
+  /* The notice enters 1.5s after load and leaves on its own 9s later, so a
+     multi-scan test can straddle either edge. Let it arrive, dismiss it, and
+     both scans audit the same document. */
+  const notice = page.getByRole("status");
+  await expect(notice).toBeVisible({ timeout: 5000 });
+  await notice.getByRole("button").click();
+  await expect(notice).toBeHidden();
+
+  await page.getByRole("button", { name: /Tradebot/ }).click();
+  const panel = page.getByRole("region", { name: /Tradebot/ });
+  await expect(panel).toBeVisible();
+
+  const openScan = await new AxeBuilder({ page })
+    .withTags(["wcag2a", "wcag2aa"])
+    .analyze();
+  expect(violationSummaries(openScan.violations)).toEqual([]);
+
+  const opener = panel
+    .getByRole("button")
+    .filter({ has: page.locator("img") })
+    .first();
+  await opener.click();
+  await expect(page.locator("dialog.lightbox")).toBeVisible();
+
+  const lightboxScan = await new AxeBuilder({ page })
+    .withTags(["wcag2a", "wcag2aa"])
+    .analyze();
+  expect(violationSummaries(lightboxScan.violations)).toEqual([]);
+});
+
+test("timeline entries expand to their detail points", async ({ page }) => {
+  await page.goto("/");
+
+  const triggers = page.locator("#timeline button[aria-expanded]");
+  const count = await triggers.count();
+  expect(count, "every timeline entry should have a disclosure").toBeGreaterThan(3);
+
+  // Accessible names must be distinct — four buttons all called "Details" is a
+  // screen-reader failure, not a styling detail.
+  const names = await Promise.all(
+    (await triggers.all()).map((t) =>
+      t.evaluate((el) =>
+        (el.getAttribute("aria-label") ?? el.textContent ?? "").trim(),
+      ),
+    ),
+  );
+  expect(new Set(names).size, `duplicate disclosure labels: ${names.join(" | ")}`).toBe(
+    names.length,
+  );
+
+  const first = triggers.first();
+  const panelId = await first.getAttribute("aria-controls");
+  expect(panelId).toBeTruthy();
+  const panel = page.locator(`#${panelId ?? ""}`);
+
+  await expect(first).toHaveAttribute("aria-expanded", "false");
+  await expect(panel).toBeHidden();
+
+  await first.click();
+  await expect(first).toHaveAttribute("aria-expanded", "true");
+  await expect(panel).toBeVisible();
+  expect(await panel.locator("li").count()).toBeGreaterThan(0);
+
+  // Reference material: opening one entry must not close another.
+  const second = triggers.nth(1);
+  await second.click();
+  await expect(second).toHaveAttribute("aria-expanded", "true");
+  await expect(first).toHaveAttribute("aria-expanded", "true");
+
+  // Escape closes the entry from inside it and hands focus back to its
+  // trigger — and only that entry: the second stays open.
+  await first.press("Escape");
+  await expect(first).toHaveAttribute("aria-expanded", "false");
+  await expect(panel).toBeHidden();
+  await expect(first).toBeFocused();
+  await expect(second).toHaveAttribute("aria-expanded", "true");
+});
+
 test("the skills map exposes every node to the keyboard", async ({ page }) => {
   await page.goto("/");
 
@@ -185,6 +379,20 @@ test("the skills map exposes every node to the keyboard", async ({ page }) => {
   // Selecting the same node again clears it.
   await first.click();
   await expect(first).toHaveAttribute("aria-pressed", "false");
+
+  // Selecting a skill node (the legend hubs come first in the DOM, so scope to
+  // the field) fills the detail panel: the node's own name and a real note.
+  const skill = page.locator("#skills .halo-sk-field button[aria-pressed]").first();
+  const skillLabel = ((await skill.textContent()) ?? "").trim();
+  expect(skillLabel.length).toBeGreaterThan(0);
+  await skill.click();
+  await expect(skill).toHaveAttribute("aria-pressed", "true");
+
+  const detail = page.locator("#skills .halo-sk-detail");
+  await expect(detail.locator(".text-lead")).toHaveText(skillLabel);
+  const note = detail.locator("p.measure");
+  await expect(note).toBeVisible();
+  await expect(note).not.toHaveText(/^\s*$/);
 
   // The graph itself is decorative; the screen-reader equivalent is what
   // actually carries the relationships, so assert it ships.

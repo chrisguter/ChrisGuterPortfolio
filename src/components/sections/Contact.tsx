@@ -1,6 +1,7 @@
 import type { CSSProperties } from "react";
 import type { Locale } from "@/content";
 import Band from "@/components/primitives/Band";
+import { sectionIndex } from "@/lib/sections";
 import { useLocale } from "@/lib/i18n";
 
 /** Keyed by Locale rather than hardcoded, so adding a language fails the build
@@ -25,11 +26,28 @@ export default function Contact() {
   return (
     <Band
       id="contact"
-      index="06"
+      index={sectionIndex("contact")}
       label={t.contact.label}
       heading={t.contact.heading}
-      className="aurora isolate overflow-clip"
+      className="isolate overflow-clip"
     >
+      {/* On its own masked layer rather than on the section: painted straight
+          onto the band, the colour field starts as a hard edge at the top
+          hairline. The mask breathes it in over the first third and lets it go
+          before the footer, so the section fades out of the page instead of
+          switching on. */}
+      <div
+        aria-hidden="true"
+        data-drift
+        className="aurora pointer-events-none absolute inset-x-0 -inset-y-10 -z-10"
+        style={{
+          WebkitMaskImage:
+            "linear-gradient(to bottom, transparent 0%, black 34%, black 72%, transparent 100%)",
+          maskImage:
+            "linear-gradient(to bottom, transparent 0%, black 34%, black 72%, transparent 100%)",
+        }}
+      />
+
       <p className="measure-tight text-lead text-haze" data-rise>
         {t.contact.body}
       </p>
@@ -55,7 +73,7 @@ export default function Contact() {
                The clamp keeps it the largest thing in the band while still
                fitting, and break-words lets it wrap rather than overflow if a
                longer address is ever swapped in. */
-            className="glow-ember font-display inline-block max-w-full text-[clamp(1.375rem,5vw,3.75rem)] leading-[1.15] break-words text-ember underline decoration-ember/40 decoration-2 underline-offset-8 transition duration-300 ease-out hover:decoration-ember hover:brightness-125 sm:decoration-4"
+            className="glow-ember font-display inline-block max-w-full text-[clamp(1.2rem,5vw,3.75rem)] leading-[1.15] break-words text-ember underline decoration-ember/40 decoration-2 underline-offset-8 transition duration-300 ease-out hover:decoration-ember hover:brightness-125 sm:decoration-4"
           >
             {t.contact.email}
           </a>

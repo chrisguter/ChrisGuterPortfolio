@@ -1,9 +1,24 @@
 /// <reference types="vite/client" />
 import type { CSSProperties } from "react";
 /* WebP, not the source PNG: the cut-out is 2.9 MB as PNG and it is the LCP
-   element. WebP keeps the alpha channel and lands at 394 kB. */
+   element. WebP keeps the alpha channel and lands at 306 kB at q0.8; a 768w
+   re-encode covers every viewport below lg, where the figure never renders
+   wider than 17-20rem. */
 import portraitSrc from "@/assets/portrait/chris.webp";
+import portrait768 from "@/assets/portrait/chris-768.webp";
 import { useLocale } from "@/lib/i18n";
+
+/* Exported for the prerender head: the preload must describe the same
+   candidates the <img> offers or the browser fetches the hero twice. */
+export const PORTRAIT_SRCSET = `${portrait768} 768w, ${portraitSrc} 1024w`;
+
+/* Derived from the figure classes below. `w-[74%]` of the shell, and the shell
+   is 100vw minus a gutter (0.5rem + 3.5vw) each side, so the rendered width is
+   74vw - 1.48*gutter = 65-66vw across phone widths (measured: 257px at 390vw),
+   capped at `max-w-[17rem]`, 20rem from sm; from lg it is `w-[44%]` of the
+   shell (~41vw of the viewport) capped at 34rem. */
+export const PORTRAIT_SIZES =
+  "(min-width: 1024px) min(41vw, 34rem), (min-width: 640px) min(65vw, 20rem), min(65vw, 17rem)";
 
 /* `.meta` is declared after Tailwind's utilities and would win the cascade on
    colour, so the ember and cream labels spell the treatment out instead. */
@@ -48,6 +63,8 @@ export default function Hero() {
           />
           <img
             src={portraitSrc}
+            srcSet={PORTRAIT_SRCSET}
+            sizes={PORTRAIT_SIZES}
             alt={t.hero.portraitAlt}
             width={1024}
             height={1536}

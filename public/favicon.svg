@@ -7,13 +7,13 @@
     bars, one stroke weight, sharp corners — survives 16px because every feature
     is at least two device pixels wide at that size.
 
-    Fixed colours rather than a theme-inverting tile: the mark is mint on the
+    Fixed colours rather than a theme-inverting tile: the mark is ember on the
     site's own void ground, which reads against both light and dark browser
     chrome (the tile is dark enough to separate from light chrome, the mark
     bright enough to separate from dark). Inverting would mean giving up the
     brand colours at the one size where they still register.
   -->
-  <rect width="32" height="32" fill="#0b0e22" />
-  <path d="M24 7H8v18h16v-4H12V11h12z" fill="#9fe8c4" />
-  <rect x="18" y="14" width="4" height="4" fill="#f0409b" />
+  <rect width="32" height="32" fill="#0b090d" />
+  <path d="M24 7H8v18h16v-4H12V11h12z" fill="#f5a65b" />
+  <rect x="18" y="14" width="4" height="4" fill="#d9603c" />
 </svg>

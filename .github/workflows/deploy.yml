@@ -1,7 +1,12 @@
 name: Deploy
 
+# Gated behind CI, not parallel to it: triggering on push would deploy a commit
+# whose tests are still running — or failing. workflow_run fires only after the
+# CI workflow finishes, and the job guard below checks it actually passed.
 on:
-  push:
+  workflow_run:
+    workflows: [CI]
+    types: [completed]
     branches: [main]
   workflow_dispatch:
 
@@ -21,6 +26,10 @@ concurrency:
 jobs:
   build:
     name: Build
+    # workflow_dispatch has no workflow_run payload, so it passes the guard.
+    if: >-
+      github.event_name == 'workflow_dispatch' ||
+      github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
     timeout-minutes: 15
 

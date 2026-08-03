@@ -1,5 +1,6 @@
 import { useEffect, useLayoutEffect, useMemo, useRef, type CSSProperties } from "react";
 import Band from "@/components/primitives/Band";
+import { sectionIndex } from "@/lib/sections";
 import { useLocale } from "@/lib/i18n";
 import type { Figure, Locale } from "@/content/types";
 
@@ -14,10 +15,16 @@ function isPublished(figure: Figure): figure is PublishedFigure {
 /** Below this the band is not evidence, it is decoration — so it hides. */
 const MIN_FIGURES = 3;
 
-/** The lead figure and the two beside it fill the first row of the ten-column
- *  grid (4 + 3 + 3). The figure after them opens the second row, and is the one
- *  that gets indented, which is what keeps the block from reading as a table. */
-const FIRST_ROW = 3;
+/** One row, every figure weighted the same. The count is driven by content
+ *  rather than fixed at four, because the locales do not publish the same
+ *  figures — de has one the English copy does not — and a hardcoded four would
+ *  leave the German page with a single orphan on a second row. Literal class
+ *  strings so Tailwind's scanner can see them. */
+const ROW_COLUMNS: Record<number, string> = {
+  3: "lg:grid-cols-3",
+  4: "lg:grid-cols-4",
+  5: "lg:grid-cols-5",
+};
 
 const ROLL_MS = 900;
 const ROLL_STEP_MS = 70;
@@ -79,7 +86,7 @@ function useCountUp(target: number, delay: number, format: (value: number) => st
 }
 
 /** A prefix or suffix — "+", "%". It changes what the number claims, so it is
- *  always a visible glyph; the magenta is decoration on top of that, never the
+ *  always a visible glyph; the rust is decoration on top of that, never the
  *  thing carrying the meaning. */
 function Affix({ children }: { children: string }) {
   return <span className="text-rust glow-rust">{children}</span>;
@@ -96,11 +103,6 @@ function FigureItem({
 }) {
   const { value, prefix, suffix, label, note } = figure;
 
-  /* Content order is editorial priority: the first published figure is the
-     strongest claim, so it is the one set at mega. Hierarchy is carried by
-     scale and position — the colour shift only reinforces it. */
-  const isLead = index === 0;
-
   const fractionDigits = fractionDigitsOf(value);
   const format = useMemo(() => {
     const formatter = new Intl.NumberFormat(locale, {
@@ -114,18 +116,8 @@ function FigureItem({
   const spoken = `${prefix ?? ""}${format(value)}${suffix ?? ""}`;
 
   return (
-    <li
-      className={[
-        isLead ? "sm:col-span-2 lg:col-span-4" : "lg:col-span-3",
-        index === FIRST_ROW ? "lg:col-start-2" : "",
-      ].join(" ")}
-      style={{ "--i": index } as CSSProperties}
-    >
-      <p
-        className={`font-display glow-ember ${
-          isLead ? "text-mega text-ember" : "text-display text-cream"
-        }`}
-      >
+    <li style={{ "--i": index } as CSSProperties}>
+      <p className="font-display glow-ember text-display text-cream">
         <span className="sr-only">{spoken}</span>
         <span aria-hidden="true" data-numeric>
           {prefix ? <Affix>{prefix}</Affix> : null}
@@ -136,7 +128,15 @@ function FigureItem({
 
       <span className="mt-7 block h-px w-16 bg-ember" data-rule aria-hidden="true" />
 
-      <p className="measure-tight mt-6 font-mono text-small text-haze">{label}</p>
+      {/* At the narrowest desktop the columns are ~200px and mono is wide, so
+          German compounds ("Softwareentwicklung", 19 characters) are the thing
+          that decides the type size here. Hyphenation resolves them the way a
+          German reader expects; the limit keeps it off words short enough to
+          wrap cleanly on their own, so the English labels are untouched.
+          break-words is only the floor if a browser has no dictionary. */}
+      <p className="measure-tight mt-6 font-mono text-small text-haze hyphens-auto break-words [hyphenate-limit-chars:12_6_4]">
+        {label}
+      </p>
       {note ? <p className="meta mt-2">{note}</p> : null}
     </li>
   );
@@ -148,8 +148,16 @@ export default function Evidence() {
   const figures = t.evidence.figures.filter(isPublished);
   if (figures.length < MIN_FIGURES) return null;
 
+  const columns = ROW_COLUMNS[figures.length] ?? "lg:grid-cols-4";
+
   return (
-    <Band id="evidence" label={t.evidence.label} className="isolate">
+    <Band
+      id="evidence"
+      index={sectionIndex("evidence")}
+      label={t.evidence.label}
+      srHeading={t.evidence.label}
+      className="isolate"
+    >
       {/* The aurora sits on its own layer rather than on the section, so its
           strength can be dialled back to where haze-on-field still clears AA.
           `isolate` on the section is what keeps a negative z-index from falling
@@ -160,7 +168,7 @@ export default function Evidence() {
       />
 
       <ul
-        className="grid gap-x-10 gap-y-16 sm:grid-cols-2 lg:grid-cols-10 lg:items-baseline lg:gap-y-20"
+        className={`grid gap-x-8 gap-y-16 sm:grid-cols-2 xl:gap-x-12 ${columns}`}
         data-stagger
       >
         {figures.map((figure, index) => (

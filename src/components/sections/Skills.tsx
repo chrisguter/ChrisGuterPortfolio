@@ -7,6 +7,7 @@ import {
   type FocusEvent,
 } from "react";
 import Band from "@/components/primitives/Band";
+import { sectionIndex } from "@/lib/sections";
 import { useLocale } from "@/lib/i18n";
 import type { Accent, SkillGroup, SkillNode } from "@/content/types";
 
@@ -30,7 +31,7 @@ type Target = `node:${string}` | `group:${string}`;
 
 /** `field` paints light — lines, glows, borders. `ink` is the same hue made
  *  safe as text: raw violet (3.3:1) and raw azure (4.0:1) miss AA on the void,
- *  so their letters are lifted toward cream. Mint and rust already clear it. */
+ *  so their letters are lifted toward cream. Ember and rust already clear it. */
 const TONE: Record<Accent, { field: string; ink: string }> = {
   ember: { field: "var(--ember)", ink: "var(--ember)" },
   rust: { field: "var(--rust)", ink: "var(--rust)" },
@@ -106,10 +107,21 @@ function round(value: number): number {
  *  (`preserveAspectRatio="none"`), which is what lets the same coordinates be
  *  both SVG units and CSS percentages at any container shape. */
 const GEOM = {
-  hubRx: 29,
-  hubRy: 27,
-  nodeRx: 18,
-  nodeRy: 22,
+  /* Rings sized so the whole composition, glow included, clears the edges at
+     32 nodes. They were 29/27 and 18/22 when the map held 24: a fan spreads
+     wider with more members, and the outermost chips ended up pinned flat
+     against the boundary with their glow hanging over it. */
+  hubRx: 26,
+  hubRy: 24,
+  nodeRx: 17,
+  nodeRy: 18,
+  /** Radius of the soft field painted under a hub. An SVG root clips at its own
+   *  viewport, so this can never exceed the hub's distance to the canvas edge:
+   *  a larger value does not paint a wider glow, it paints a round one with a
+   *  straight bite taken out of it. 26 + 24 = 50 puts the rim exactly on the
+   *  edge, where the gradient has already fallen to zero. Enforced below rather
+   *  than trusted, so the constraint travels if the ring ever moves. */
+  glow: 24,
   /** Turns of arc a group's nodes fan across, centred on the direction away
    *  from the middle. The inward gap it leaves is where the cross-group curves
    *  run. */
@@ -129,23 +141,40 @@ const GEOM = {
    container the graph is ever drawn in (~672 x 480 at the md breakpoint), so
    the separation pass below is always solving the worst case and every wider
    viewport only adds air. Deliberately generous: a label is measured, never
-   guessed, only by the browser, and this has to hold for both locales. */
+   guessed, only by the browser, and this has to hold for both locales.
+
+   The coefficients are an upper bound on every label in both locales as the
+   browser actually draws them, checked at 768 / 1024 / 1440 / 1920. The old
+   pair was a fit, not a bound — it under-measured a short all-caps label like
+   CPQ by 3px a side, which is precisely the error that ends up on the edge. */
 const REF_W = 672;
 const REF_H = 480;
 
 function chipBox(label: string): { hx: number; hy: number } {
   return {
-    hx: ((32 + label.length * 6.9) / 2 / REF_W) * 100,
-    hy: (26 / 2 / REF_H) * 100,
+    hx: ((38 + label.length * 7.2) / 2 / REF_W) * 100,
+    hy: (31 / 2 / REF_H) * 100,
   };
 }
 
 function hubBox(label: string): { hx: number; hy: number } {
   return {
-    hx: ((22 + label.length * 8.1) / 2 / REF_W) * 100,
-    hy: (24 / 2 / REF_H) * 100,
+    hx: ((26 + label.length * 8.2) / 2 / REF_W) * 100,
+    hy: (29 / 2 / REF_H) * 100,
   };
 }
+
+/* A node paints well outside its own border box, and none of it is in
+   getBoundingClientRect: the selected state's `0 0 34px -6px` shadow reaches
+   blur / 2 + spread = 11px past the edge, and `scale(1.06)` then carries the
+   whole painting — shadow included — a further 6% of its own half-size
+   outward. Fitting the boxes inside the stage therefore fits nothing; the glow
+   is what the eye sees against the edge. Twelve, for the eleven plus the
+   antialiased tail, reserved in the same reference frame as the footprints. */
+const PAINT_PX = 12;
+const SELECTED_SCALE = 1.06;
+const PAD_X = (PAINT_PX / REF_W) * 100;
+const PAD_Y = (PAINT_PX / REF_H) * 100;
 
 interface HubPoint {
   id: string;
@@ -167,6 +196,10 @@ interface NodePoint {
   homeY: number;
   hx: number;
   hy: number;
+  /** Half-extent of everything the node paints, not of its box. This is what
+   *  the canvas edge is measured against. */
+  reachX: number;
+  reachY: number;
 }
 
 interface MapNode {
@@ -219,6 +252,7 @@ interface SkillMap {
   spokes: MapSpoke[];
   edges: MapEdge[];
   neighbours: Map<string, string[]>;
+  glow: { rx: number; ry: number };
 }
 
 /** Pure: the same content always yields the same map, on the server and in the
@@ -251,6 +285,7 @@ function buildMap(
       const ring = index % 2 === 0 ? 1 : GEOM.innerRing;
       const x = hub.x + GEOM.nodeRx * ring * cosTurns(angle);
       const y = hub.y + GEOM.nodeRy * ring * sinTurns(angle);
+      const box = chipBox(node.label);
       points.push({
         node,
         group: hub,
@@ -258,7 +293,9 @@ function buildMap(
         y,
         homeX: x,
         homeY: y,
-        ...chipBox(node.label),
+        ...box,
+        reachX: (box.hx + PAD_X) * SELECTED_SCALE,
+        reachY: (box.hy + PAD_Y) * SELECTED_SCALE,
       });
     });
   }
@@ -353,13 +390,22 @@ function buildMap(
     }
   }
 
+  const hubPoints = clusters.map((cluster) => cluster.hub);
+
   return {
-    hubs: clusters.map((c) => c.hub),
+    hubs: hubPoints,
     clusters,
     byId,
     spokes,
     edges,
     neighbours,
+    /* Taken from the hub that sits nearest an edge rather than from GEOM alone,
+       so the four stay identical and the fit survives a different number of
+       groups putting the hubs somewhere other than the four cardinal points. */
+    glow: {
+      rx: Math.min(GEOM.glow, ...hubPoints.map((hub) => Math.min(hub.x, 100 - hub.x))),
+      ry: Math.min(GEOM.glow, ...hubPoints.map((hub) => Math.min(hub.y, 100 - hub.y))),
+    },
   };
 }
 
@@ -412,8 +458,11 @@ function relax(points: NodePoint[], hubs: HubPoint[]): void {
     for (const point of points) {
       point.x += (point.homeX - point.x) * 0.03;
       point.y += (point.homeY - point.y) * 0.03;
-      point.x = Math.min(99 - point.hx, Math.max(1 + point.hx, point.x));
-      point.y = Math.min(99 - point.hy, Math.max(1 + point.hy, point.y));
+      /* Against the painted half-extent, not the box. The old bound was the
+         box plus a flat 1% of the canvas — under 5px of the short side — so a
+         node could satisfy it and still hang its glow over the edge. */
+      point.x = Math.min(100 - point.reachX, Math.max(point.reachX, point.x));
+      point.y = Math.min(100 - point.reachY, Math.max(point.reachY, point.y));
     }
   }
 }
@@ -628,10 +677,14 @@ const MAP_CSS = `
     margin-bottom: 1.75rem;
   }
 
+  /* Taller than the 30–45rem this held at 24 nodes. Thirty-two chips in the
+     same box only fit by crowding the middle and leaning on the edges, and the
+     graph is a full-width feature — height is the cheap dimension here. Still
+     under a viewport at every size, so it is a section and not a page. */
   .halo-sk-field {
     display: block;
     position: relative;
-    height: clamp(30rem, 52vw, 45rem);
+    height: clamp(33rem, 54vw, 48rem);
   }
 
   .halo-sk-canvas {
@@ -793,7 +846,13 @@ export default function Skills() {
     : [];
 
   return (
-    <Band id="skills" index="03" label={label} heading={heading} intro={intro}>
+    <Band
+      id="skills"
+      index={sectionIndex("skills")}
+      label={label}
+      heading={heading}
+      intro={intro}
+    >
       <style>{MAP_CSS}</style>
 
       <div data-rise>
@@ -876,8 +935,8 @@ export default function Skills() {
                 data-state={stateOf(lit, lit.hubs.has(hub.id))}
                 cx={hub.x}
                 cy={hub.y}
-                rx="24"
-                ry="24"
+                rx={map.glow.rx}
+                ry={map.glow.ry}
                 fill={`url(#${uid}-glow-${hub.id})`}
               />
             ))}

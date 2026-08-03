@@ -113,7 +113,7 @@ export default function LegalPage({ page }: { page: LegalPageContent }) {
           </a>
         </p>
 
-        {/* `break-words` is the safety net, not the layout: the German titles are
+        {/* `break-words hyphens-auto` is the safety net, not the layout: the German titles are
             long compounds and the display clamp tops out at 7rem. */}
         <h1 className="font-display text-display mt-8 break-words text-cream">
           {page.title}

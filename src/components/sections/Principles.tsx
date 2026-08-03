@@ -1,5 +1,6 @@
 import type { CSSProperties } from "react";
 import Band from "@/components/primitives/Band";
+import { sectionIndex } from "@/lib/sections";
 import { useLocale } from "@/lib/i18n";
 
 /** One hue per position, cycling in the same order as the Work index so the
@@ -12,7 +13,13 @@ export default function Principles() {
   const { label, heading, intro, items } = t.principles;
 
   return (
-    <Band id="principles" index="04" label={label} heading={heading} intro={intro}>
+    <Band
+      id="principles"
+      index={sectionIndex("principles")}
+      label={label}
+      heading={heading}
+      intro={intro}
+    >
       {/* `role="list"` survives the `list-style: none` that Safari reads as a cue
           to drop list semantics — these four are numbered, and the order is the
           only place that number is available to a screen reader. */}

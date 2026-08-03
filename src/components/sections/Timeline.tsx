@@ -1,9 +1,11 @@
-import type { CSSProperties } from "react";
+import { useRef, useState, type CSSProperties, type KeyboardEvent } from "react";
 import Band from "@/components/primitives/Band";
+import { sectionIndex } from "@/lib/sections";
 import { useLocale } from "@/lib/i18n";
+import type { TimelineEntry } from "@/content/types";
 
 /* Scoped to `halo-tl-*` and kept out of the global sheet because none of it is
-   reusable — it is the geometry of one rail. Four things here are load-bearing.
+   reusable — it is the geometry of one rail. Six things here are load-bearing.
 
    1. The fill declares its FINISHED state (no transform) in the base rule and
       only opts into the scroll-driven animation behind @supports, so a browser
@@ -23,7 +25,24 @@ import { useLocale } from "@/lib/i18n";
 
    4. Status differs in SHAPE as well as colour — a filled square for completed,
       an open ring for ongoing — and the text label beside it carries the actual
-      meaning. Colour is the third cue, never the only one. */
+      meaning. Colour is the third cue, never the only one.
+
+   5. The disclosure animates on `grid-template-rows: 0fr -> 1fr` rather than on
+      `height: auto`, which still needs `interpolate-size` to be animatable and
+      is not universally supported. The row is the only thing that moves; the
+      panel inside it is never scaled, so its text never distorts.
+
+   6. A collapsed panel is genuinely hidden, not merely clipped to zero height:
+      a zero-height row leaves its overflowing contents laid out, focusable and
+      in the accessibility tree. `visibility: hidden` is what takes them out —
+      it inherits, every engine honours it, and it is the one hiding property
+      whose transition behaviour is right here, holding the panel visible for
+      the whole collapse and flipping back at the start of the expand.
+      `content-visibility: hidden` was the other candidate and is measurably
+      worse: WebKit applies it immediately rather than at the end of the
+      transition even with `allow-discrete`, which kills the closing animation.
+      `inert` on the React side is the guarantee that holds with CSS disabled
+      altogether. */
 const RAIL_CSS = `
 .halo-tl {
   --rail-x: 0.4375rem;
@@ -167,6 +186,101 @@ const RAIL_CSS = `
   border-radius: 50%;
 }
 
+.halo-tl-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6875rem;
+  margin-top: 1.5rem;
+  cursor: pointer;
+  color: var(--haze);
+  transition: color var(--dur-state) var(--ease-out);
+}
+.halo-tl-toggle[aria-expanded="true"] { color: var(--ember); }
+@media (hover: hover) {
+  .halo-tl-toggle:hover { color: var(--ember); }
+}
+
+.halo-tl-chev {
+  position: relative;
+  flex: none;
+  width: 1.625rem;
+  height: 1.625rem;
+  border: 1px solid var(--hairline-strong);
+  transition: border-color var(--dur-state) var(--ease-out);
+}
+.halo-tl-toggle:hover .halo-tl-chev,
+.halo-tl-toggle[aria-expanded="true"] .halo-tl-chev { border-color: currentColor; }
+
+.halo-tl-chev::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 0.34rem;
+  height: 0.34rem;
+  box-sizing: border-box;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  transform: translate(-70%, -50%) rotate(-45deg);
+  transition: transform var(--dur-enter) var(--ease-out);
+}
+.halo-tl-toggle[aria-expanded="true"] .halo-tl-chev::before {
+  transform: translate(-50%, -72%) rotate(45deg);
+}
+
+.halo-tl-count { color: var(--haze); }
+
+.halo-tl-reveal {
+  display: grid;
+  grid-template-rows: 0fr;
+  visibility: hidden;
+}
+.halo-tl-reveal[data-open="true"] {
+  grid-template-rows: 1fr;
+  visibility: visible;
+}
+.halo-tl-reveal > * { overflow: hidden; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .halo-tl-reveal {
+    transition:
+      grid-template-rows var(--dur-enter) var(--ease-out),
+      visibility var(--dur-enter);
+  }
+
+  .halo-tl-details {
+    opacity: 0;
+    transition: opacity var(--dur-state) var(--ease-out);
+  }
+  .halo-tl-reveal[data-open="true"] .halo-tl-details {
+    opacity: 1;
+    transition-duration: var(--dur-enter);
+    transition-delay: 90ms;
+  }
+}
+
+.halo-tl-details {
+  display: grid;
+  gap: 0.875rem;
+  margin-top: 1.25rem;
+  padding-bottom: 0.25rem;
+}
+
+.halo-tl-details > li {
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.halo-tl-details > li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.7em;
+  width: 0.625rem;
+  height: 1px;
+  background: color-mix(in oklch, var(--ember) 65%, transparent);
+}
+
 @media (min-width: 48rem) {
   .halo-tl { --pad: 3.5rem; }
   .halo-tl-item { padding-bottom: 4.5rem; }
@@ -188,12 +302,23 @@ const RAIL_CSS = `
 }
 `;
 
+/** The one string on this section that is not in the content files: `t.timeline`
+ *  has no key for it, and "Details" is the same word in both locales, so the
+ *  closed label reads correctly in German without copy being invented inside a
+ *  component. The open label is `t.ui.close`, which is translated. */
+const DETAILS = "Details";
+
 export default function Timeline() {
   const { t } = useLocale();
   const { label, heading, status, entries } = t.timeline;
 
   return (
-    <Band id="timeline" index="03" label={label} heading={heading}>
+    <Band
+      id="timeline"
+      index={sectionIndex("timeline")}
+      label={label}
+      heading={heading}
+    >
       <style>{RAIL_CSS}</style>
 
       <div className="halo-tl mt-14">
@@ -204,71 +329,152 @@ export default function Timeline() {
         {/* Preflight strips the markers, which costs Safari/VoiceOver the list
             semantics; the explicit role puts them back. */}
         <ol className="halo-tl-list" role="list" data-stagger>
-          {entries.map((entry, index) => {
-            const headingId = `timeline-${entry.id}`;
-            const isActive = entry.status === "active";
-
-            return (
-              <li
-                key={entry.id}
-                className="halo-tl-item"
-                style={{ "--i": index } as CSSProperties}
-              >
-                <span
-                  className="halo-tl-node"
-                  data-status={entry.status}
-                  aria-hidden="true"
-                >
-                  {isActive ? <span className="halo-tl-halo pulse" /> : null}
-                </span>
-
-                <span className="halo-tl-tick" data-rule aria-hidden="true" />
-
-                <article className="halo-tl-card" aria-labelledby={headingId}>
-                  <div className="mb-4 lg:mb-0">
-                    {/* Dates are locale display strings ("Okt. 2025", "Heute"),
-                        so there is no honest machine-readable value for <time>;
-                        data-numeric buys the tabular figures without lying. */}
-                    <p className="meta">
-                      <span data-numeric>{entry.start}</span> —{" "}
-                      <span data-numeric>{entry.end}</span>
-                    </p>
-
-                    <p
-                      className="meta mt-2 flex items-center gap-2 halo-tl-status"
-                      data-status={entry.status}
-                    >
-                      <span
-                        className="halo-tl-glyph"
-                        data-status={entry.status}
-                        aria-hidden="true"
-                      />
-                      {status[entry.status]}
-                    </p>
-                  </div>
-
-                  <div>
-                    <h3
-                      id={headingId}
-                      className="halo-tl-title font-display text-cream"
-                    >
-                      {entry.title}
-                    </h3>
-
-                    {entry.org ? (
-                      <p className="mt-2 font-mono text-small text-ember">
-                        {entry.org}
-                      </p>
-                    ) : null}
-
-                    <p className="text-body text-haze measure mt-5">{entry.body}</p>
-                  </div>
-                </article>
-              </li>
-            );
-          })}
+          {entries.map((entry, index) => (
+            <Entry
+              key={entry.id}
+              entry={entry}
+              index={index}
+              statusLabel={status[entry.status]}
+            />
+          ))}
         </ol>
       </div>
     </Band>
+  );
+}
+
+/** State lives per entry rather than in the section: this is reference material,
+ *  so several entries being open at once is the expected reading, not a bug in
+ *  an accordion. */
+function Entry({
+  entry,
+  index,
+  statusLabel,
+}: {
+  entry: TimelineEntry;
+  index: number;
+  statusLabel: string;
+}) {
+  const { t } = useLocale();
+  const [open, setOpen] = useState(false);
+  const triggerRef = useRef<HTMLButtonElement>(null);
+
+  const details = entry.details ?? [];
+  const headingId = `timeline-${entry.id}`;
+  const panelId = `timeline-${entry.id}-details`;
+  const isActive = entry.status === "active";
+
+  function handleKeyDown(event: KeyboardEvent<HTMLLIElement>) {
+    if (event.key !== "Escape" || !open) return;
+    setOpen(false);
+    triggerRef.current?.focus();
+  }
+
+  return (
+    <li
+      className="halo-tl-item"
+      onKeyDown={details.length > 0 ? handleKeyDown : undefined}
+      style={
+        {
+          "--i": index,
+          /* The stagger runs on a `view()` timeline, and an entry with nine
+             detail points open is routinely taller than the viewport — a subject
+             that tall reaches the end of its entry range only after it has
+             scrolled off the top, which would strand it at part opacity.
+             Dropping the animation renders the keyframes' finished state. */
+          animationName: open ? "none" : undefined,
+        } as CSSProperties
+      }
+    >
+      <span className="halo-tl-node" data-status={entry.status} aria-hidden="true">
+        {isActive ? <span className="halo-tl-halo pulse" /> : null}
+      </span>
+
+      <span className="halo-tl-tick" data-rule aria-hidden="true" />
+
+      <article className="halo-tl-card" aria-labelledby={headingId}>
+        <div className="mb-4 lg:mb-0">
+          {/* Dates are locale display strings ("Okt. 2025", "Heute"), so there
+              is no honest machine-readable value for <time>; data-numeric buys
+              the tabular figures without lying. */}
+          <p className="meta">
+            <span data-numeric>{entry.start}</span> —{" "}
+            <span data-numeric>{entry.end}</span>
+          </p>
+
+          <p
+            className="meta mt-2 flex items-center gap-2 halo-tl-status"
+            data-status={entry.status}
+          >
+            <span
+              className="halo-tl-glyph"
+              data-status={entry.status}
+              aria-hidden="true"
+            />
+            {statusLabel}
+          </p>
+        </div>
+
+        <div>
+          <h3 id={headingId} className="halo-tl-title font-display text-cream">
+            {entry.title}
+          </h3>
+
+          {entry.org ? (
+            <p className="mt-2 font-mono text-small text-ember">{entry.org}</p>
+          ) : null}
+
+          <p className="text-body text-haze measure mt-5">{entry.body}</p>
+
+          {details.length > 0 ? (
+            <>
+              <button
+                ref={triggerRef}
+                type="button"
+                className="halo-tl-toggle meta"
+                aria-expanded={open}
+                aria-controls={panelId}
+                onClick={() => setOpen((current) => !current)}
+              >
+                <span className="halo-tl-chev" aria-hidden="true" />
+                <span>{open ? t.ui.close : DETAILS}</span>
+                {open ? null : (
+                  <span className="halo-tl-count" data-numeric>
+                    ({details.length})
+                  </span>
+                )}
+                {/* Every trigger in this section would otherwise be announced as
+                    "Details", and two entries share the title "Software
+                    Engineer" — the org is what separates them. */}
+                <span className="sr-only">
+                  {entry.org ? `${entry.title}, ${entry.org}` : entry.title}
+                </span>
+              </button>
+
+              {/* `inert` is the part that does not depend on CSS support: even
+                  where `content-visibility` is ignored, a collapsed panel is out
+                  of the tab order and out of the accessibility tree. */}
+              <div
+                id={panelId}
+                className="halo-tl-reveal"
+                data-open={open}
+                inert={!open}
+              >
+                <div>
+                  <ul
+                    className="halo-tl-details measure text-small text-haze"
+                    role="list"
+                  >
+                    {details.map((detail) => (
+                      <li key={detail}>{detail}</li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </>
+          ) : null}
+        </div>
+      </article>
+    </li>
   );
 }

@@ -3,6 +3,7 @@ import Hero from "./components/sections/Hero";
 import Marquee from "./components/sections/Marquee";
 import Evidence from "./components/sections/Evidence";
 import Work from "./components/sections/Work";
+import Now from "./components/sections/Now";
 import Skills from "./components/sections/Skills";
 import Timeline from "./components/sections/Timeline";
 import Principles from "./components/sections/Principles";
@@ -10,6 +11,7 @@ import About from "./components/sections/About";
 import Contact from "./components/sections/Contact";
 import Footer from "./components/Footer";
 import LegalPage from "./components/LegalPage";
+import NoCookiesNotice from "./components/NoCookiesNotice";
 import { useLocale } from "./lib/i18n";
 import type { Route } from "./content";
 
@@ -37,6 +39,7 @@ export default function App({ route }: { route: Route }) {
             <Skills />
             <Timeline />
             <Principles />
+            <Now />
             <About />
             <Contact />
           </>
@@ -46,6 +49,7 @@ export default function App({ route }: { route: Route }) {
       </main>
 
       <Footer />
+      <NoCookiesNotice />
     </div>
   );
 }

@@ -1,0 +1,158 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="presentation">
+  <defs>
+    <linearGradient id="sw-ground" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="800" y2="500">
+      <stop offset="0" stop-color="#16131a"/>
+      <stop offset="1" stop-color="#050408"/>
+    </linearGradient>
+
+    <radialGradient id="sw-bloom" gradientUnits="userSpaceOnUse" cx="514" cy="220" r="340">
+      <stop offset="0" stop-color="#f5a65b" stop-opacity="0.2"/>
+      <stop offset="0.55" stop-color="#f5a65b" stop-opacity="0.06"/>
+      <stop offset="1" stop-color="#f5a65b" stop-opacity="0"/>
+    </radialGradient>
+
+    <radialGradient id="sw-tileglow" gradientUnits="userSpaceOnUse" cx="514" cy="220" r="110">
+      <stop offset="0" stop-color="#f5a65b" stop-opacity="0.24"/>
+      <stop offset="1" stop-color="#f5a65b" stop-opacity="0"/>
+    </radialGradient>
+
+    <pattern id="sw-grid" width="25" height="25" patternUnits="userSpaceOnUse">
+      <path d="M 25 0 L 0 0 L 0 25" fill="none" stroke="#f6efe8" stroke-opacity="0.03" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <rect width="800" height="500" fill="url(#sw-ground)"/>
+  <rect width="800" height="500" fill="url(#sw-grid)"/>
+  <rect width="800" height="500" fill="url(#sw-bloom)"/>
+
+  <circle cx="514" cy="220" r="110" fill="url(#sw-tileglow)"/>
+
+  <!-- Available tiles: hairline shell, one abstract mark each -->
+  <g fill="#16131a" stroke="#f6efe8" stroke-opacity="0.14" stroke-width="1.15">
+    <rect x="126" y="60" width="92" height="92" rx="2"/>
+    <rect x="354" y="60" width="92" height="92" rx="2"/>
+    <rect x="468" y="60" width="92" height="92" rx="2"/>
+    <rect x="240" y="174" width="92" height="92" rx="2"/>
+    <rect x="354" y="174" width="92" height="92" rx="2"/>
+    <rect x="582" y="174" width="92" height="92" rx="2"/>
+    <rect x="126" y="288" width="92" height="92" rx="2"/>
+    <rect x="240" y="288" width="92" height="92" rx="2"/>
+    <rect x="582" y="288" width="92" height="92" rx="2"/>
+  </g>
+
+  <!-- Empty slots: room the base system leaves for extension -->
+  <g fill="#0b090d" stroke="#f6efe8" stroke-opacity="0.09" stroke-width="1.15" stroke-dasharray="5 6">
+    <rect x="582" y="60" width="92" height="92" rx="2"/>
+    <rect x="468" y="288" width="92" height="92" rx="2"/>
+  </g>
+  <g fill="#a9a0a8" fill-opacity="0.22">
+    <rect x="620" y="104.75" width="16" height="2.5"/>
+    <rect x="626.75" y="98" width="2.5" height="16"/>
+    <rect x="506" y="332.75" width="16" height="2.5"/>
+    <rect x="512.75" y="326" width="2.5" height="16"/>
+  </g>
+
+  <!-- Installed tiles: raised ground, corner notch, mark in the accent -->
+  <g fill="#201c26" stroke="#f5a65b" stroke-opacity="0.4" stroke-width="1.15">
+    <rect x="240" y="60" width="92" height="92" rx="2"/>
+    <rect x="126" y="174" width="92" height="92" rx="2"/>
+    <rect x="354" y="288" width="92" height="92" rx="2"/>
+  </g>
+  <g fill="#f5a65b" fill-opacity="0.85">
+    <path d="M 316 60 L 332 60 L 332 76 Z"/>
+    <path d="M 202 174 L 218 174 L 218 190 Z"/>
+    <path d="M 430 288 L 446 288 L 446 304 Z"/>
+  </g>
+
+  <!-- Tile marks. Deliberately abstract geometry, not iconography. -->
+  <g fill="none" stroke="#a9a0a8" stroke-opacity="0.38" stroke-width="1.3" stroke-linejoin="round" stroke-linecap="round">
+    <circle cx="172" cy="106" r="13"/>
+    <path d="M 400 93 L 413 116 L 387 116 Z"/>
+    <rect x="274" y="208" width="24" height="24"/>
+    <path d="M 389 231 L 411 209"/>
+    <path d="M 397 235 L 413 219"/>
+    <circle cx="628" cy="220" r="12"/>
+    <path d="M 628 321 L 641 344 L 615 344 Z"/>
+  </g>
+  <circle cx="628" cy="220" r="3.5" fill="#a9a0a8" fill-opacity="0.45"/>
+
+  <g fill="#a9a0a8" fill-opacity="0.38">
+    <circle cx="504" cy="96" r="2"/><circle cx="514" cy="96" r="2"/><circle cx="524" cy="96" r="2"/>
+    <circle cx="504" cy="106" r="2"/><circle cx="514" cy="106" r="2"/><circle cx="524" cy="106" r="2"/>
+    <circle cx="504" cy="116" r="2"/><circle cx="514" cy="116" r="2"/><circle cx="524" cy="116" r="2"/>
+    <rect x="159" y="325" width="26" height="3.2"/>
+    <rect x="159" y="332.4" width="18" height="3.2"/>
+    <rect x="159" y="339.8" width="22" height="3.2"/>
+    <rect x="273" y="332" width="26" height="4"/>
+    <rect x="284" y="321" width="4" height="26"/>
+  </g>
+  <g fill="#f5a65b" fill-opacity="0.55">
+    <rect x="273" y="97" width="26" height="3.2"/>
+    <rect x="273" y="104.4" width="18" height="3.2"/>
+    <rect x="273" y="111.8" width="22" height="3.2"/>
+    <circle cx="390" cy="324" r="2"/><circle cx="400" cy="324" r="2"/><circle cx="410" cy="324" r="2"/>
+    <circle cx="390" cy="334" r="2"/><circle cx="400" cy="334" r="2"/><circle cx="410" cy="334" r="2"/>
+    <circle cx="390" cy="344" r="2"/><circle cx="400" cy="344" r="2"/><circle cx="410" cy="344" r="2"/>
+  </g>
+  <g fill="none" stroke="#f5a65b" stroke-opacity="0.55" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M 163 211 L 174 220 L 163 229"/>
+    <path d="M 173 211 L 184 220 L 173 229"/>
+  </g>
+
+  <!-- Mid-install: the one tile being added, at 64 per cent -->
+  <rect x="468" y="174" width="92" height="92" rx="2" fill="#16131a" stroke="#f5a65b" stroke-width="1.75"/>
+  <rect x="468" y="174" width="92" height="92" rx="2" fill="#f5a65b" fill-opacity="0.08"/>
+  <path d="M 544 174 L 560 174 L 560 190 Z" fill="#f5a65b"/>
+  <circle cx="514" cy="220" r="26" fill="none" stroke="#f5a65b" stroke-opacity="0.2" stroke-width="3.5"/>
+  <circle cx="514" cy="220" r="26" fill="none" stroke="#f5a65b" stroke-width="3.5" stroke-linecap="round"
+          stroke-dasharray="104.6 58.8" transform="rotate(-90 514 220)"/>
+  <circle cx="514" cy="220" r="3" fill="#f5a65b"/>
+
+  <!-- Install trace, routed up the gutter from the base system -->
+  <path d="M 571 420 L 571 220 L 562 220" fill="none" stroke="#f5a65b" stroke-width="1.75" stroke-linecap="round"/>
+  <rect x="567" y="416" width="8" height="8" fill="#f5a65b"/>
+  <circle cx="562" cy="220" r="3" fill="#f5a65b"/>
+
+  <!-- Base system -->
+  <g stroke="#a9a0a8" stroke-opacity="0.25" stroke-width="1">
+    <path d="M 172 380 L 172 406"/>
+    <path d="M 286 380 L 286 406"/>
+    <path d="M 400 380 L 400 406"/>
+    <path d="M 514 380 L 514 406"/>
+    <path d="M 628 380 L 628 406"/>
+  </g>
+  <g fill="#a9a0a8" fill-opacity="0.45">
+    <rect x="171" y="404" width="2" height="10"/>
+    <rect x="285" y="404" width="2" height="10"/>
+    <rect x="399" y="404" width="2" height="10"/>
+    <rect x="513" y="404" width="2" height="10"/>
+    <rect x="627" y="404" width="2" height="10"/>
+  </g>
+  <rect x="96" y="414" width="608" height="14" rx="1" fill="#201c26" stroke="#f6efe8" stroke-opacity="0.12" stroke-width="1"/>
+  <g fill="#a9a0a8" fill-opacity="0.18">
+    <rect x="110" y="434" width="1.5" height="7"/>
+    <rect x="148" y="434" width="1.5" height="7"/>
+    <rect x="186" y="434" width="1.5" height="7"/>
+    <rect x="224" y="434" width="1.5" height="7"/>
+    <rect x="262" y="434" width="1.5" height="7"/>
+    <rect x="300" y="434" width="1.5" height="7"/>
+    <rect x="338" y="434" width="1.5" height="7"/>
+    <rect x="376" y="434" width="1.5" height="7"/>
+    <rect x="414" y="434" width="1.5" height="7"/>
+    <rect x="452" y="434" width="1.5" height="7"/>
+    <rect x="490" y="434" width="1.5" height="7"/>
+    <rect x="528" y="434" width="1.5" height="7"/>
+    <rect x="566" y="434" width="1.5" height="7"/>
+    <rect x="604" y="434" width="1.5" height="7"/>
+    <rect x="642" y="434" width="1.5" height="7"/>
+    <rect x="680" y="434" width="1.5" height="7"/>
+  </g>
+
+  <!-- Registration marks -->
+  <g fill="none" stroke="#a9a0a8" stroke-opacity="0.35" stroke-width="1.25">
+    <path d="M 26 46 L 26 26 L 46 26"/>
+    <path d="M 754 26 L 774 26 L 774 46"/>
+    <path d="M 26 454 L 26 474 L 46 474"/>
+    <path d="M 754 474 L 774 474 L 774 454"/>
+  </g>
+</svg>

@@ -1,6 +1,7 @@
 import { StrictMode } from "react";
 import { renderToString } from "react-dom/server";
 import App from "./App";
+import { PORTRAIT_SRCSET, PORTRAIT_SIZES } from "./components/sections/Hero";
 import { LocaleProvider } from "./lib/i18n";
 import {
   canonicalFor,
@@ -57,6 +58,13 @@ export function render(
     // page in search results, but they stay crawlable so the Impressum is
     // discoverable — which is the entire point of having one.
     route === "home" ? "" : `<meta name="robots" content="noindex,follow" />`,
+    // The hero portrait is the LCP element. Preloading with the same
+    // srcset/sizes the <img> carries lets the fetch start with the document
+    // instead of after the bundle, and guarantees the preloaded candidate is
+    // the one the browser actually picks.
+    route === "home"
+      ? `<link rel="preload" as="image" imagesrcset="${PORTRAIT_SRCSET}" imagesizes="${PORTRAIT_SIZES}" fetchpriority="high" />`
+      : "",
     `<meta property="og:type" content="website" />`,
     `<meta property="og:site_name" content="${escapeHtml(t.hero.name)}" />`,
     `<meta property="og:locale" content="${locale === "de" ? "de_DE" : "en_GB"}" />`,

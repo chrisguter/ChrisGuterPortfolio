@@ -1,6 +1,22 @@
+/// <reference types="vite/client" />
 import type { CSSProperties } from "react";
 import Band from "@/components/primitives/Band";
+import { sectionIndex } from "@/lib/sections";
 import { useLocale } from "@/lib/i18n";
+import maliSrc from "@/assets/life/mali.webp";
+import familySrc from "@/assets/life/family.webp";
+import pcPlate from "@/assets/life/pc.svg";
+
+/** Keyed rather than pathed, so the content files stay plain data. Intrinsic
+ *  dimensions live here too — they belong with the file, not with the copy, and
+ *  they are what keeps the section from shifting as the media decodes. The pc
+ *  entry is a drawn plate, not a photograph; at exactly 4:3 it fills the same
+ *  window the photos get and the object-cover crop touches nothing. */
+const MEDIA: Record<string, { src: string; width: number; height: number }> = {
+  mali: { src: maliSrc, width: 1200, height: 1594 },
+  family: { src: familySrc, width: 1200, height: 900 },
+  pc: { src: pcPlate, width: 800, height: 600 },
+};
 
 /** Splits a paragraph at its first clause break so the emphasised lead-in ends
  *  on a real phrase boundary. Punctuation, not word count: the two locales break
@@ -13,57 +29,70 @@ function splitLeadIn(paragraph: string): { lead: string; rest: string } {
   return { lead, rest: paragraph.slice(lead.length).trimStart() };
 }
 
-/* A quotation mark carries a small fraction of the ink of its em box, so these
-   sit far above the type scale to read as graphics rather than as punctuation.
-   Both are decorative and behind the prose; the opacity is low enough that the
-   text still measures against the void it was contrast-checked on. */
-const GLYPH =
-  "pointer-events-none absolute -z-10 font-display leading-none select-none " +
-  "text-[length:clamp(8rem,22vw,20rem)]";
-
 export default function About() {
   const { t } = useLocale();
-  const { label, heading, body } = t.about;
+  const { label, heading, entries } = t.about;
 
   return (
-    <Band id="about" index="05" label={label} heading={heading}>
-      <div className="measure relative isolate mt-10 md:mt-16">
+    <Band id="about" index={sectionIndex("about")} label={label} heading={heading}>
+      <div className="relative isolate mt-10 md:mt-14">
         <div
           aria-hidden="true"
-          className="aurora pointer-events-none absolute -inset-x-16 -inset-y-24 -z-10 opacity-55"
+          className="aurora pointer-events-none absolute -inset-x-16 -inset-y-24 -z-10 opacity-50"
           data-drift
         />
 
-        <span
-          aria-hidden="true"
-          className={`${GLYPH} top-0 left-0 -translate-x-[0.12em] -translate-y-[0.22em] text-ember/12`}
-        >
-          &ldquo;
-        </span>
-
-        <div className="space-y-10 md:space-y-14" data-stagger>
-          {body.map((paragraph, index) => {
-            const { lead, rest } = splitLeadIn(paragraph);
+        <div className="space-y-16 md:space-y-24" data-stagger>
+          {entries.map((entry, index) => {
+            const { lead, rest } = splitLeadIn(entry.text);
+            const media = entry.image ? MEDIA[entry.image.src] : undefined;
 
             return (
-              <p
-                key={paragraph}
-                className="text-lead"
+              <div
+                key={entry.id}
                 style={{ "--i": index } as CSSProperties}
+                /* Alternating sides give the section a rhythm rather than a
+                   column of stacked cards. Entries without media run at the
+                   reading measure instead of half width, so a short note does
+                   not look like a cell with its image missing. */
+                className={
+                  media
+                    ? "flex flex-col gap-8 md:flex-row md:items-center md:gap-14" +
+                      (index % 2 === 1 ? " md:flex-row-reverse" : "")
+                    : "measure"
+                }
               >
-                <span className="font-medium text-cream">{lead}</span>
-                {rest ? <span className="text-haze"> {rest}</span> : null}
-              </p>
+                {media && entry.image ? (
+                  <figure className="relative shrink-0 md:w-[46%]">
+                    <img
+                      src={media.src}
+                      alt={entry.image.alt}
+                      width={media.width}
+                      height={media.height}
+                      loading="lazy"
+                      decoding="async"
+                      /* A fixed 4:3 window across all three: one source is
+                         portrait, one landscape, one drawn to fit — letting
+                         each keep its own ratio makes the rows lurch. */
+                      className="aspect-4/3 w-full rounded-[2px] object-cover"
+                    />
+                    <span
+                      aria-hidden="true"
+                      className="pointer-events-none absolute inset-0 rounded-[2px] border border-hairline-strong"
+                    />
+                  </figure>
+                ) : null}
+
+                <div className={media ? "md:flex-1" : ""}>
+                  <p className="text-lead">
+                    <span className="font-medium text-cream">{lead}</span>
+                    {rest ? <span className="text-haze"> {rest}</span> : null}
+                  </p>
+                </div>
+              </div>
             );
           })}
         </div>
-
-        <span
-          aria-hidden="true"
-          className={`${GLYPH} right-0 bottom-0 translate-x-[0.1em] translate-y-[0.86em] text-rust/12`}
-        >
-          &rdquo;
-        </span>
       </div>
     </Band>
   );

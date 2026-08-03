@@ -9,6 +9,7 @@ export default function Band({
   index,
   label,
   heading,
+  srHeading,
   intro,
   children,
   ruled = true,
@@ -18,6 +19,10 @@ export default function Band({
   index?: string;
   label?: string;
   heading?: string;
+  /** For bands whose design carries no visible heading (the evidence numbers):
+   *  a visually-hidden h2 so the section still exists in the heading outline
+   *  and screen-reader navigation. Ignored when `heading` is set. */
+  srHeading?: string;
   intro?: string;
   children: ReactNode;
   ruled?: boolean;
@@ -29,7 +34,7 @@ export default function Band({
     <section
       id={id}
       className={`relative py-band ${ruled ? "hairline-t" : ""} ${className}`}
-      aria-labelledby={heading ? headingId : undefined}
+      aria-labelledby={heading || srHeading ? headingId : undefined}
     >
       <div className="shell">
         {label ? (
@@ -51,6 +56,10 @@ export default function Band({
             data-rise
           >
             {heading}
+          </h2>
+        ) : srHeading ? (
+          <h2 id={headingId} className="sr-only">
+            {srHeading}
           </h2>
         ) : null}
 

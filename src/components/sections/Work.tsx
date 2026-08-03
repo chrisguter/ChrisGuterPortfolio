@@ -1,11 +1,18 @@
 import { useRef, useState, type CSSProperties, type KeyboardEvent } from "react";
-import { flushSync } from "react-dom";
 import Band from "@/components/primitives/Band";
+import { withViewTransition } from "@/lib/view-transition";
+import { sectionIndex } from "@/lib/sections";
+import { logo } from "@/lib/logos";
 import { useLocale } from "@/lib/i18n";
 import type { Project } from "@/content/types";
 import dropigonGameplay from "@/assets/work/dropigon/gameplay.png";
 import dropigonHome from "@/assets/work/dropigon/homescreen.png";
 import dropigonLeaderboard from "@/assets/work/dropigon/leaderboard.png";
+import biolandPlate from "@/assets/work/plates/bioland.svg";
+import einvoicePlate from "@/assets/work/plates/einvoice.svg";
+import samplusPlate from "@/assets/work/plates/samplus.svg";
+import smartwePlate from "@/assets/work/plates/smartwe.svg";
+import twofactorPlate from "@/assets/work/plates/twofactor.svg";
 
 interface Shot {
   readonly key: string;
@@ -19,25 +26,47 @@ interface Shot {
   readonly transform?: string;
 }
 
+/** Two shapes because there are two kinds of imagery here: the game has real
+ *  screenshots, and the enterprise work — none of it public, all of it behind a
+ *  customer login — has drawn plates instead. They present differently enough
+ *  (1080x2400 portrait against 800x500 landscape) that the difference is in the
+ *  data rather than guessed from the file. */
+type Media =
+  | { readonly kind: "screens"; readonly shots: readonly Shot[] }
+  | { readonly kind: "plate"; readonly src: string };
+
+/** The illustrated plates share one canvas, so the frame holds their ratio
+ *  before the file arrives and opening a study reflows nothing. */
+const PLATE_WIDTH = 800;
+const PLATE_HEIGHT = 500;
+
 /** `Project.media.src` is a key, not a path: content files stay plain data with
  *  no build-tool imports in them, and the bundling happens here. A key with no
- *  entry falls through to the typographic plate rather than breaking. */
-const SHOT_SETS: Record<string, readonly Shot[]> = {
-  dropigon: [
-    {
-      key: "home",
-      src: dropigonHome,
-      className: "z-10 -me-[7%]",
-      transform: "translateY(4%) rotate(-8deg) scale(0.94)",
-    },
-    { key: "gameplay", src: dropigonGameplay, lead: true, className: "z-20" },
-    {
-      key: "leaderboard",
-      src: dropigonLeaderboard,
-      className: "z-10 -ms-[7%]",
-      transform: "translateY(4%) rotate(8deg) scale(0.94)",
-    },
-  ],
+ *  entry falls through to the typographic card rather than breaking. */
+const MEDIA: Record<string, Media> = {
+  dropigon: {
+    kind: "screens",
+    shots: [
+      {
+        key: "home",
+        src: dropigonHome,
+        className: "z-10 -me-[7%]",
+        transform: "translateY(4%) rotate(-8deg) scale(0.94)",
+      },
+      { key: "gameplay", src: dropigonGameplay, lead: true, className: "z-20" },
+      {
+        key: "leaderboard",
+        src: dropigonLeaderboard,
+        className: "z-10 -ms-[7%]",
+        transform: "translateY(4%) rotate(8deg) scale(0.94)",
+      },
+    ],
+  },
+  bioland: { kind: "plate", src: biolandPlate },
+  smartwe: { kind: "plate", src: smartwePlate },
+  samplus: { kind: "plate", src: samplusPlate },
+  einvoice: { kind: "plate", src: einvoicePlate },
+  twofactor: { kind: "plate", src: twofactorPlate },
 };
 
 /** One identity colour per project, cycled, so a project is the same colour
@@ -47,7 +76,7 @@ const SHOT_SETS: Record<string, readonly Shot[]> = {
  *  not clear AA as text on the void — they are fine as light, not as letters. So
  *  the ink for those two is the same hue lifted toward cream, which puts every
  *  coloured character on this section above 5:1 even sitting on its own wash.
- *  Mint and rust already clear it and are used unaltered. */
+ *  Ember and rust already clear it and are used unaltered. */
 const TONES = [
   { field: "var(--ember)", ink: "var(--ember)" },
   { field: "var(--rust)", ink: "var(--rust)" },
@@ -90,7 +119,7 @@ const WASH: CSSProperties = {
    full contrast no matter where the colour lands. The upper field is capped at
    36% because the client sits in it in cream at label size, and ember — the
    lightest of the four — crosses 4.5:1 shortly after that. */
-const PLATE: CSSProperties = {
+const TITLE_CARD: CSSProperties = {
   backgroundImage: [
     "linear-gradient(to top, color-mix(in oklch, var(--void-deep) 88%, transparent) 0%, transparent 58%)",
     "radial-gradient(72% 68% at 80% 8%, color-mix(in oklch, var(--pc) 36%, transparent) 0%, transparent 70%)",
@@ -115,6 +144,23 @@ const SET_GLOW: CSSProperties = {
     "radial-gradient(52% 44% at 50% 58%, color-mix(in oklch, var(--pc) 26%, transparent) 0%, transparent 72%)",
 };
 
+/* A landscape plate is a diagram, not a product shot, so it is framed rather
+   than floated: a lit surface behind the artwork, an edge in the project's
+   colour, and the same cast shadow plus accent bloom the screenshots get. The
+   wash stays at 18% because the plates draw in the project's own colour and a
+   heavier field behind them flattens their own contrast. */
+const DIAGRAM: CSSProperties = {
+  backgroundImage: [
+    "radial-gradient(64% 96% at 84% 4%, color-mix(in oklch, var(--pc) 18%, transparent) 0%, transparent 74%)",
+    "linear-gradient(152deg, var(--surface) 0%, var(--void-deep) 100%)",
+  ].join(", "),
+  borderColor: "color-mix(in oklch, var(--pc) 44%, transparent)",
+  boxShadow: [
+    "0 26px 60px -34px rgb(0 0 0 / 0.85)",
+    "0 0 80px -44px color-mix(in oklch, var(--pc) 85%, transparent)",
+  ].join(", "),
+};
+
 /** The opening case study is the one place on the page that cannot be animated
  *  on a scroll timeline: it appears mid-scroll, already inside the viewport, so
  *  a `view()` range would resolve to whatever progress the row happens to be at
@@ -136,33 +182,69 @@ const REVEAL_CSS = `
 }
 `;
 
-/** Runs the state change inside a view transition where the browser has one, so
- *  the row titles animate to their new positions rather than jumping. `flushSync`
- *  is what makes React commit before the browser takes its "after" snapshot, and
- *  `.call` is needed because the method is bound to the document. */
-function withViewTransition(update: () => void): void {
-  const doc: Partial<Pick<Document, "startViewTransition">> | undefined =
-    typeof document === "undefined" ? undefined : document;
-  const start = doc?.startViewTransition;
-  const reduced =
-    typeof window !== "undefined" &&
-    window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-  if (!start || reduced) {
-    update();
-    return;
+/** The client mark is painted as a mask over the project's own colour rather
+ *  than drawn as an `<img>`. Three of the six rows are for the same client, and
+ *  three identical grey shapes down the list read as a bug; the same shape in
+ *  each row's own accent reads as the rhythm the numbers and washes already set.
+ *
+ *  The @supports guard matters because the failure mode is loud: without a mask
+ *  the element is a filled rectangle in the accent colour. Unsupported means no
+ *  mark at all, which costs nothing — it is decorative. */
+const MARK_CSS = `
+@supports ((-webkit-mask-image: url("#")) or (mask-image: url("#"))) {
+  .hl-work-mark {
+    background-color: var(--pc);
+    -webkit-mask-image: var(--mark);
+    mask-image: var(--mark);
+    -webkit-mask-position: 100% 50%;
+    mask-position: 100% 50%;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-size: contain;
+    mask-size: contain;
   }
-
-  start.call(document, () => flushSync(update));
 }
+`;
 
 export default function Work() {
   const { t } = useLocale();
   const [openId, setOpenId] = useState<string | null>(null);
 
   return (
-    <Band id="work" label={t.work.label} heading={t.work.heading} intro={t.work.intro}>
-      <style>{REVEAL_CSS}</style>
+    <Band
+      id="work"
+      index={sectionIndex("work")}
+      label={t.work.label}
+      heading={t.work.heading}
+      intro={t.work.intro}
+    >
+      <style>{`${REVEAL_CSS}${MARK_CSS}`}</style>
+
+      <div className="mb-16 md:mb-20" data-rise>
+        <p className="meta mb-6">{t.work.clientsLabel}</p>
+        <ul
+          role="list"
+          className="flex flex-wrap items-center gap-x-12 gap-y-8 sm:gap-x-16"
+        >
+          {t.work.clients.map((client) => {
+            const mark = logo(client.src);
+            if (!mark) return null;
+            return (
+              <li key={client.src}>
+                <img
+                  src={mark.src}
+                  alt={client.name}
+                  width={mark.width}
+                  height={mark.height}
+                  loading="lazy"
+                  decoding="async"
+                  className="h-8 w-auto opacity-60 transition-opacity duration-200 ease-out hover:opacity-100 sm:h-9"
+                />
+              </li>
+            );
+          })}
+        </ul>
+      </div>
 
       <ol className={`hairline-t ${BLEED}`} data-stagger>
         {t.work.projects.map((project, index) => (
@@ -198,6 +280,7 @@ function WorkRow({
   const triggerRef = useRef<HTMLButtonElement>(null);
 
   const study = project.study;
+  const mark = logo(project.clientLogo);
   const number = String(index + 1).padStart(2, "0");
   const tone = TONES[index % TONES.length] ?? TONES[0];
   const titleId = `work-${project.id}-title`;
@@ -252,6 +335,25 @@ function WorkRow({
             study ? "group-hover:-translate-y-1 group-focus-within:-translate-y-1" : ""
           }`}
         >
+          {/* Bottom right, below the action and right of the 62ch measure: the
+              one part of a row that is empty until the study opens. Shown from
+              `lg` only, because that is where the third column appears — under
+              it the row is a single text column with no space that is not copy,
+              and a mark small enough to fit there would be an icon rather than
+              a watermark. Sized by a fixed box with `contain` rather than by
+              height, so a wordmark and a square mark carry the same weight. */}
+          {mark ? (
+            <span
+              aria-hidden="true"
+              className={`hl-work-mark pointer-events-none absolute right-8 bottom-8 -z-10 hidden h-[clamp(4.5rem,8vw,7.5rem)] w-[clamp(9rem,16vw,16rem)] transition-opacity duration-500 ease-out lg:block ${
+                open
+                  ? "opacity-[0.16]"
+                  : "opacity-[0.08] group-hover:opacity-[0.14] group-focus-within:opacity-[0.14]"
+              }`}
+              style={{ "--mark": `url("${mark.src}")` } as CSSProperties}
+            />
+          ) : null}
+
           <div className="grid grid-cols-[auto_minmax(0,1fr)] items-start gap-x-5 gap-y-7 sm:gap-x-8 lg:grid-cols-[auto_minmax(0,1fr)_auto] lg:gap-x-14">
             <span
               aria-hidden="true"
@@ -354,7 +456,7 @@ function WorkRow({
           style={{ borderInlineStartColor: "var(--pc)" }}
         >
           <div className="grid gap-10 pb-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)] lg:items-start lg:gap-16">
-            <Plate project={project} number={number} open={open} />
+            <ProjectMedia project={project} number={number} open={open} />
 
             <dl className="grid gap-9">
               {(
@@ -425,11 +527,11 @@ function WorkRow({
   );
 }
 
-/** Real screenshots where the project has them, and the typographic plate where
- *  it does not — five of the six projects still rely on the plate, where it is
- *  the artwork rather than a placeholder for one. The plate restates the row's
- *  own text, so it is hidden from assistive technology instead of read twice. */
-function Plate({
+/** Every project in the content has media, so the typographic card below is a
+ *  fallback rather than artwork: the media key is authored in plain content
+ *  files, and a key with no entry should degrade to something composed rather
+ *  than to a hole in the panel. */
+function ProjectMedia({
   project,
   number,
   open,
@@ -439,20 +541,22 @@ function Plate({
   open: boolean;
 }) {
   const media = project.media;
-  const shots = media ? SHOT_SETS[media.src] : undefined;
+  const entry = media ? MEDIA[media.src] : undefined;
 
-  if (media && shots) {
+  if (media && entry) {
+    if (entry.kind === "plate") return <Diagram src={entry.src} alt={media.alt} />;
+
     /* Mounted only while the study is open. These are 1080x2400 sources, and
        three of them have no business sitting in the collapsed index — not in
        the layout, and not as requests. */
-    return open ? <Screens shots={shots} alt={media.alt} /> : null;
+    return open ? <Screens shots={entry.shots} alt={media.alt} /> : null;
   }
 
   return (
     <div
       aria-hidden="true"
       className="aspect-4/3 flex w-full flex-col justify-between overflow-hidden border border-[color:var(--pc)] p-7 sm:p-9"
-      style={PLATE}
+      style={TITLE_CARD}
     >
       <div className="flex items-baseline justify-between gap-4">
         <span className={`${META} text-cream`} data-numeric>
@@ -467,6 +571,27 @@ function Plate({
           {project.name}
         </p>
       </div>
+    </div>
+  );
+}
+
+/** The one drawn plate, at the panel's own width. It is capped at 38rem because
+ *  the media column tops out just under that on the widest shell — past it the
+ *  plate would grow taller than the case study standing beside it, which is the
+ *  text this section is actually about. Described rather than decorative: the
+ *  content model carries real alt text for each one. */
+function Diagram({ src, alt }: { src: string; alt: string }) {
+  return (
+    <div className="w-full max-w-[38rem] border p-3 sm:p-4" style={DIAGRAM}>
+      <img
+        src={src}
+        alt={alt}
+        width={PLATE_WIDTH}
+        height={PLATE_HEIGHT}
+        loading="lazy"
+        decoding="async"
+        className="block h-auto w-full"
+      />
     </div>
   );
 }
