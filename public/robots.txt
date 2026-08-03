@@ -1,0 +1,9 @@
+# Everything is crawlable. /imprint/ and /privacy/ are kept out of search by a
+# noindex meta tag, not by a rule here — a Disallow would stop crawlers fetching
+# those pages, and a page that is never fetched is a page whose noindex is never
+# read.
+
+User-agent: *
+Allow: /
+
+Sitemap: https://chrisguter.com/sitemap.xml

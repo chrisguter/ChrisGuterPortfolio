@@ -1,0 +1,163 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="presentation">
+  <defs>
+    <linearGradient id="tb-ground" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="800" y2="500">
+      <stop offset="0" stop-color="#16131a"/>
+      <stop offset="1" stop-color="#050408"/>
+    </linearGradient>
+
+    <radialGradient id="tb-bloom" gradientUnits="userSpaceOnUse" cx="460" cy="240" r="350">
+      <stop offset="0" stop-color="#7ba7d9" stop-opacity="0.2"/>
+      <stop offset="0.55" stop-color="#7ba7d9" stop-opacity="0.06"/>
+      <stop offset="1" stop-color="#7ba7d9" stop-opacity="0"/>
+    </radialGradient>
+
+    <pattern id="tb-grid" width="25" height="25" patternUnits="userSpaceOnUse">
+      <path d="M 25 0 L 0 0 L 0 25" fill="none" stroke="#f6efe8" stroke-opacity="0.03" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <rect width="800" height="500" fill="url(#tb-ground)"/>
+  <rect width="800" height="500" fill="url(#tb-grid)"/>
+  <rect width="800" height="500" fill="url(#tb-bloom)"/>
+
+  <!-- Price panel: the raw signal -->
+  <path d="M 56 126 L 94 126" stroke="#a9a0a8" stroke-opacity="0.22" stroke-width="1"/>
+  <rect x="56" y="140" width="204" height="190" rx="2" fill="#16131a" stroke="#f6efe8" stroke-opacity="0.14" stroke-width="1.25"/>
+  <g stroke="#f6efe8" stroke-opacity="0.05" stroke-width="1">
+    <path d="M 64 195 L 252 195"/>
+    <path d="M 64 245 L 252 245"/>
+    <path d="M 64 295 L 252 295"/>
+  </g>
+
+  <!-- Wicks -->
+  <g stroke="#a9a0a8" stroke-opacity="0.45" stroke-width="1">
+    <path d="M 76 200 L 76 246"/>
+    <path d="M 97 224 L 97 268"/>
+    <path d="M 118 248 L 118 296"/>
+    <path d="M 202 232 L 202 262"/>
+  </g>
+  <g stroke="#7ba7d9" stroke-opacity="0.55" stroke-width="1">
+    <path d="M 139 268 L 139 312"/>
+    <path d="M 160 240 L 160 290"/>
+    <path d="M 181 222 L 181 266"/>
+    <path d="M 223 200 L 223 248"/>
+    <path d="M 244 178 L 244 224"/>
+  </g>
+
+  <!-- Bodies: haze falls, azure rises -->
+  <g fill="#a9a0a8" fill-opacity="0.3">
+    <rect x="71.5" y="208" width="9" height="30"/>
+    <rect x="92.5" y="230" width="9" height="32"/>
+    <rect x="113.5" y="254" width="9" height="34"/>
+    <rect x="197.5" y="236" width="9" height="20"/>
+  </g>
+  <g fill="#7ba7d9" fill-opacity="0.22" stroke="#7ba7d9" stroke-opacity="0.7" stroke-width="1">
+    <rect x="134.5" y="270" width="9" height="14"/>
+    <rect x="155.5" y="248" width="9" height="34"/>
+    <rect x="176.5" y="228" width="9" height="32"/>
+    <rect x="218.5" y="206" width="9" height="36"/>
+    <rect x="239.5" y="184" width="9" height="34"/>
+  </g>
+
+  <!-- Moving average, always a little late -->
+  <path d="M 66 208 C 88 216, 104 238, 124 254 C 144 270, 162 272, 184 264 C 208 256, 228 244, 252 224"
+        fill="none" stroke="#7ba7d9" stroke-opacity="0.65" stroke-width="1.5"/>
+
+  <!-- Three channels: chart, fundamentals, sentiment -->
+  <path d="M 260 176 L 296 176" stroke="#a9a0a8" stroke-opacity="0.45" stroke-width="1.25"/>
+  <circle cx="274" cy="262" r="5" fill="#0b090d" stroke="#a9a0a8" stroke-opacity="0.5" stroke-width="1.25"/>
+  <circle cx="274" cy="262" r="1.8" fill="#a9a0a8" fill-opacity="0.6"/>
+  <path d="M 279 262 L 296 262" stroke="#a9a0a8" stroke-opacity="0.45" stroke-width="1.25"/>
+  <circle cx="274" cy="348" r="5" fill="#0b090d" stroke="#a9a0a8" stroke-opacity="0.5" stroke-width="1.25"/>
+  <circle cx="274" cy="348" r="1.8" fill="#a9a0a8" fill-opacity="0.6"/>
+  <path d="M 279 348 L 296 348" stroke="#a9a0a8" stroke-opacity="0.45" stroke-width="1.25"/>
+
+  <g fill="#16131a" stroke="#f6efe8" stroke-opacity="0.14" stroke-width="1.25">
+    <rect x="296" y="160" width="48" height="32" rx="2"/>
+    <rect x="296" y="246" width="48" height="32" rx="2"/>
+    <rect x="296" y="332" width="48" height="32" rx="2"/>
+  </g>
+  <path d="M 304 182 L 312 172 L 319 178 L 328 168 L 336 174"
+        fill="none" stroke="#a9a0a8" stroke-opacity="0.6" stroke-width="1.5" stroke-linejoin="round"/>
+  <g fill="#a9a0a8" fill-opacity="0.45">
+    <rect x="304" y="253" width="24" height="3"/>
+    <rect x="304" y="260" width="16" height="3"/>
+    <rect x="304" y="267" width="28" height="3"/>
+  </g>
+  <path d="M 304 348 C 308 341, 312 341, 316 348 C 320 355, 324 355, 328 348 C 332 341, 336 341, 340 348"
+        fill="none" stroke="#a9a0a8" stroke-opacity="0.6" stroke-width="1.5"/>
+
+  <!-- Merging into one score -->
+  <g fill="none" stroke="#7ba7d9" stroke-opacity="0.45" stroke-width="1.25">
+    <path d="M 344 176 C 372 176, 372 262, 396 262"/>
+    <path d="M 344 262 L 396 262"/>
+    <path d="M 344 348 C 372 348, 372 262, 396 262"/>
+  </g>
+  <g fill="#7ba7d9" fill-opacity="0.7">
+    <circle cx="344" cy="176" r="3"/>
+    <circle cx="344" cy="262" r="3"/>
+    <circle cx="344" cy="348" r="3"/>
+  </g>
+  <circle cx="396" cy="262" r="4.5" fill="#0b090d" stroke="#7ba7d9" stroke-width="1.5"/>
+
+  <!-- The score, dialled -->
+  <path d="M 412 262 A 40 40 0 0 1 492 262" fill="none" stroke="#7ba7d9" stroke-opacity="0.16" stroke-width="4"/>
+  <path d="M 412 262 A 40 40 0 0 1 475.5 229.6" fill="none" stroke="#7ba7d9" stroke-width="4" stroke-linecap="round"/>
+  <g stroke="#a9a0a8" stroke-opacity="0.3" stroke-width="1.25" stroke-linecap="round">
+    <path d="M 408 262 L 403 262"/>
+    <path d="M 413.9 240 L 409.6 237.5"/>
+    <path d="M 430 223.9 L 427.5 219.6"/>
+    <path d="M 452 218 L 452 213"/>
+    <path d="M 474 223.9 L 476.5 219.6"/>
+    <path d="M 490.1 240 L 494.4 237.5"/>
+    <path d="M 496 262 L 501 262"/>
+  </g>
+  <path d="M 412 262 L 492 262" stroke="#f6efe8" stroke-opacity="0.08" stroke-width="1"/>
+  <path d="M 452 262 L 468.5 239.3" stroke="#f6efe8" stroke-opacity="0.75" stroke-width="1.5" stroke-linecap="round"/>
+  <circle cx="452" cy="262" r="3.5" fill="#7ba7d9"/>
+
+  <!-- The explanation floats free: it reads the score, it never touches the rail -->
+  <rect x="470" y="64" width="148" height="62" rx="8" fill="#16131a" stroke="#7ba7d9" stroke-opacity="0.55" stroke-width="1.25" stroke-dasharray="5 4"/>
+  <rect x="470" y="64" width="148" height="62" rx="8" fill="#7ba7d9" fill-opacity="0.04"/>
+  <g fill="#a9a0a8" fill-opacity="0.3">
+    <rect x="484" y="80" width="92" height="4"/>
+    <rect x="484" y="92" width="68" height="4"/>
+    <rect x="484" y="104" width="80" height="4"/>
+  </g>
+  <path d="M 500 128 C 484 154, 470 176, 461 196" fill="none" stroke="#7ba7d9" stroke-opacity="0.35" stroke-width="1.25" stroke-dasharray="4 5"/>
+  <circle cx="459" cy="201" r="2.5" fill="#0b090d" stroke="#7ba7d9" stroke-opacity="0.5" stroke-width="1.25"/>
+  <path d="M 618 96 L 638 96" stroke="#7ba7d9" stroke-opacity="0.35" stroke-width="1.25" stroke-dasharray="2 5"/>
+  <circle cx="643" cy="96" r="2.5" fill="#0b090d" stroke="#7ba7d9" stroke-opacity="0.5" stroke-width="1.25"/>
+  <path d="M 660 60 L 660 190" stroke="#a9a0a8" stroke-opacity="0.35" stroke-width="1.25" stroke-dasharray="6 6"/>
+
+  <!-- Execution: the order leaves the dial -->
+  <path d="M 501 262 L 566 262" stroke="#7ba7d9" stroke-opacity="0.6" stroke-width="1.5"/>
+  <path d="M 530 254 L 538 262 L 530 270 L 522 262 Z" fill="#7ba7d9" fill-opacity="0.85"/>
+
+  <!-- One rust element: the risk gate -->
+  <g fill="#0b090d" stroke="#d9603c" stroke-width="1.6" stroke-linejoin="round">
+    <path d="M 566 246 L 585 262 L 566 278 Z"/>
+    <path d="M 604 246 L 585 262 L 604 278 Z"/>
+  </g>
+  <path d="M 585 262 L 585 234 M 574 234 L 596 234" fill="none" stroke="#d9603c" stroke-opacity="0.85" stroke-width="1.5" stroke-linecap="round"/>
+
+  <!-- Past the gate, the broker -->
+  <path d="M 604 262 L 683 262" stroke="#7ba7d9" stroke-opacity="0.6" stroke-width="1.5"/>
+  <path d="M 675 258 L 683 262 L 675 266 Z" fill="#7ba7d9" fill-opacity="0.8"/>
+  <circle cx="702" cy="262" r="17" fill="#0b090d" stroke="#7ba7d9" stroke-width="1.5"/>
+  <path d="M 702 251 L 708 259 L 696 259 Z" fill="#7ba7d9" fill-opacity="0.85"/>
+  <path d="M 702 273 L 708 265 L 696 265 Z" fill="#7ba7d9" fill-opacity="0.4"/>
+
+  <!-- with a stop-loss hanging under it -->
+  <path d="M 702 279 L 702 296" stroke="#7ba7d9" stroke-opacity="0.35" stroke-width="1.25" stroke-dasharray="4 4"/>
+  <path d="M 684 296 L 684 306 L 720 306 L 720 296" fill="none" stroke="#7ba7d9" stroke-opacity="0.7" stroke-width="1.4"/>
+  <path d="M 702 306 L 702 313" stroke="#7ba7d9" stroke-opacity="0.7" stroke-width="1.4"/>
+
+  <!-- Registration marks -->
+  <g fill="none" stroke="#a9a0a8" stroke-opacity="0.35" stroke-width="1.25">
+    <path d="M 26 46 L 26 26 L 46 26"/>
+    <path d="M 754 26 L 774 26 L 774 46"/>
+    <path d="M 26 454 L 26 474 L 46 474"/>
+    <path d="M 754 474 L 774 474 L 774 454"/>
+  </g>
+</svg>

@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="Christian Gutermann">
+  <title>Christian Gutermann</title>
+  <!--
+    src/assets/logo.svg is a three-layer spiral wordmark built from several
+    hundred bezier points; below about 64px it collapses into a smudge, so this
+    is a purpose-built mark rather than a reduction of it. A squared C — three
+    bars, one stroke weight, sharp corners — survives 16px because every feature
+    is at least two device pixels wide at that size.
+
+    Fixed colours rather than a theme-inverting tile: the mark is ember on the
+    site's own void ground, which reads against both light and dark browser
+    chrome (the tile is dark enough to separate from light chrome, the mark
+    bright enough to separate from dark). Inverting would mean giving up the
+    brand colours at the one size where they still register.
+  -->
+  <rect width="32" height="32" fill="#0b090d" />
+  <path d="M24 7H8v18h16v-4H12V11h12z" fill="#f5a65b" />
+  <rect x="18" y="14" width="4" height="4" fill="#d9603c" />
+</svg>

@@ -1,0 +1,156 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="presentation">
+  <defs>
+    <linearGradient id="ei-ground" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="800" y2="500">
+      <stop offset="0" stop-color="#16131a"/>
+      <stop offset="1" stop-color="#050408"/>
+    </linearGradient>
+
+    <radialGradient id="ei-bloom" gradientUnits="userSpaceOnUse" cx="528" cy="216" r="384">
+      <stop offset="0" stop-color="#a78bc8" stop-opacity="0.2"/>
+      <stop offset="0.55" stop-color="#a78bc8" stop-opacity="0.06"/>
+      <stop offset="1" stop-color="#a78bc8" stop-opacity="0"/>
+    </radialGradient>
+
+    <radialGradient id="ei-seal" gradientUnits="userSpaceOnUse" cx="392" cy="400" r="92">
+      <stop offset="0" stop-color="#a78bc8" stop-opacity="0.22"/>
+      <stop offset="1" stop-color="#a78bc8" stop-opacity="0"/>
+    </radialGradient>
+
+    <pattern id="ei-grid" width="25" height="25" patternUnits="userSpaceOnUse">
+      <path d="M 25 0 L 0 0 L 0 25" fill="none" stroke="#f6efe8" stroke-opacity="0.03" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <rect width="800" height="500" fill="url(#ei-ground)"/>
+  <rect width="800" height="500" fill="url(#ei-grid)"/>
+  <rect width="800" height="500" fill="url(#ei-bloom)"/>
+  <circle cx="392" cy="400" r="92" fill="url(#ei-seal)"/>
+
+  <!-- The document -->
+  <rect x="76" y="64" width="316" height="372" rx="2" fill="#16131a" stroke="#f6efe8" stroke-opacity="0.14" stroke-width="1.25"/>
+  <rect x="76" y="64" width="316" height="5" fill="#a78bc8" fill-opacity="0.6"/>
+
+  <!-- Header: bracketed slots on the left, structured header data on the right -->
+  <g fill="none" stroke="#a78bc8" stroke-opacity="0.6" stroke-width="1.25">
+    <path d="M 108 100 L 100 100 L 100 118 L 108 118"/>
+    <path d="M 188 100 L 196 100 L 196 118 L 188 118"/>
+    <path d="M 108 126 L 100 126 L 100 144 L 108 144"/>
+    <path d="M 162 126 L 170 126 L 170 144 L 162 144"/>
+  </g>
+  <rect x="112" y="106" width="72" height="5" fill="#a9a0a8" fill-opacity="0.5"/>
+  <rect x="112" y="132" width="46" height="5" fill="#a9a0a8" fill-opacity="0.35"/>
+  <g fill="#a9a0a8" fill-opacity="0.3">
+    <rect x="280" y="96" width="88" height="4"/>
+    <rect x="280" y="108" width="66" height="4"/>
+    <rect x="280" y="120" width="78" height="4"/>
+    <rect x="280" y="132" width="54" height="4"/>
+  </g>
+
+  <path d="M 100 166 L 368 166" stroke="#f6efe8" stroke-opacity="0.12" stroke-width="1"/>
+
+  <!-- Line items as bars: values, not prose -->
+  <g fill="#a78bc8" fill-opacity="0.65">
+    <rect x="100" y="188" width="4" height="4"/>
+    <rect x="100" y="216" width="4" height="4"/>
+    <rect x="100" y="244" width="4" height="4"/>
+    <rect x="100" y="272" width="4" height="4"/>
+    <rect x="100" y="300" width="4" height="4"/>
+  </g>
+  <g fill="#a9a0a8" fill-opacity="0.38">
+    <rect x="114" y="187" width="150" height="6"/>
+    <rect x="114" y="215" width="124" height="6"/>
+    <rect x="114" y="243" width="166" height="6"/>
+    <rect x="114" y="271" width="138" height="6"/>
+    <rect x="114" y="299" width="152" height="6"/>
+  </g>
+  <g fill="#a9a0a8" fill-opacity="0.26">
+    <rect x="292" y="187" width="20" height="6"/>
+    <rect x="292" y="215" width="20" height="6"/>
+    <rect x="292" y="243" width="20" height="6"/>
+    <rect x="292" y="271" width="20" height="6"/>
+    <rect x="292" y="299" width="20" height="6"/>
+  </g>
+  <g fill="#a78bc8" fill-opacity="0.55">
+    <rect x="324" y="187" width="44" height="6"/>
+    <rect x="332" y="215" width="36" height="6"/>
+    <rect x="316" y="243" width="52" height="6"/>
+    <rect x="328" y="271" width="40" height="6"/>
+    <rect x="320" y="299" width="48" height="6"/>
+  </g>
+
+  <path d="M 100 326 L 368 326" stroke="#f6efe8" stroke-opacity="0.12" stroke-width="1"/>
+  <rect x="100" y="345" width="64" height="6" fill="#a9a0a8" fill-opacity="0.3"/>
+  <rect x="252" y="343.5" width="116" height="9" fill="#a78bc8" fill-opacity="0.9"/>
+
+  <g fill="none" stroke="#a78bc8" stroke-opacity="0.45" stroke-width="1.25">
+    <path d="M 108 380 L 100 380 L 100 398 L 108 398"/>
+    <path d="M 172 380 L 180 380 L 180 398 L 172 398"/>
+  </g>
+  <rect x="112" y="386" width="56" height="5" fill="#a9a0a8" fill-opacity="0.25"/>
+
+  <!-- The same document as structure: a spine of bracketed data slots -->
+  <g fill="none" stroke="#a78bc8" stroke-opacity="0.3" stroke-width="1" stroke-dasharray="4 5">
+    <path d="M 392 109 L 456 128"/>
+    <path d="M 392 190 L 456 224"/>
+    <path d="M 392 274 L 456 272"/>
+    <path d="M 392 348 L 456 368"/>
+  </g>
+  <g fill="#a78bc8" fill-opacity="0.6">
+    <circle cx="392" cy="109" r="2"/>
+    <circle cx="392" cy="190" r="2"/>
+    <circle cx="392" cy="274" r="2"/>
+    <circle cx="392" cy="348" r="2"/>
+  </g>
+
+  <path d="M 456 92 L 456 396" stroke="#a78bc8" stroke-opacity="0.35" stroke-width="1.25"/>
+  <circle cx="456" cy="92" r="5" fill="#0b090d" stroke="#a78bc8" stroke-opacity="0.8" stroke-width="1.25"/>
+  <circle cx="456" cy="92" r="1.8" fill="#a78bc8"/>
+
+  <g fill="none" stroke="#a78bc8" stroke-opacity="0.35" stroke-width="1">
+    <path d="M 456 128 L 488 128"/>
+    <path d="M 456 176 L 488 176"/>
+    <path d="M 456 224 L 488 224"/>
+    <path d="M 456 272 L 488 272"/>
+    <path d="M 456 320 L 488 320"/>
+    <path d="M 456 368 L 488 368"/>
+  </g>
+
+  <g fill="none" stroke="#a78bc8" stroke-opacity="0.6" stroke-width="1.25">
+    <path d="M 496 117 L 488 117 L 488 139 L 496 139"/>
+    <path d="M 648 117 L 656 117 L 656 139 L 648 139"/>
+    <path d="M 496 165 L 488 165 L 488 187 L 496 187"/>
+    <path d="M 620 165 L 628 165 L 628 187 L 620 187"/>
+    <path d="M 496 213 L 488 213 L 488 235 L 496 235"/>
+    <path d="M 664 213 L 672 213 L 672 235 L 664 235"/>
+    <path d="M 496 261 L 488 261 L 488 283 L 496 283"/>
+    <path d="M 632 261 L 640 261 L 640 283 L 632 283"/>
+    <path d="M 496 309 L 488 309 L 488 331 L 496 331"/>
+    <path d="M 676 309 L 684 309 L 684 331 L 676 331"/>
+    <path d="M 496 357 L 488 357 L 488 379 L 496 379"/>
+    <path d="M 612 357 L 620 357 L 620 379 L 612 379"/>
+  </g>
+  <g fill="#a78bc8" fill-opacity="0.55">
+    <rect x="500" y="125" width="136" height="6"/>
+    <rect x="500" y="221" width="152" height="6"/>
+    <rect x="500" y="317" width="164" height="6"/>
+  </g>
+  <g fill="#a9a0a8" fill-opacity="0.32">
+    <rect x="500" y="173" width="108" height="6"/>
+    <rect x="500" y="269" width="120" height="6"/>
+    <rect x="500" y="365" width="100" height="6"/>
+  </g>
+
+  <!-- Validated -->
+  <circle cx="392" cy="400" r="28" fill="none" stroke="#a78bc8" stroke-opacity="0.22" stroke-width="1" stroke-dasharray="3 6"/>
+  <circle cx="392" cy="400" r="22" fill="#0b090d" stroke="#a78bc8" stroke-width="1.75"/>
+  <path d="M 382 400 L 389 408 L 403 391" fill="none" stroke="#a78bc8" stroke-width="2.6"
+        stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Registration marks -->
+  <g fill="none" stroke="#a9a0a8" stroke-opacity="0.35" stroke-width="1.25">
+    <path d="M 26 46 L 26 26 L 46 26"/>
+    <path d="M 754 26 L 774 26 L 774 46"/>
+    <path d="M 26 454 L 26 474 L 46 474"/>
+    <path d="M 754 474 L 774 474 L 774 454"/>
+  </g>
+</svg>

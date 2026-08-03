@@ -1,0 +1,307 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="presentation">
+  <defs>
+    <linearGradient id="pc-ground" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="800" y2="600">
+      <stop offset="0" stop-color="#16131a"/>
+      <stop offset="1" stop-color="#050408"/>
+    </linearGradient>
+
+    <radialGradient id="pc-bloom" gradientUnits="userSpaceOnUse" cx="395" cy="290" r="350">
+      <stop offset="0" stop-color="#f5a65b" stop-opacity="0.2"/>
+      <stop offset="0.55" stop-color="#f5a65b" stop-opacity="0.06"/>
+      <stop offset="1" stop-color="#f5a65b" stop-opacity="0"/>
+    </radialGradient>
+
+    <radialGradient id="pc-glow" gradientUnits="userSpaceOnUse" cx="403" cy="300" r="170">
+      <stop offset="0" stop-color="#f5a65b" stop-opacity="0.14"/>
+      <stop offset="1" stop-color="#f5a65b" stop-opacity="0"/>
+    </radialGradient>
+
+    <pattern id="pc-grid" width="25" height="25" patternUnits="userSpaceOnUse">
+      <path d="M 25 0 L 0 0 L 0 25" fill="none" stroke="#f6efe8" stroke-opacity="0.03" stroke-width="1"/>
+    </pattern>
+
+    <!-- One swept blade per fan size; each fan spins its own copies. -->
+    <path id="pc-b33" d="M 8 -4 Q 21 -9 25 -21" fill="none" stroke-linecap="round"/>
+    <path id="pc-b27" d="M 7 -3.5 Q 18 -7 20.5 -17" fill="none" stroke-linecap="round"/>
+    <path id="pc-b21" d="M 5.5 -2.5 Q 13.5 -5 16 -13.5" fill="none" stroke-linecap="round"/>
+    <path id="pc-b20" d="M 5 -2.5 Q 12.5 -4.5 15 -12.8" fill="none" stroke-linecap="round"/>
+  </defs>
+
+  <rect width="800" height="600" fill="url(#pc-ground)"/>
+  <rect width="800" height="600" fill="url(#pc-grid)"/>
+
+  <!-- The tower, side panel off -->
+  <rect x="170" y="95" width="380" height="415" rx="8" fill="#16131a" stroke="#f6efe8" stroke-opacity="0.2" stroke-width="1.5"/>
+  <rect width="800" height="600" fill="url(#pc-bloom)"/>
+  <g fill="#16131a" stroke="#f6efe8" stroke-opacity="0.18" stroke-width="1.25">
+    <rect x="190" y="510" width="34" height="10" rx="2"/>
+    <rect x="496" y="510" width="34" height="10" rx="2"/>
+  </g>
+
+  <!-- PSU basement, with a grommet where the runs pass through -->
+  <g fill="none" stroke="#f6efe8" stroke-opacity="0.1" stroke-width="1.25">
+    <path d="M 170 405 L 246 405"/>
+    <path d="M 284 405 L 550 405"/>
+  </g>
+  <rect x="248" y="400" width="34" height="10" rx="5" fill="none" stroke="#f6efe8" stroke-opacity="0.18" stroke-width="1"/>
+
+  <!-- Board on its standoffs -->
+  <rect x="300" y="125" width="220" height="260" rx="3" fill="#201c26" stroke="#f6efe8" stroke-opacity="0.12" stroke-width="1.25"/>
+  <g fill="#f6efe8" fill-opacity="0.18">
+    <circle cx="308" cy="133" r="2"/>
+    <circle cx="512" cy="133" r="2"/>
+    <circle cx="308" cy="377" r="2"/>
+    <circle cx="512" cy="377" r="2"/>
+  </g>
+  <rect x="544" y="112" width="6" height="20" fill="#a9a0a8" fill-opacity="0.2"/>
+
+  <!-- Tower cooler: fin stack, base, and the pipes that do the real work -->
+  <rect x="350" y="140" width="74" height="88" fill="#201c26" stroke="#f6efe8" stroke-opacity="0.3" stroke-width="1.25"/>
+  <g stroke="#f6efe8" stroke-opacity="0.14" stroke-width="1">
+    <path d="M 354 147 L 420 147"/><path d="M 354 154 L 420 154"/><path d="M 354 161 L 420 161"/>
+    <path d="M 354 168 L 420 168"/><path d="M 354 175 L 420 175"/><path d="M 354 182 L 420 182"/>
+    <path d="M 354 189 L 420 189"/><path d="M 354 196 L 420 196"/><path d="M 354 203 L 420 203"/>
+    <path d="M 354 210 L 420 210"/><path d="M 354 217 L 420 217"/>
+  </g>
+  <rect x="358" y="228" width="58" height="8" fill="#16131a" stroke="#f6efe8" stroke-opacity="0.25" stroke-width="1"/>
+  <g fill="none" stroke="#d9603c" stroke-width="1.6" stroke-linecap="round">
+    <path d="M 372 236 C 358 236, 344 230, 344 216 L 344 146" stroke-opacity="0.65"/>
+    <path d="M 402 236 C 416 236, 430 230, 430 216 L 430 146" stroke-opacity="0.65"/>
+    <path d="M 387 228 L 387 144" stroke-opacity="0.3"/>
+  </g>
+  <rect x="364" y="240" width="46" height="14" fill="#f5a65b" fill-opacity="0.14" stroke="#f5a65b" stroke-opacity="0.8" stroke-width="1.3"/>
+  <rect x="379" y="243.5" width="16" height="7" fill="#f5a65b" fill-opacity="0.5"/>
+
+  <!-- Two sticks, seated, clips down -->
+  <g fill="#201c26" stroke="#f6efe8" stroke-opacity="0.28" stroke-width="1">
+    <rect x="438" y="148" width="9" height="104"/>
+    <rect x="454" y="148" width="9" height="104"/>
+  </g>
+  <g fill="#a9a0a8" fill-opacity="0.25">
+    <rect x="440" y="158" width="5" height="10"/><rect x="440" y="178" width="5" height="10"/><rect x="440" y="198" width="5" height="10"/>
+    <rect x="456" y="158" width="5" height="10"/><rect x="456" y="178" width="5" height="10"/><rect x="456" y="198" width="5" height="10"/>
+  </g>
+  <g fill="#f5a65b" fill-opacity="0.45">
+    <rect x="438" y="248" width="9" height="4"/>
+    <rect x="454" y="248" width="9" height="4"/>
+  </g>
+  <g fill="#16131a" stroke="#f6efe8" stroke-opacity="0.2" stroke-width="1">
+    <rect x="436.5" y="253" width="12" height="3"/>
+    <rect x="452.5" y="253" width="12" height="3"/>
+  </g>
+  <rect x="436" y="270" width="64" height="14" rx="2" fill="#201c26" stroke="#f6efe8" stroke-opacity="0.18" stroke-width="1"/>
+  <circle cx="494" cy="277" r="1.5" fill="#f6efe8" fill-opacity="0.3"/>
+
+  <!-- Rear exhaust -->
+  <rect x="469" y="137" width="62" height="62" rx="5" fill="#16131a" stroke="#f6efe8" stroke-opacity="0.12" stroke-width="1.1"/>
+  <circle cx="500" cy="168" r="27" fill="none" stroke="#f6efe8" stroke-opacity="0.22" stroke-width="1.1"/>
+  <g stroke="#a9a0a8" stroke-opacity="0.45" stroke-width="1.3">
+    <use href="#pc-b27" transform="translate(500 168) rotate(20)"/>
+    <use href="#pc-b27" transform="translate(500 168) rotate(92)"/>
+    <use href="#pc-b27" transform="translate(500 168) rotate(164)"/>
+    <use href="#pc-b27" transform="translate(500 168) rotate(236)"/>
+    <use href="#pc-b27" transform="translate(500 168) rotate(308)"/>
+  </g>
+  <circle cx="500" cy="168" r="8" fill="#0b090d" stroke="#a9a0a8" stroke-opacity="0.5" stroke-width="1.1"/>
+  <circle cx="500" cy="168" r="2" fill="#a9a0a8" fill-opacity="0.5"/>
+
+  <!-- Front intake pair -->
+  <g fill="#16131a" stroke="#f6efe8" stroke-opacity="0.12" stroke-width="1.1">
+    <rect x="177" y="154" width="72" height="72" rx="6"/>
+    <rect x="177" y="236" width="72" height="72" rx="6"/>
+  </g>
+  <g fill="none" stroke="#f6efe8" stroke-opacity="0.22" stroke-width="1.1">
+    <circle cx="213" cy="190" r="33"/>
+    <circle cx="213" cy="272" r="33"/>
+  </g>
+  <g stroke="#a9a0a8" stroke-opacity="0.45" stroke-width="1.3">
+    <use href="#pc-b33" transform="translate(213 190) rotate(0)"/>
+    <use href="#pc-b33" transform="translate(213 190) rotate(72)"/>
+    <use href="#pc-b33" transform="translate(213 190) rotate(144)"/>
+    <use href="#pc-b33" transform="translate(213 190) rotate(216)"/>
+    <use href="#pc-b33" transform="translate(213 190) rotate(288)"/>
+    <use href="#pc-b33" transform="translate(213 272) rotate(36)"/>
+    <use href="#pc-b33" transform="translate(213 272) rotate(108)"/>
+    <use href="#pc-b33" transform="translate(213 272) rotate(180)"/>
+    <use href="#pc-b33" transform="translate(213 272) rotate(252)"/>
+    <use href="#pc-b33" transform="translate(213 272) rotate(324)"/>
+  </g>
+  <g fill="#0b090d" stroke="#a9a0a8" stroke-opacity="0.5" stroke-width="1.1">
+    <circle cx="213" cy="190" r="9"/>
+    <circle cx="213" cy="272" r="9"/>
+  </g>
+  <g fill="#a9a0a8" fill-opacity="0.5">
+    <circle cx="213" cy="190" r="2"/>
+    <circle cx="213" cy="272" r="2"/>
+  </g>
+
+  <!-- The long card, light bar lit -->
+  <rect x="289" y="295" width="228" height="4" fill="#f5a65b" fill-opacity="0.5"/>
+  <rect x="285" y="300" width="236" height="58" rx="3" fill="#201c26" stroke="#f5a65b" stroke-opacity="0.85" stroke-width="1.4"/>
+  <g stroke="#f6efe8" stroke-opacity="0.1" stroke-width="1">
+    <path d="M 294 306 L 294 352"/><path d="M 299.5 306 L 299.5 352"/><path d="M 305 306 L 305 352"/>
+    <path d="M 310.5 306 L 310.5 352"/><path d="M 316 306 L 316 352"/>
+    <path d="M 368 306 L 368 352"/><path d="M 375 306 L 375 352"/><path d="M 382 306 L 382 352"/>
+    <path d="M 389 306 L 389 352"/><path d="M 396 306 L 396 352"/>
+    <path d="M 452 306 L 452 352"/><path d="M 459.5 306 L 459.5 352"/><path d="M 467 306 L 467 352"/>
+    <path d="M 474.5 306 L 474.5 352"/><path d="M 482 306 L 482 352"/><path d="M 489.5 306 L 489.5 352"/>
+    <path d="M 497 306 L 497 352"/><path d="M 504.5 306 L 504.5 352"/><path d="M 512 306 L 512 352"/>
+  </g>
+  <g fill="none" stroke="#f5a65b" stroke-opacity="0.35" stroke-width="1.1">
+    <circle cx="340" cy="329" r="21.5"/>
+    <circle cx="424" cy="329" r="21.5"/>
+  </g>
+  <g stroke="#f5a65b" stroke-opacity="0.6" stroke-width="1.3">
+    <use href="#pc-b21" transform="translate(340 329) rotate(36)"/>
+    <use href="#pc-b21" transform="translate(340 329) rotate(108)"/>
+    <use href="#pc-b21" transform="translate(340 329) rotate(180)"/>
+    <use href="#pc-b21" transform="translate(340 329) rotate(252)"/>
+    <use href="#pc-b21" transform="translate(340 329) rotate(324)"/>
+    <use href="#pc-b21" transform="translate(424 329) rotate(0)"/>
+    <use href="#pc-b21" transform="translate(424 329) rotate(72)"/>
+    <use href="#pc-b21" transform="translate(424 329) rotate(144)"/>
+    <use href="#pc-b21" transform="translate(424 329) rotate(216)"/>
+    <use href="#pc-b21" transform="translate(424 329) rotate(288)"/>
+  </g>
+  <g fill="#0b090d" stroke="#f5a65b" stroke-opacity="0.7" stroke-width="1.2">
+    <circle cx="340" cy="329" r="6.5"/>
+    <circle cx="424" cy="329" r="6.5"/>
+  </g>
+  <g fill="#f5a65b" fill-opacity="0.9">
+    <circle cx="340" cy="329" r="1.8"/>
+    <circle cx="424" cy="329" r="1.8"/>
+  </g>
+  <rect x="300" y="358" width="90" height="5" fill="#f5a65b" fill-opacity="0.28"/>
+  <rect x="521" y="296" width="9" height="64" rx="1" fill="#16131a" stroke="#f6efe8" stroke-opacity="0.3" stroke-width="1"/>
+  <circle cx="525.5" cy="305" r="2" fill="#a9a0a8" fill-opacity="0.4"/>
+  <circle cx="525.5" cy="351" r="2" fill="#a9a0a8" fill-opacity="0.4"/>
+
+  <!-- The glow the window is for -->
+  <circle cx="403" cy="300" r="170" fill="url(#pc-glow)"/>
+
+  <!-- PSU, fan down, out of the story -->
+  <rect x="390" y="420" width="148" height="72" rx="2" fill="#16131a" stroke="#f6efe8" stroke-opacity="0.3" stroke-width="1.25"/>
+  <circle cx="432" cy="456" r="20" fill="none" stroke="#f6efe8" stroke-opacity="0.18" stroke-width="1.1"/>
+  <g stroke="#a9a0a8" stroke-opacity="0.3" stroke-width="1.2">
+    <use href="#pc-b20" transform="translate(432 456) rotate(10)"/>
+    <use href="#pc-b20" transform="translate(432 456) rotate(82)"/>
+    <use href="#pc-b20" transform="translate(432 456) rotate(154)"/>
+    <use href="#pc-b20" transform="translate(432 456) rotate(226)"/>
+    <use href="#pc-b20" transform="translate(432 456) rotate(298)"/>
+  </g>
+  <circle cx="432" cy="456" r="6" fill="#0b090d" stroke="#a9a0a8" stroke-opacity="0.4" stroke-width="1"/>
+  <g stroke="#f6efe8" stroke-opacity="0.08" stroke-width="1">
+    <path d="M 470 430 L 470 482"/><path d="M 477 430 L 477 482"/><path d="M 484 430 L 484 482"/>
+    <path d="M 491 430 L 491 482"/><path d="M 498 430 L 498 482"/><path d="M 505 430 L 505 482"/>
+    <path d="M 512 430 L 512 482"/><path d="M 519 430 L 519 482"/><path d="M 526 430 L 526 482"/>
+  </g>
+  <rect x="544" y="444" width="6" height="14" fill="#a9a0a8" fill-opacity="0.2"/>
+
+  <!-- Two runs, routed, not draped -->
+  <g fill="none" stroke="#a9a0a8" stroke-opacity="0.45" stroke-width="1.5">
+    <path d="M 390 438 L 264 438 Q 256 438 256 430 L 256 206 Q 256 198 264 198 L 300 198"/>
+    <path d="M 390 466 L 280 466 Q 272 466 272 458 L 272 340 Q 272 332 280 332 L 284 332"/>
+  </g>
+  <g fill="#f5a65b" fill-opacity="0.85">
+    <circle cx="390" cy="438" r="2.6"/>
+    <circle cx="390" cy="466" r="2.6"/>
+    <circle cx="302" cy="198" r="2.6"/>
+    <circle cx="285" cy="332" r="2.6"/>
+  </g>
+
+  <!-- Cold in at the front -->
+  <g fill="none" stroke="#a9a0a8" stroke-opacity="0.4" stroke-width="1.2" stroke-dasharray="4 5">
+    <path d="M 100 172 L 158 172"/>
+    <path d="M 100 208 L 158 208"/>
+    <path d="M 100 254 L 158 254"/>
+    <path d="M 100 290 L 158 290"/>
+  </g>
+  <g fill="#a9a0a8" fill-opacity="0.5">
+    <path d="M 158 168 L 166 172 L 158 176 Z"/>
+    <path d="M 158 204 L 166 208 L 158 212 Z"/>
+    <path d="M 158 250 L 166 254 L 158 258 Z"/>
+    <path d="M 158 286 L 166 290 L 158 294 Z"/>
+  </g>
+  <g fill="none" stroke="#a9a0a8" stroke-opacity="0.22" stroke-width="1.1" stroke-dasharray="4 5">
+    <path d="M 254 190 C 300 196, 330 214, 352 232"/>
+    <path d="M 254 272 C 282 280, 300 298, 316 310"/>
+  </g>
+
+  <!-- warm out at the top and rear -->
+  <g fill="none" stroke="#d9603c" stroke-opacity="0.3" stroke-width="1.1" stroke-dasharray="4 5">
+    <path d="M 438 262 C 462 240, 478 210, 484 190"/>
+    <path d="M 388 134 C 392 120, 398 108, 402 96"/>
+  </g>
+  <g fill="none" stroke="#d9603c" stroke-opacity="0.5" stroke-width="1.2" stroke-dasharray="4 5">
+    <path d="M 390 86 L 390 62"/>
+    <path d="M 430 86 L 430 66"/>
+    <path d="M 556 168 L 590 168"/>
+    <path d="M 556 184 L 580 184"/>
+  </g>
+  <g fill="#d9603c" fill-opacity="0.6">
+    <path d="M 386 62 L 390 54 L 394 62 Z"/>
+    <path d="M 426 66 L 430 58 L 434 66 Z"/>
+    <path d="M 590 164 L 598 168 L 590 172 Z"/>
+    <path d="M 580 180 L 588 184 L 580 188 Z"/>
+  </g>
+  <g fill="#f6efe8" fill-opacity="0.12">
+    <rect x="352" y="93" width="9" height="2"/><rect x="368" y="93" width="9" height="2"/>
+    <rect x="384" y="93" width="9" height="2"/><rect x="400" y="93" width="9" height="2"/>
+    <rect x="416" y="93" width="9" height="2"/><rect x="432" y="93" width="9" height="2"/>
+    <rect x="448" y="93" width="9" height="2"/><rect x="464" y="93" width="9" height="2"/>
+  </g>
+
+  <!-- Front panel: one button, two ports -->
+  <circle cx="196" cy="95" r="3.5" fill="#0b090d" stroke="#f5a65b" stroke-opacity="0.7" stroke-width="1.2"/>
+  <path d="M 196 92.4 L 196 95" stroke="#f5a65b" stroke-opacity="0.7" stroke-width="1.2" stroke-linecap="round"/>
+  <rect x="214" y="92.5" width="9" height="3" fill="#a9a0a8" fill-opacity="0.3"/>
+  <rect x="228" y="92.5" width="9" height="3" fill="#a9a0a8" fill-opacity="0.3"/>
+
+  <!-- The panel is off because someone took it off -->
+  <rect x="614" y="230" width="13" height="275" rx="3" fill="#16131a" stroke="#f6efe8" stroke-opacity="0.35" stroke-width="1.25"/>
+  <g fill="none" stroke="#a9a0a8" stroke-opacity="0.4" stroke-width="1">
+    <circle cx="620.5" cy="244" r="2.2"/>
+    <circle cx="620.5" cy="306" r="2.2"/>
+    <circle cx="620.5" cy="430" r="2.2"/>
+    <circle cx="620.5" cy="492" r="2.2"/>
+  </g>
+  <g fill="none" stroke="#f6efe8" stroke-opacity="0.15" stroke-width="1" stroke-dasharray="5 5">
+    <path d="M 556 252 L 610 252"/>
+    <path d="M 556 482 L 610 482"/>
+  </g>
+  <g fill="none" stroke="#a9a0a8" stroke-opacity="0.4" stroke-width="1.1" stroke-linecap="round">
+    <path d="M 575 248 L 581 256"/><path d="M 581 248 L 587 256"/>
+    <path d="M 575 478 L 581 486"/><path d="M 581 478 L 587 486"/>
+  </g>
+  <g fill="#a9a0a8" fill-opacity="0.5">
+    <path d="M 598 248 L 606 252 L 598 256 Z"/>
+    <path d="M 598 478 L 606 482 L 598 486 Z"/>
+  </g>
+  <g stroke="#a9a0a8" stroke-opacity="0.5" stroke-width="1.1" fill="none">
+    <circle cx="585" cy="350" r="3.5"/>
+    <path d="M 582.8 350 L 587.2 350"/>
+    <path d="M 585 347.8 L 585 352.2"/>
+    <circle cx="585" cy="405" r="3.5"/>
+    <path d="M 582.8 405 L 587.2 405"/>
+    <path d="M 585 402.8 L 585 407.2"/>
+  </g>
+
+  <!-- Footprint -->
+  <g stroke="#a9a0a8" stroke-opacity="0.2" stroke-width="1" fill="none">
+    <path d="M 170 545 L 550 545"/>
+    <path d="M 170 541 L 170 549"/>
+    <path d="M 550 541 L 550 549"/>
+  </g>
+  <g stroke="#a9a0a8" stroke-opacity="0.35" stroke-width="1" fill="none">
+    <path d="M 166 549 L 174 541"/>
+    <path d="M 546 549 L 554 541"/>
+  </g>
+
+  <!-- Registration marks -->
+  <g fill="none" stroke="#a9a0a8" stroke-opacity="0.35" stroke-width="1.25">
+    <path d="M 26 46 L 26 26 L 46 26"/>
+    <path d="M 754 26 L 774 26 L 774 46"/>
+    <path d="M 26 554 L 26 574 L 46 574"/>
+    <path d="M 754 574 L 774 574 L 774 554"/>
+  </g>
+</svg>

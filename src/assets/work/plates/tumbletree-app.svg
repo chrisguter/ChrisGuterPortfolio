@@ -1,0 +1,138 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="presentation">
+  <defs>
+    <linearGradient id="tt-ground" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="800" y2="500">
+      <stop offset="0" stop-color="#16131a"/>
+      <stop offset="1" stop-color="#050408"/>
+    </linearGradient>
+
+    <radialGradient id="tt-bloom" gradientUnits="userSpaceOnUse" cx="288" cy="212" r="352">
+      <stop offset="0" stop-color="#f5a65b" stop-opacity="0.2"/>
+      <stop offset="0.55" stop-color="#f5a65b" stop-opacity="0.06"/>
+      <stop offset="1" stop-color="#f5a65b" stop-opacity="0"/>
+    </radialGradient>
+
+    <radialGradient id="tt-climb" gradientUnits="userSpaceOnUse" cx="652" cy="300" r="122">
+      <stop offset="0" stop-color="#a78bc8" stop-opacity="0.1"/>
+      <stop offset="1" stop-color="#a78bc8" stop-opacity="0"/>
+    </radialGradient>
+
+    <pattern id="tt-grid" width="25" height="25" patternUnits="userSpaceOnUse">
+      <path d="M 25 0 L 0 0 L 0 25" fill="none" stroke="#f6efe8" stroke-opacity="0.03" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <rect width="800" height="500" fill="url(#tt-ground)"/>
+  <rect width="800" height="500" fill="url(#tt-grid)"/>
+  <rect width="800" height="500" fill="url(#tt-bloom)"/>
+  <circle cx="652" cy="300" r="122" fill="url(#tt-climb)"/>
+
+  <!-- The tree: three circles for a canopy, nothing more -->
+  <g fill="#0b090d">
+    <circle cx="168" cy="232" r="44"/>
+    <circle cx="292" cy="232" r="44"/>
+    <circle cx="230" cy="190" r="72"/>
+  </g>
+  <circle cx="168" cy="232" r="44" fill="none" stroke="#f5a65b" stroke-opacity="0.6" stroke-width="1.4"/>
+  <circle cx="292" cy="232" r="44" fill="none" stroke="#f5a65b" stroke-opacity="0.6" stroke-width="1.4"/>
+  <circle cx="230" cy="190" r="72" fill="none" stroke="#f5a65b" stroke-width="1.75"/>
+  <circle cx="230" cy="190" r="60" fill="none" stroke="#f5a65b" stroke-opacity="0.25" stroke-width="1"/>
+
+  <!-- Fruit: two of the house colour, one that is still growing -->
+  <circle cx="200" cy="178" r="3" fill="#f5a65b" fill-opacity="0.7"/>
+  <circle cx="262" cy="204" r="3" fill="#f5a65b" fill-opacity="0.7"/>
+  <circle cx="244" cy="156" r="3.5" fill="#a78bc8" fill-opacity="0.8"/>
+
+  <!-- Trunk and ground -->
+  <g fill="none" stroke="#f5a65b" stroke-opacity="0.85" stroke-width="1.5" stroke-linecap="round">
+    <path d="M 221 258 C 221 314, 214 356, 202 394"/>
+    <path d="M 239 258 C 239 314, 246 356, 258 394"/>
+  </g>
+  <path d="M 150 396 C 190 388, 272 388, 312 396" fill="none" stroke="#a9a0a8" stroke-opacity="0.25" stroke-width="1.25"/>
+
+  <!-- Branches carry the games -->
+  <g fill="none" stroke="#f5a65b" stroke-opacity="0.45" stroke-width="1.25">
+    <path d="M 296 166 C 330 152, 348 138, 372 131"/>
+    <path d="M 334 226 C 348 230, 358 236, 372 240"/>
+    <path d="M 320 266 C 340 292, 350 322, 372 349"/>
+  </g>
+  <g fill="#f5a65b" fill-opacity="0.7">
+    <circle cx="375" cy="131" r="3"/>
+    <circle cx="375" cy="240" r="3"/>
+    <circle cx="375" cy="349" r="3"/>
+  </g>
+
+  <path d="M 380 84 L 414 84" stroke="#a9a0a8" stroke-opacity="0.22" stroke-width="1"/>
+
+  <!-- Shape puzzle: one piece already home -->
+  <rect x="380" y="96" width="64" height="64" rx="14" fill="#16131a" stroke="#f6efe8" stroke-opacity="0.14" stroke-width="1.25"/>
+  <circle cx="401" cy="117" r="10.5" fill="none" stroke="#f6efe8" stroke-opacity="0.25" stroke-width="1.25"/>
+  <circle cx="401" cy="117" r="6.5" fill="#f5a65b" fill-opacity="0.9"/>
+  <path d="M 431 110 L 440 125 L 422 125 Z" fill="none" stroke="#f6efe8" stroke-opacity="0.35" stroke-width="1.25" stroke-linejoin="round"/>
+  <rect x="394" y="131" width="15" height="15" rx="2.5" fill="none" stroke="#f6efe8" stroke-opacity="0.35" stroke-width="1.25"/>
+
+  <!-- Counting: four of six, mid-game -->
+  <rect x="380" y="208" width="64" height="64" rx="14" fill="#16131a" stroke="#f5a65b" stroke-width="1.6"/>
+  <rect x="380" y="208" width="64" height="64" rx="14" fill="#f5a65b" fill-opacity="0.08"/>
+  <g fill="#f5a65b" fill-opacity="0.9">
+    <circle cx="396" cy="228" r="4.5"/>
+    <circle cx="412" cy="228" r="4.5"/>
+    <circle cx="428" cy="228" r="4.5"/>
+    <circle cx="396" cy="252" r="4.5"/>
+  </g>
+  <g fill="none" stroke="#f5a65b" stroke-opacity="0.32" stroke-width="1">
+    <circle cx="412" cy="252" r="4.5"/>
+    <circle cx="428" cy="252" r="4.5"/>
+  </g>
+
+  <!-- The reward -->
+  <rect x="380" y="320" width="64" height="64" rx="14" fill="#16131a" stroke="#f6efe8" stroke-opacity="0.14" stroke-width="1.25"/>
+  <path d="M 412 336 L 416 346.5 L 427.2 347.1 L 418.5 354.1 L 421.4 364.9 L 412 358.8 L 402.6 364.9 L 405.5 354.1 L 396.8 347.1 L 408 346.5 Z"
+        fill="none" stroke="#f6efe8" stroke-opacity="0.4" stroke-width="1.4" stroke-linejoin="round"/>
+
+  <!-- What the game reports, the ramp absorbs -->
+  <path d="M 444 240 C 496 240, 496 352, 534 352" fill="none" stroke="#f5a65b" stroke-opacity="0.35" stroke-width="1.2" stroke-dasharray="5 5"/>
+  <path d="M 536 348 L 544 352 L 536 356 Z" fill="#f5a65b" fill-opacity="0.8"/>
+
+  <!-- Difficulty grows one gentle step at a time -->
+  <path d="M 716 208 L 748 208" stroke="#a9a0a8" stroke-opacity="0.22" stroke-width="1"/>
+  <g fill="#16131a" stroke="#f5a65b" stroke-opacity="0.9" stroke-width="1.4">
+    <rect x="556" y="360" width="32" height="36" rx="6"/>
+    <rect x="596" y="332" width="32" height="64" rx="6"/>
+    <rect x="636" y="300" width="32" height="96" rx="6"/>
+  </g>
+  <g fill="#f5a65b" fill-opacity="0.13">
+    <rect x="556" y="360" width="32" height="36" rx="6"/>
+    <rect x="596" y="332" width="32" height="64" rx="6"/>
+    <rect x="636" y="300" width="32" height="96" rx="6"/>
+  </g>
+  <g fill="#16131a" stroke="#f6efe8" stroke-opacity="0.12" stroke-width="1.25">
+    <rect x="676" y="264" width="32" height="132" rx="6"/>
+    <rect x="716" y="224" width="32" height="172" rx="6"/>
+  </g>
+
+  <path d="M 548 396 L 748 396" stroke="#a9a0a8" stroke-opacity="0.18" stroke-width="1"/>
+  <g fill="#a9a0a8" fill-opacity="0.3">
+    <rect x="571" y="400" width="2" height="7"/>
+    <rect x="611" y="400" width="2" height="7"/>
+    <rect x="651" y="400" width="2" height="7"/>
+    <rect x="691" y="400" width="2" height="7"/>
+    <rect x="731" y="400" width="2" height="7"/>
+  </g>
+
+  <!-- The climber: two hops made, the next only sketched -->
+  <g fill="none" stroke="#a78bc8" stroke-opacity="0.55" stroke-width="1.25" stroke-dasharray="4 5">
+    <path d="M 572 352 Q 592 312 612 324"/>
+    <path d="M 612 324 Q 632 278 646 289"/>
+  </g>
+  <path d="M 658 288 Q 674 240 692 256" fill="none" stroke="#a78bc8" stroke-opacity="0.2" stroke-width="1.25" stroke-dasharray="2 5"/>
+  <circle cx="652" cy="292" r="5.5" fill="#0b090d" stroke="#a78bc8" stroke-width="1.5"/>
+  <circle cx="652" cy="292" r="2" fill="#a78bc8"/>
+
+  <!-- Registration marks -->
+  <g fill="none" stroke="#a9a0a8" stroke-opacity="0.35" stroke-width="1.25">
+    <path d="M 26 46 L 26 26 L 46 26"/>
+    <path d="M 754 26 L 774 26 L 774 46"/>
+    <path d="M 26 454 L 26 474 L 46 474"/>
+    <path d="M 754 474 L 774 474 L 774 454"/>
+  </g>
+</svg>
