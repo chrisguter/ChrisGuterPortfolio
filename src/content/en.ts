@@ -15,10 +15,10 @@ import type { Content } from "./types";
 
 export const en: Content = {
   meta: {
-    title: "Christian Gutermann — Software Engineer, Scrum Master, AI Enthusiast",
+    title: "Christian Gutermann – Software Engineer, Scrum Master, AI Enthusiast",
     description:
       "Scrum Master and software engineer near Karlsruhe with ten years of building software and growing teams. Co-founder of TumbleTree Studios.",
-    ogAlt: "Christian Gutermann — software engineer, Scrum Master, AI enthusiast.",
+    ogAlt: "Christian Gutermann – software engineer, Scrum Master, AI enthusiast.",
   },
   nav: [
     { id: "work", label: "Work" },
@@ -30,7 +30,7 @@ export const en: Content = {
     name: "Christian Gutermann",
     tagline: "Software Engineer · Scrum Master · AI Enthusiast",
     thesis:
-      "Ten-plus years of building software, from engineer to Scrum Master. I stay close to the tech and still write code myself — but what really drives me is getting a team behind one goal, clearing blockers out of the way, and making sure we build the right things right.",
+      "Ten-plus years of building software, from engineer to Scrum Master. I stay close to the tech and still write code myself. What really drives me, though, is getting a team behind one goal, clearing blockers out of the way, and making sure we build the right things right.",
     roles: [
       { title: "Scrum Master & Software Engineer", org: "CAS Software AG" },
       { title: "Co-founder & CEO", org: "TumbleTree Studios UG" },
@@ -141,14 +141,14 @@ export const en: Content = {
         role: "Concept, development, release",
         stack: ["Flutter", "Dart", "Flame", "Firebase", "AI-assisted", "Mobile App"],
         summary:
-          "A drop-and-merge puzzle game, free on the App Store and Google Play — built entirely on my own.",
+          "A drop-and-merge puzzle game, free on the App Store and Google Play. Built entirely on my own.",
         study: {
           constraint:
-            "Dropigon started as a feasibility test: how much work is it really, taking an app all the way into the stores? And honestly — I had simply always wanted an app of my own to share with friends. All of it had to happen in the evenings, next to a full-time job and a young family, so anything that did not move the game toward release was cut.",
+            "Dropigon started as a feasibility test: how much work is it really, taking an app all the way into the stores? And honestly, I had simply always wanted an app of my own to share with friends. All of it had to happen in the evenings, next to a full-time job and a young family. Anything that did not move the game toward release was cut.",
           decision:
-            "Flutter with Flame and its Forge2D physics for the game, Firebase for the global leaderboard, ads through AdMob and an ad-free purchase through the stores. AI sat in almost every step: Copilot as the constant companion in the code — later Claude Code, after Copilot cut its quota overnight — graphics from Midjourney with manual rework, and the entire soundtrack from Suno.",
+            "Flutter with Flame and its Forge2D physics for the game, Firebase for the global leaderboard, ads through AdMob and an ad-free purchase through the stores. AI sat in almost every step: Copilot as the constant companion in the code (later Claude Code, after Copilot cut its quota overnight), graphics from Midjourney with manual rework, and the entire soundtrack from Suno.",
           outcome:
-            "The first playable prototype took a few days; the finish took far longer. AI-suggested physics values sounded plausible and felt wrong in play, so drop speed and merge behaviour were tuned by hand, test round after test round. The game has been live on both stores since January 2026 — and I know first-hand where these tools carry and where they stop.",
+            "The first playable prototype took a few days. The finish took far longer. AI-suggested physics values sounded plausible but felt wrong in play, so I tuned drop speed and merge behaviour by hand, test round after test round. The game has been live on both stores since January 2026, and I know first-hand where these tools carry and where they stop.",
         },
         links: [
           {
@@ -178,7 +178,7 @@ export const en: Content = {
           constraint:
             "Mein Bioland is a long-lived platform serving an association of farmers, processors and retailers. Most of the work is evolution rather than greenfield: every change has to land in a system people already rely on for their daily work.",
           decision:
-            "I own this project end to end, including its budget, and I am the direct line for the customer — when Bioland has a technical question, my phone rings rather than a ticket queue. That means scoping changes with them before they become specifications.",
+            "I own this project end to end, including its budget, and I am the direct line for the customer. When Bioland has a technical question, my phone rings, not a ticket queue. That also means scoping changes with them before they become specifications.",
           outcome:
             "It is one of the ten-plus active projects I am responsible for, budget included.",
         },
@@ -265,7 +265,7 @@ export const en: Content = {
           constraint:
             "A CRM holds a company's entire customer relationship. A password alone is a single point of failure for all of it, and a second factor on the login path is a change every user sees at their next sign-in.",
           decision:
-            "I built the second factor as a cross-platform mobile app issuing time-based one-time codes, and wired it into the existing login flow. The rollout got as much care as the code — if the second factor annoys people, they work around it.",
+            "I built the second factor as a cross-platform mobile app issuing time-based one-time codes, and wired it into the existing login flow. The rollout got as much care as the code, because if the second factor annoys people, they work around it.",
           outcome:
             "Accounts are protected by something beyond a password, and the login path stayed usable enough that it did not generate its own support load.",
         },
@@ -280,7 +280,7 @@ export const en: Content = {
     label: "Skills",
     heading: "What I work with, and how it connects.",
     intro:
-      "Grouped by what it is for, not by how well I know it. The lines are the parts that genuinely meet in day-to-day work — select a node to see where.",
+      "Grouped by what it is for, not by how well I know it. The lines show which of these actually touch in day-to-day work. Select a node to see where.",
     hint: "Select a node to trace its connections",
     groups: [
       { id: "ai", label: "AI", accent: "ember" },
@@ -301,7 +301,7 @@ export const en: Content = {
         label: "ChatGPT",
         group: "ai",
         related: ["sql"],
-        note: "Research, data preparation, first sketches — the everyday end of AI, well before any code.",
+        note: "Research, data preparation, first sketches. The everyday end of AI, well before any code.",
       },
       {
         id: "copilot",
@@ -315,7 +315,7 @@ export const en: Content = {
         label: "Midjourney",
         group: "ai",
         related: ["flutter", "figma"],
-        note: "Dropigon's graphics, from the app icon to the unlockable colour schemes — generated, then reworked by hand.",
+        note: "Dropigon's graphics, from the app icon to the unlockable colour schemes, generated and then reworked by hand.",
       },
       {
         id: "lmstudio",
@@ -329,14 +329,14 @@ export const en: Content = {
         label: "Self-hosted LLMs",
         group: "ai",
         related: ["theses", "docker"],
-        note: "Digitally sovereign models for processing documentation — the subject of a bachelor thesis I supervised.",
+        note: "Digitally sovereign models for processing documentation, the subject of a bachelor thesis I supervised.",
       },
       {
         id: "aimusic",
         label: "AI music",
         group: "ai",
         related: ["flutter"],
-        note: "Dropigon's entire soundtrack comes from Suno. Music is a role a solo developer simply cannot staff — AI filled it.",
+        note: "Dropigon's entire soundtrack comes from Suno. A solo developer cannot hire a composer, so AI covered that part.",
       },
       {
         id: "typescript",
@@ -366,14 +366,14 @@ export const en: Content = {
         label: "CPQ",
         group: "engineering",
         related: ["stakeholders"],
-        note: "Configure-price-quote: rule engines where the wrong answer costs real money. Daimler Truck's SAMPlus.",
+        note: "Configure-price-quote: rule engines where a wrong answer becomes a wrong offer. Daimler Truck's SAMPlus.",
       },
       {
         id: "einvoicing",
         label: "E-invoicing",
         group: "engineering",
         related: ["cpq"],
-        note: "Structured, legally compliant invoice formats — a domain where 'nearly correct' means rejected.",
+        note: "Structured, legally compliant invoice formats, a domain where 'nearly correct' means rejected.",
       },
       {
         id: "scrum",
@@ -410,7 +410,7 @@ export const en: Content = {
         label: "Store releases",
         group: "delivery",
         related: ["flutter"],
-        note: "App Store and Google Play submission, review and release management — done alone, for a real product.",
+        note: "App Store and Google Play submission, review and release management. Done alone, for a real product.",
       },
       {
         id: "conceptboard",
@@ -424,7 +424,7 @@ export const en: Content = {
         label: "Facilitation",
         group: "leadership",
         related: ["scrum"],
-        note: "Dailies, plannings, retros, reviews — and cross-team sessions.",
+        note: "Dailies, plannings, retros, reviews, and cross-team sessions.",
       },
       {
         id: "mentoring",
@@ -445,7 +445,7 @@ export const en: Content = {
         label: "Client contact",
         group: "leadership",
         related: ["roadmapping"],
-        note: "Direct line to customers from project start — when Daimler Truck or Bioland has a technical question, my phone rings.",
+        note: "Direct line to customers from project start.",
       },
       {
         id: "growth",
@@ -459,7 +459,7 @@ export const en: Content = {
         label: "Thesis supervision",
         group: "leadership",
         related: ["sovereign"],
-        note: "Two bachelor theses at DHBW Karlsruhe — supervising research, not just reviewing code.",
+        note: "Two bachelor theses at DHBW Karlsruhe. Supervising research, not just reviewing code.",
       },
       {
         id: "budget",
@@ -481,7 +481,7 @@ export const en: Content = {
     label: "Currently",
     heading: "What I am building right now.",
     intro:
-      "Two projects in the evenings — one with the studio, one on my own. Both unfinished, both moving.",
+      "Two projects in the evenings: one with the studio, one on my own. Neither is finished yet.",
     readMore: "More about this",
     close: "Close",
     items: [
@@ -491,7 +491,7 @@ export const en: Content = {
         org: "TumbleTree Studios UG",
         stage: "In development",
         summary:
-          "A kid-safe learning app built around games and stories, with difficulty that adapts to the child — the second TumbleTree product.",
+          "A kid-safe learning app built around games and stories, with difficulty that adapts to the child. The second TumbleTree product.",
         detail:
           "Same approach as Dropigon: Flutter, AI in the loop for code and assets, and small evening increments.",
         stack: ["Flutter", "Firebase", "Flame", "AI-assisted"],
@@ -504,7 +504,7 @@ export const en: Content = {
             {
               heading: "The second product",
               body: [
-                "The TumbleTree App is the studio's second product: a kid-safe learning app for the whole family, built around games and stories, with difficulty that adapts to the child. Same working model as Dropigon — evenings, small increments, AI in the loop for code and assets.",
+                "The TumbleTree App is the studio's second product: a kid-safe learning app for the whole family, built around games and stories, with difficulty that adapts to the child. Same working model as Dropigon: evenings, small increments, AI in the loop for code and assets.",
               ],
             },
             {
@@ -516,14 +516,14 @@ export const en: Content = {
             {
               heading: "Built to fit into evenings",
               body: [
-                "The development flavour runs entirely without Firebase — mock sign-in, local data, no cloud setup — so an evening session starts in seconds. Real screenshots will follow once the app looks like something; until then the architecture is the honest picture.",
+                "The development flavour runs entirely without Firebase: mock sign-in, local data, no cloud setup. An evening session starts in seconds. Real screenshots will follow once the app looks like something. Until then the architecture is the honest picture.",
               ],
             },
           ],
           architecture: {
             heading: "How it is put together",
             footnote:
-              "Clean Architecture — dependencies only point inward, and the dev flavour runs without any cloud at all.",
+              "Clean Architecture: dependencies only point inward, and the dev flavour runs without any cloud at all.",
             groups: [
               {
                 id: "presentation",
@@ -553,7 +553,7 @@ export const en: Content = {
                 nodes: [
                   {
                     id: "drift",
-                    label: "Drift — local database",
+                    label: "Drift · local database",
                     note: "Source of truth",
                   },
                   { id: "sync", label: "SyncService" },
@@ -589,7 +589,7 @@ export const en: Content = {
         summary:
           "A trading bot for Interactive Brokers: AI models summarise news and fundamentals, a deterministic scoring algorithm makes the actual buy or sell decision.",
         detail:
-          "The AI explains, it never decides. Only the execution layer may talk to the broker — a check fails the build if anything else tries — and every position gets a stop order at the broker, so it holds even if the bot crashes. Backtests replay ten years of prices in about a minute. Still paper trading: simulated money until the numbers earn real ones.",
+          "Only the execution layer may talk to the broker (a check fails the build if anything else tries), and every position gets a stop order at the broker, so it holds even if the bot crashes. Backtests replay ten years of prices in about a minute. Still paper trading: simulated money until the results justify real money.",
         stack: ["Python", "FastAPI", "React", "TimescaleDB", "Groq", "Gemini"],
         media: {
           src: "tradebot",
@@ -600,21 +600,21 @@ export const en: Content = {
             {
               heading: "Why this exists",
               body: [
-                "I wanted to know whether a bot can analyse stocks on its own and trade on the result — with decision-making I can actually read. So AI models summarise news and figures and explain their view in plain language, but the buy or sell itself comes from a fixed, traceable algorithm that adds up price signals, fundamentals and news sentiment.",
+                "I wanted to know whether a bot can analyse stocks on its own and trade on the result, with decision-making I can actually read. So the AI models summarise news and figures and explain their view in plain language. The buy or sell itself comes from a fixed, traceable algorithm that adds up price signals, fundamentals and news sentiment.",
               ],
             },
             {
-              heading: "What worked — and what didn't",
+              heading: "What worked and what didn't",
               body: [
-                "The AI wiring was the fast part: fetching data, sending it to the APIs, sorting the answers ran smoothly from the start. And because analysis and execution are strictly separated, I could experiment freely on the AI side — even switch providers — without the trading logic ever noticing.",
-                "The first AI analyses themselves were poor. They matched neither the actual price action nor what real analysts said about the same stocks. Most of the fix was better input data; the prompt came second.",
+                "The AI wiring was the fast part: fetching data, sending it to the APIs and sorting the answers all ran smoothly from the start. And because analysis and execution are strictly separated, I could experiment freely on the AI side, even switch providers, without the trading logic ever noticing.",
+                "The first AI analyses themselves were poor. They matched neither the actual price action nor what real analysts said about the same stocks. Most of the fix was better input data. The prompt came second.",
               ],
             },
             {
               heading: "Tested by pulling the plug",
               body: [
-                "The safety layers were tested with chaos drills — pulling the ethernet cable mid-position, killing the bot mid-order. Those drills found real bugs before real money could.",
-                "If I started again, I would build the way to verify a result against something real before building the feature itself. And with money involved, the rule stands: AI explains, it never decides.",
+                "I tested the safety layers with chaos drills: pulling the ethernet cable mid-position, killing the bot mid-order. Those drills found real bugs while the money was still fake.",
+                "If I started again, I would build the checks that compare a result against something real before building the feature itself. And with money involved, the rule stands: the AI explains. It never decides.",
               ],
             },
           ],
@@ -638,7 +638,7 @@ export const en: Content = {
           architecture: {
             heading: "How it is put together",
             footnote:
-              "Only the execution layer may talk to the broker — a check fails the build if anything else tries.",
+              "Only the execution layer may talk to the broker. A check fails the build if anything else tries.",
             groups: [
               {
                 id: "ingest",
@@ -746,7 +746,7 @@ export const en: Content = {
         body: "Co-founded alongside my day job, mainly as a way to keep developing on real projects. I built and released our first game, Dropigon, on my own. A second product, a learning app for the whole family, is in development.",
         details: [
           "Co-founded the studio as a side venture, to keep growing on our own gaming and learning apps rather than only on someone else's roadmap.",
-          "Took Dropigon through the entire product lifecycle single-handed — concept, prioritisation, development, and launch on the App Store and Google Play in January 2026.",
+          "Took Dropigon through the entire product lifecycle single-handed: concept, prioritisation, development, and launch on the App Store and Google Play in January 2026.",
           "Used AI throughout the build: code, graphics, and the soundtrack.",
           "Currently building the second product the same way: a learning app for the whole family.",
         ],
@@ -758,14 +758,14 @@ export const en: Content = {
         start: "Apr 2021",
         end: "Now",
         status: "active",
-        body: "Took on a newly formed team and grew it from four people to eleven across Germany and Hungary. I own the roadmap, present it to department leadership, keep the direct line to customers, and still write code — which is what lets me talk to developers as a peer.",
+        body: "Took on a newly formed team and grew it from four people to eleven across Germany and Hungary. I own the roadmap, present it to department leadership, keep the direct line to customers, and still write code. That is what lets me talk to developers as a peer.",
         details: [
           "Took the Scrum Master role for a newly formed team, introduced agile practice, and built a working foundation for collaboration and delivery.",
           "Stayed a software engineer in the same team, to keep close to the technical realities rather than managing them from a distance.",
           "Grew and scaled an international team from four developers to seven developers, three working students and a QA tester, across Germany and Hungary.",
           "Completed a two-year internal leadership programme alongside the role.",
           "Own project roadmaps that tie development to business goals, and present them regularly to department leadership.",
-          "Direct customer contact from project start — gathering requirements and making sure the technical need is genuinely understood.",
+          "Direct customer contact from project start: gathering requirements and making sure the technical need is genuinely understood.",
           "Supervised two bachelor theses, including one on configuring and evaluating a self-hosted, digitally sovereign large language model for processing documentation.",
           "Responsible for more than ten active projects and their budgets, among them Bioland, Daimler Truck and Deutsche Bahn Energie.",
           "Run every Scrum ceremony, and facilitate department formats such as cross-team reviews.",
@@ -783,7 +783,7 @@ export const en: Content = {
           "Worked across a range of frontend projects, predominantly Angular, with a clear focus on modern web application development.",
           "Containerised environments with Docker and maintained the CI/CD pipelines to speed up development and deployment.",
           "Mentored several new team members through onboarding and knowledge transfer.",
-          "Took on deputy Scrum Master duties — facilitating ceremonies and holding the team's organisation together in the Scrum Master's absence.",
+          "Took on deputy Scrum Master duties: facilitating ceremonies and holding the team's organisation together in the Scrum Master's absence.",
         ],
       },
       {
@@ -793,12 +793,12 @@ export const en: Content = {
         start: "Oct 2018",
         end: "May 2020",
         status: "shipped",
-        body: "Full-stack work on student administration systems for universities — enrolment, grades, and communication with students. Helped modernise the department's technology stack.",
+        body: "Full-stack work on student administration systems for universities: enrolment, grades, and communication with students. Helped modernise the department's technology stack.",
         details: [
           "Started my engineering career in full-stack work, building and maintaining frontend and backend components for web applications.",
           "Specialised in student administration systems for universities: administrative processes, enrolment, grade management and student communication.",
           "Contributed substantially to modernising the department's technology stack, introducing current frameworks and tooling for better performance and a more intuitive interface.",
-          "Started running smaller team ceremonies — dailies and retrospectives — on my own initiative, which improved how the team communicated.",
+          "Started running smaller team ceremonies like dailies and retrospectives on my own initiative, which improved how the team communicated.",
         ],
       },
       {
@@ -808,10 +808,10 @@ export const en: Content = {
         start: "Sep 2015",
         end: "Oct 2018",
         status: "shipped",
-        body: "Three years of writing production code and sitting exams in the same week — theory and practice were never separate things for me. Graduated 1.7.",
+        body: "Three years of writing production code and sitting exams in the same week. Theory and practice were never separate things for me. Graduated with a 1.7.",
         details: [
           "Three-year dual degree, 210 ECTS, with continuous hands-on development work in the department throughout.",
-          "Built a UI test automation framework to replace an expensive licensed tool — saving several thousand euros a year, and still in production today.",
+          "Built a UI test automation framework to replace an expensive licensed tool. It saves several thousand euros a year and is still in production today.",
           "Wrote my bachelor thesis on a framework prototype for Angular apps embedded in SmartWe, a modular CRM cloud platform.",
           "Graduated with 1.7.",
         ],
@@ -821,27 +821,27 @@ export const en: Content = {
   principles: {
     label: "How I work",
     heading: "Four things I believe about how software gets built.",
-    intro: "All four learned the hard way, on real projects.",
+    intro: "I learned all four the hard way, on real projects.",
     items: [
       {
         id: "needs",
         title: "What a customer wants is mostly not what they need",
-        body: "Working out the difference is the actual engineering. A request arrives already shaped as a solution, and building exactly that is the easy path — it just leaves the real problem where it was. So I stay in the conversation until the need underneath it is clear. When Bioland or Daimler Truck has a technical question it comes to me directly, and it is rarely the first answer that turns out to be the one worth building.",
+        body: "Working out the difference is the actual engineering. A request arrives already shaped as a solution, and building exactly that is the easy path. It just leaves the real problem where it was. So I stay in the conversation until the need underneath is clear. When Bioland or Daimler Truck has a technical question it comes to me directly, and it is rarely the first answer that turns out to be the one worth building.",
       },
       {
         id: "blockers",
         title: "A standup that reports status is a meeting, not a tool",
-        body: "A standup is for the day ahead: everyone knows their plan, the plan is actually good to go, and whatever stands in its way — an open question, an impediment — gets cleared up front. Reporting yesterday's status just dismisses that goal. And trust cuts the other way too: “I have been stuck since Monday” should never have to wait for a standup. I want to hear it on Monday — the standup is where we make sure the day works, not where problems finally surface.",
+        body: "A standup is for the day ahead: everyone knows their plan, the plan is actually good to go, and whatever stands in its way gets cleared up front, whether that is an open question or an impediment. Reporting yesterday's status just drops that goal. And trust cuts the other way too: “I have been stuck since Monday” should never have to wait for a standup. I want to hear it on Monday.",
       },
       {
         id: "ai",
         title: "You only learn where AI stops helping by shipping with it",
-        body: "I did not learn the limits of these tools from slides. I built and released a game with them — code, graphics, even the music — and found out first-hand which parts hold up under real deadlines and which are a waste of an evening. The interesting work now is getting requirements sharp enough that an agent can actually act on them.",
+        body: "I did not learn the limits of these tools from slides. I built and released a game with them (code, graphics, even the music) and learned which parts hold up under real deadlines and which are a waste of an evening. The interesting work now is getting requirements sharp enough that an agent can actually act on them.",
       },
       {
         id: "coordination",
         title: "Most engineering problems are coordination problems",
-        body: "This is what the last ten years keep coming back to, and the reason I moved from writing software to being responsible for how it gets written. When a project stalls, it is rarely because nobody could solve the technical problem. It is because two people each solved half of it, or spent a week waiting on an answer no one knew they were supposed to give, or were working from assumptions that had never been said out loud. Fix how the work is coordinated and a surprising number of technical problems stop happening in the first place.",
+        body: "This is what the last ten years keep coming back to, and the reason I moved from writing software to being responsible for how it gets written. When a project stalls, it is rarely because nobody could solve the technical problem. Usually two people each solved half of it. Or someone spent a week waiting on an answer no one knew they owed. Or everyone was working from assumptions that were never said out loud. Fix how the work is coordinated and a surprising number of technical problems stop happening in the first place.",
       },
     ],
   },
@@ -851,7 +851,7 @@ export const en: Content = {
     entries: [
       {
         id: "mali",
-        text: "Most weeks it's out with Mali, our border collie — training, or a proper hike. The best way I know to stay active together and clear my head.",
+        text: "Most weeks it's out with Mali, our border collie: training or a proper hike. The best way I know to stay active together and clear my head.",
         image: {
           src: "mali",
           alt: "Mali, a black and white border collie, sitting on a tree stump in a sunlit orchard meadow.",
@@ -859,7 +859,7 @@ export const en: Content = {
       },
       {
         id: "family",
-        text: "Since April 2025 we are a family of three. Our daughter keeps my wife and me properly on our toes — and honestly, it is the best chapter of my life so far.",
+        text: "Since April 2025 we are a family of three. Our daughter keeps my wife and me properly on our toes. Honestly, it is the best chapter of my life so far.",
         image: {
           src: "family",
           alt: "Christian with his wife and their young daughter, smiling, among tropical plants.",
@@ -867,7 +867,7 @@ export const en: Content = {
       },
       {
         id: "gaming",
-        text: "Gaming is where I switch off and push myself at the same time: there is always one more mechanic to master or a smarter strategy to find. The hardware is part of it — I plan and build my gaming PC myself.",
+        text: "Gaming is where I switch off and push myself at the same time: there is always one more mechanic to master or a smarter strategy to find. The hardware is part of it, and I plan and build my gaming PC myself.",
         image: {
           src: "pc",
           alt: "Build schematic of a self-assembled gaming PC: open tower with GPU, tower cooler, fans and airflow lines.",
@@ -891,7 +891,7 @@ export const en: Content = {
     languageLabel: "Language",
     menu: "Menu",
     close: "Close",
-    notice: "No cookies, no tracking — this site collects nothing.",
+    notice: "No cookies, no tracking. This site collects nothing.",
     noticeDetails: "Details",
   },
   legal: {
@@ -962,15 +962,15 @@ export const en: Content = {
           heading: "Hosting and server logs",
           body: [
             "This site is hosted on GitHub Pages, a service of GitHub, Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, USA. When you open a page, your browser necessarily transmits data to GitHub's servers, which may record it in log files. This typically includes your IP address, the time of the request, the page requested, the referring page, and your browser and operating system.",
-            "This processing is necessary to deliver the site and to keep it secure and stable. The legal basis is Article 6(1)(f) GDPR — my legitimate interest in operating a functioning website. I have no access to these logs and do not evaluate them.",
+            "This processing is necessary to deliver the site and to keep it secure and stable. The legal basis is Article 6(1)(f) GDPR: my legitimate interest in operating a functioning website. I have no access to these logs and do not evaluate them.",
             "Because GitHub is based in the United States, data may be transferred outside the EU. GitHub is certified under the EU-U.S. Data Privacy Framework. GitHub's own privacy statement applies to their processing.",
           ],
         },
         {
           heading: "Cookies, analytics and tracking",
           body: [
-            "None. This site sets no cookies, uses no local or session storage, runs no analytics or tracking of any kind, and contains no advertising, no social media plugins, no embedded videos, and no consent banner — because there is nothing to consent to.",
-            "The small notice shown when you arrive is purely informational. It stores nothing — not even the fact that you dismissed it, which is why it may greet you again on your next visit.",
+            "None. This site sets no cookies, uses no local or session storage, runs no analytics or tracking of any kind, and contains no advertising, no social media plugins, no embedded videos, and no consent banner, because there is nothing to consent to.",
+            "The small notice shown when you arrive is purely informational. It stores nothing, not even the fact that you dismissed it, which is why it may greet you again on your next visit.",
           ],
         },
         {
