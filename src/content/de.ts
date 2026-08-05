@@ -757,12 +757,12 @@ export const de: Content = {
         start: "Okt. 2025",
         end: "Heute",
         status: "active",
-        body: "Neben dem Hauptberuf gemeinsam mit Pascal Stäb gegründet, vor allem, um uns an echten Projekten weiterzuentwickeln. Unser erstes Spiel, Dropigon, habe ich allein gebaut und veröffentlicht. Ein zweites Produkt, eine Lern-App für die ganze Familie, ist in Entwicklung.",
+        body: "Neben dem Hauptberuf mitgegründet, vor allem, um mich an echten Projekten weiterzuentwickeln. Unser erstes Spiel, Dropigon, habe ich allein gebaut und veröffentlicht. Ein zweites Produkt, eine Lern-App für die ganze Familie, ist in Entwicklung.",
         details: [
-          "Nebenberufliche Gründung von TumbleTree Studios gemeinsam mit Pascal Stäb zur fachlichen und persönlichen Weiterentwicklung an eigenen Gaming- und Lern-Apps.",
+          "Nebenberufliche Mitgründung von TumbleTree Studios zur fachlichen und persönlichen Weiterentwicklung an eigenen Gaming- und Lern-Apps.",
           "Konzeption, Entwicklung und Veröffentlichung des ersten Spiels „Dropigon“ komplett in Eigenregie — über den gesamten Produktlebenszyklus von der Idee über die Priorisierung bis zum Launch im App Store und bei Google Play im Januar 2026.",
           "KI-Werkzeuge durchgängig in der Entwicklung eingesetzt: für Code, Grafik und sogar die Musik.",
-          "Aktuell Entwicklung des zweiten Produkts auf die gleiche Weise, gemeinsam mit Mitgründer Pascal: eine Lernspiel-App für Kinder.",
+          "Aktuell Entwicklung des zweiten Produkts auf die gleiche Weise: eine Lern-App für die ganze Familie.",
         ],
       },
       {

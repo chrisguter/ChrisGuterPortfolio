@@ -743,12 +743,12 @@ export const en: Content = {
         start: "Oct 2025",
         end: "Now",
         status: "active",
-        body: "Founded alongside my day job with Pascal Stäb, mainly as a way to keep developing on real projects. I built and released our first game, Dropigon, on my own. A second product, a learning app for the whole family, is in development.",
+        body: "Co-founded alongside my day job, mainly as a way to keep developing on real projects. I built and released our first game, Dropigon, on my own. A second product, a learning app for the whole family, is in development.",
         details: [
-          "Founded the studio as a side venture with Pascal Stäb, to keep growing on our own gaming and learning apps rather than only on someone else's roadmap.",
+          "Co-founded the studio as a side venture, to keep growing on our own gaming and learning apps rather than only on someone else's roadmap.",
           "Took Dropigon through the entire product lifecycle single-handed — concept, prioritisation, development, and launch on the App Store and Google Play in January 2026.",
           "Used AI throughout the build: code, graphics, and the soundtrack.",
-          "Currently building the second product the same way, together with Pascal: a learning app for the whole family.",
+          "Currently building the second product the same way: a learning app for the whole family.",
         ],
       },
       {
