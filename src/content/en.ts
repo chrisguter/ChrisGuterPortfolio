@@ -30,7 +30,7 @@ export const en: Content = {
     name: "Christian Gutermann",
     tagline: "Software Engineer · Scrum Master · AI Enthusiast",
     thesis:
-      "Ten-plus years of building software, from engineer to Scrum Master. I stay close to the tech and still write code myself. What really drives me, though, is getting a team behind one goal, clearing blockers out of the way, and making sure we build the right things right.",
+      "10+ years of building software, from engineer to Scrum Master. I stay close to the tech and still write code myself. What really drives me, though, is getting a team behind one goal, clearing blockers out of the way, and making sure we build the right things right.",
     roles: [
       { title: "Scrum Master & Software Engineer", org: "CAS Software AG" },
       { title: "Co-founder & CEO", org: "TumbleTree Studios UG" },
